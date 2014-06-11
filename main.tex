@@ -1,0 +1,59 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+% Images setup
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+% Page layout setup
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+% Headers and footers setup
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% Document language setup
+\usepackage[spanish]{babel}
+% Bibliography
+\usepackage[backend=biber]{biblatex}
+\usepackage{csquotes}
+\addbibresource{references.bib}
+% Pretty hyperlinks
+\usepackage[hidelinks]{hyperref}
+% Allows to cross reference other chapters
+\usepackage{nameref}
+
+
+\title{TFG}
+\author{cristian.alvb }
+\date{June 2014}
+
+\begin{document}
+
+\maketitle
+
+\chapter*{Abstract}
+Abstract goes here
+
+\chapter*{Dedication}
+To mum and dad
+
+\chapter*{Declaration}
+I declare that..
+
+\chapter*{Acknowledgements}
+I want to thank...
+
+\tableofcontents
+
+\chapter{Introducción}
+\label{chapter01}
+\input{chapters/introduction}
+
+\chapter{Evaluación de alternativas}
+\label{chapter02}
+\input{chapters/chapter02}
+
+\chapter{Conceptos teóricos}
+\label{chapter03}
+\input{chapters/chapter03}
+
+\printbibliography
+
+\end{document}

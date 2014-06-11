@@ -1,0 +1,59 @@
+\section{Datos abiertos}
+El concepto de datos abiertos u \textit{Open Data} es definido por la Open Knowledge Foundation en \cite{opendefinition} de la siguiente forma:
+\begin{quote}
+\textit{``A piece of data or content is open if anyone is free to use, reuse, and redistribute it — subject only, at most, to the requirement to attribute and/or share-alike.''}
+\end{quote}
+
+De la anterior definición pueden destacarse tres pilares fundamentales que marcan la diferencia entre los datos abiertos y el resto de datos, dichos puntos clave se explicarán a continuación:
+\begin{itemize}
+\item Acceso y disponibilidad. Los datos deben estar disponibles en su totalidad con un coste razonable o, preferiblemente, de forma gratuita a través de Internet.  Es también importante que el formato en el que se publican los datos sea conveniente y modificable.
+\item Reutilización y redistribución.  La licencia bajo la que se publican los datos no debe restringir la redistribución de los mismos ni exigir pagos o cuotas por dicha redistribución.  Además, la licencia debe permitir modificar los datos e incluso cruzarlos con datos provenientes de otras fuentes.
+\item Participación universal.  Los datos no deben poner trabas para ser accedidos por ninguna persona ni grupo de personas ni deben restringir el uso de los mismos a un ámbito de trabajo específico.
+\end{itemize}
+
+Cualquier conjunto de datos puede ser considerado un conjunto de datos abiertos si cumple con la definicion anterior, aunque las principales fuentes de datos abiertos generalmente provienen de fuentes científicas o gubernamentales.  En el año 2004 los ministros de ciencia de todas las naciones pertenecientes a la OECD\footnote{La OECD (Organización para la Cooperación y el Desarrollo Económico) es una de las organizaciones que aporta los conjuntos de datos con los que se trabaja en éste proyecto.} firmaron una declaración en la que se aboga por hacer públicos toda la información científica financiada con fondos públicos.
+
+En cuanto a los datos abiertos procedentes de fuentes gubernamentales, como ya se ha mencionado en el capítulo \ref{chapter01} - \nameref{chapter01}, la tendencia de los gobiernos de ofrecer datos en forma abierta es cada vez mayor tal y como evidencian los múltiples portales de datos propiedad de la administración pública que han surgido recientemente. Algunos ejemplos son: el portal de datos del Gobierno de España\footnote{http://datos.gob.es/}, el portal de datos del Gobierno de Reino Unido\footnote{http://data.gov.uk/} o el portal de datos del Gobierno de Estados Unidos\footnote{http://www.data.gov/}.
+
+
+
+\section{Datos enlazados}
+El concepto de datos enlazados o \textit{Linked Data} fue acuñado por Tim Berners-Lee, director del W3C\footnote{World Wide Web Consortium}, y describe un método de publicar catálogos datos estructurados de una forma en la que sea posible conectarlos con otros catálogos de datos procedentes de diferentes fuentes.
+
+En \cite{tbl-linkedopendata}, Tim Berners-Lee define los cuatro elementos fundamentales para los datos enlazados:
+\begin{itemize}
+\item Usar URIs para nombrar los elementos.
+\item Usar URIs HTTP para permitir a las personas acceder y buscar dichos nombres.
+\item Cuando alguien accede a una URI, devolver la información de forma útil usando los estándares RDF o SPARQL.
+\item Incluir enlaces a otras URIs para facilitar el descubrimiento de más elementos.
+\end{itemize}
+
+
+\section{Datos enlazados abiertos}
+El concepto de datos enlazados abiertos (\textit{Linked Open Data}) combina los conceptos de datos abiertos (\textit{Open Data}) y datos enlazados (\textit{Linked Data}) que se han explicado en las secciones anteriores.
+
+Un conjunto de datos se considera un conjunto de datos enlazados abiertos si cumple los requisitos de los datos enlazados y además se presenta bajo una licencia abierta que no impida su reutilización ni redistribución.
+
+
+\subsection{Sistema de estrellas}
+Como se menciona en \cite{tbl-linkedopendata}, en el año 2010 Tim Berners-Lee desarrolló un sistema de estrellas o niveles con el objetivo de concienciar (principalmente a las organizaciones gubernamentales) en el uso de datos enlazados abiertos.
+
+A continuación se explica el significado de cada nivel de esta escala:
+\begin{enumerate}
+    \item Los datos están disponibles en cualquier formato (pero manteniendo una licencia libre para ser considerados datos abiertos).  Un ejemplo serían datos publicados como una imagen escaneada.
+    \item Los datos se encuentran en un formato estructurado y que pueda ser leído por máquinas.  Por ejemplo utilizar un formato \textit{Microsoft Excel} en lugar de una imagen escaneada.
+    \item Similar al anterior pero utilizando un formato libre, por ejemplo CSV, JSON o XML.
+    \item Cumple con todos los niveles anteriores pero además utiliza un estándar abierto de la W3C como RDF o SPARQL.  El uso de estos estándares permite que el catálogo de datos sea enlazado por otros catálogos u organizaciones.
+    \item Cumple con todos los niveles anteriores, pero además enlaza hacia otros catálogos de datos externos.
+\end{enumerate}
+
+El portal de datos que se pretende construir en éste proyecto pretende cumplir con un nivel de 5 estrellas.
+
+
+
+
+\section{Web semántica}
+
+
+
+\section{Backend}
