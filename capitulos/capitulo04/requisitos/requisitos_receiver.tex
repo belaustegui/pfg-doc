@@ -1,0 +1,70 @@
+\begin{longtable}[c]{|p{1mm}|p{14mm}|p{30mm}|p{90mm}|}
+ \caption{Tabla de requisitos del punto de entrada de datos.\label{requisitos_entrada_datos}}\\
+
+ %Cabecera en la primera pagina
+ \hline
+ \multicolumn{4}{| c |}{Listado de requisitos de la búsqueda}\\
+ \hline
+ \multicolumn{2}{|c|}{Código} & Nombre & Descripción\\
+ \hline
+ \hline
+ \endfirsthead
+ 
+ %Cabecera en el resto de páginas
+ \hline
+ \multicolumn{4}{|c|}{Continuación de la tabla \ref{requisitos_entrada_datos}}\\
+ \hline
+ \multicolumn{2}{|c|}{Código} & Nombre & Descripción\\
+ \hline
+ \hline
+ \endhead
+ 
+ \hline
+ \endfoot
+ 
+
+
+\multicolumn{2}{|l|}{RPED 1}  & Almacenamiento de datos & El punto de datos guardará los datos que reciba en varios puntos de almacenamiento. \\
+\hline
+& RPED 1.1 & Almacenamiento de datos & El punto de entrada almacenará los datos en una base de datos relacional. \\
+\hline
+& RPED 1.2 & Almacenamiento de datos & El punto de entrada almacenará los datos en un servidor semántico, previa transformación de los mismos en formato RDF.   Como se ha mencionado en la sección ``\nameref{chapter02:alternativas_seleccionadas}'' perteneciente al capítulo \ref{chapter02}, el servidor semántico seleccionado ha sido Virtuoso.\\
+\hline
+& RPED 1.3 & Almacenamiento de datos & El punto de entrada almacenará los datos en el catálogo de datos.  Como se ha mencionado en la sección ``\nameref{chapter02:alternativas_seleccionadas}'' perteneciente al capítulo \ref{chapter02}, el catálogo de datos seleccionado ha sido CKAN. \\
+\hline
+& RPED 1.4 & Almacenamiento de datos & El punto de entrada podrá ser extendido con nuevos componentes de almacenamiento sin necesidad de modificar los ya existentes. \\
+\hline
+& RPED 1.5 & Almacenamiento de datos & Los datos que se guarden en los distintos puntos de almacenamiento serán equivalentes entre sí. \\
+\hline
+\multicolumn{2}{|l|}{RPED 2}  & Integridad de los datos & El punto de entrada de datos leerá la información de los nuevos catálogos de datos en un formato determinado por un XML Schema. \\
+\hline
+& RPED 2.1 & Integridad de los datos & La información de nuevos catálogos de datos que llegue al punto de entrada y no sea conforme al XML Schema especificado será rechazada y no se insertará en el portal. \\
+\hline
+& RPED 2.2 & Integridad de los datos & La inserción de datos se hará de manera transaccional, de forma que si se produce algún fallo durante el proceso no se incluya enel portal ningún dato inconsistente. \\
+\hline
+\multicolumn{2}{|l|}{RPED 3}  & Transformación de datos & El punto de entrada transformará la información que reciba a un modelo propio antes de ser exportada a los diferentes sistemas de almacenamiento.  INDICAR LA SECCIÓN EN LA QUE SE DETALLA EL MODELO CUANDO LO TENGA HECHO. \\
+\hline
+\hline
+
+ \end{longtable}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

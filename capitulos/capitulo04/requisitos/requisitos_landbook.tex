@@ -1,0 +1,62 @@
+\begin{longtable}[c]{|p{1mm}|p{14mm}|p{30mm}|p{90mm}|}
+ \caption{Tabla de requisitos de la sección de datos.\label{requisitos_datos}}\\
+
+ %Cabecera en la primera pagina
+ \hline
+ \multicolumn{4}{| c |}{Listado de requisitos de la sección de datos}\\
+ \hline
+ \multicolumn{2}{|c|}{Código} & Nombre & Descripción\\
+ \hline
+ \hline
+ \endfirsthead
+ 
+ %Cabecera en el resto de páginas
+ \hline
+ \multicolumn{4}{|c|}{Continuación de la tabla \ref{requisitos_datos}}\\
+ \hline
+ \multicolumn{2}{|c|}{Código} & Nombre & Descripción\\
+ \hline
+ \hline
+ \endhead
+ 
+ \hline
+ \endfoot
+ 
+
+\multicolumn{2}{|l|}{RLB 1}  & Contenido de la sección de datos & La sección de datos estará compuesta de: regiones, países, indicadores, organizaciones, catálogo de datos y widgets. \\
+\hline
+\multicolumn{2}{|l|}{RLB 2}  & Acceso a la sección de datos & El sistema permitirá acceder al contenido de la sección de datos tanto a usuarios registrados como anónimos. \\
+\hline
+\multicolumn{2}{|l|}{RLB 3}  & Identificación del contenido & Todo el contenido ofrecido en el LandBook tendrá una URL única. \\
+\hline
+\multicolumn{2}{|l|}{RLB 4}  & Arquitectura para las vistas & Las vistas del LandBook deberán evitar el uso de los mecanismos del plantillas visuales del CMS. \\
+\hline
+ & RLB 4.1 & Arquitectura para las vistas & Las rutas para las nuevas vistas se especificarán a través de un fichero de configuración, de forma que sea posible modificarlas sin necesidad de acceder al código fuente. \\
+\hline
+ & RLB 4.2 & Arquitectura para las vistas & Las plantillas y modelos para las vistas se buscarán utilizando un mecanismo de convenio de nombres. \\
+\hline
+\multicolumn{2}{|l|}{RLB 5}  & Integración con la zona social & Cuando se acceda a un país en el LandBook, se mostrará un enlace para ver todo el contenido relacionado con dicho país creado en la zona social.. \\
+\hline
+\multicolumn{2}{|l|}{RLB 6}  & Soporte a las visualizaciones & El LandBook proveerá un sistema que pueda ser utilizado por las vistas con el fin de crear visualizaciones de datos. \\
+\hline
+& RLB 6.1 & Soporte a las visualizaciones & El sistema permitirá devolver el valor medio de todas las observaciones existentes para una región e indicador concretos. \\
+\hline
+& RLB 6.2 & Soporte a las visualizaciones & El sistema permitirá devolver todas las observaciones existentes para una región e indicador concretos. \\
+\hline
+& RLB 6.3 & Soporte a las visualizaciones & El sistema permitirá devolver el valor medio de todas las observaciones existentes para un determinado indicador, independientemente de la región a la que hagan referencia. \\
+\hline
+& RLB 6.4 & Soporte a las visualizaciones & El sistema permitirá devolver una comparación del el valor medio de todas las observaciones existentes para dos indicadores concretos, independientemente de la región a la que hagan referencia. \\
+\hline
+& RLB 6.5 & Soporte a las visualizaciones & El sistema permitirá devolver todas las observaciones para un país e indicador concretos. \\
+\hline
+\multicolumn{2}{|l|}{RLB 7}  & Soporte a la internacionalización & El LandBook permitirá mostrar la información que contiene en diferentes idiomas. \\
+\hline
+& RLB 7.1 & Soporte a la internacionalización & El LandBook permitirá acceder a la información en inglés. \\
+\hline
+& RLB 7.2 & Soporte a la internacionalización & El LandBook permitirá acceder a la información en francés. \\
+\hline
+& RLB 7.3 & Soporte a la internacionalización & El LandBook permitirá acceder a la información en español. \\
+\hline
+\hline
+
+ \end{longtable}

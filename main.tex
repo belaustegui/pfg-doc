@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 % Images setup
 \usepackage{graphicx}
-\graphicspath{ {images/} }
+\graphicspath{ {imagenes/} }
 % Page layout setup
 \usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
 % Headers and footers setup
@@ -11,14 +11,16 @@
 % Document language setup
 \usepackage[spanish]{babel}
 % Bibliography
-\usepackage[backend=biber]{biblatex}
+\usepackage[backend=biber, style=alphabetic, citestyle=alphabetic]{biblatex}
 \usepackage{csquotes}
 \addbibresource{references.bib}
 % Pretty hyperlinks
 \usepackage[hidelinks]{hyperref}
 % Allows to cross reference other chapters
 \usepackage{nameref}
-
+% Allows to use multipage tables
+\usepackage{longtable, tabu}
+\usepackage{array}
 
 \title{TFG}
 \author{cristian.alvb }
@@ -42,17 +44,25 @@ I want to thank...
 
 \tableofcontents
 
+\listoffigures
+
+\listoftables
+
 \chapter{Introducción}
 \label{chapter01}
-\input{chapters/introduction}
+\input{capitulos/capitulo01/capitulo01}
 
 \chapter{Evaluación de alternativas}
 \label{chapter02}
-\input{chapters/chapter02}
+\input{capitulos/capitulo02/capitulo02}
 
 \chapter{Conceptos teóricos}
 \label{chapter03}
-\input{chapters/chapter03}
+\input{capitulos/capitulo03/capitulo03}
+
+\chapter{Análisis}
+\label{chapter04}
+\input{capitulos/capitulo04/capitulo04}
 
 \printbibliography
 

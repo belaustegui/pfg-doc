@@ -62,9 +62,18 @@ El funcionamiento de CKAN consiste en almacenar los catálogos de datos junto co
 Como se ha mencionado anteriormente, CKAN se utiliza en varios portales de datos de gran envergadura, como pueden ser el portal de datos del Gobierno Británico o el portal de datos del Gobierno de Estados Unidos.
 
 
+\subsubsection{DKAN}
+DKAN\footnote{http://nucivic.com/dkan/} es una plataforma basada en CKAN y Drupal para facilitar la publicación de datos.  A diferencia de CKAN, DKAN está escrito utilizando el lenguaje de programación PHP.
+
+La principal ventaja de DKAN es la estrecha integración entre el catálogo de datos (CKAN) y el gestor de contenidos (Drupal).  Ésta integración entre los dos componentes permite aprovechar las mejores características de cada uno de ellos.  Por otra parte, ésta integración también permite desplegar el catálogo de datos de una forma simple sobre una instalación de Drupal ya existente.
+
+Un punto en contra de DKAN es su falta de madurez.  DKAN fue creado en 2012 y recientemente ha alcanzado la versión 1.0.  A pesar de todo, ha sido utilizado en algunos proyectos como el portal de datos de la ciudad de Colonia y el portal de datos del Gobierno de Puerto Rico.
+
+
 \subsubsection{Herramienta creada especialmente para la ocasión}
-La funcionalidad de un catálogo de datos podría ser implementada por una herramienta creada especialmente para éste proyecto e implementada como un módulo del gestor de contenidos.\\
-La principal ventaja de esta aproximación es que, dado que la herramienta se crearía especialmente para éste proyecto, cumpliría totalmente con las necesidades del mismo.  La principal desventaja radica en el esfuerzo requerido para implementar una herramienta de tal calibre.
+La funcionalidad de un catálogo de datos podría ser implementada por una herramienta creada especialmente para éste proyecto e implementada como un módulo del gestor de contenidos.
+
+La principal ventaja de esta aproximación es que, dado que la herramienta se crearía especialmente para éste proyecto, cumpliría totalmente con las necesidades del mismo.  La principal desventaja radica en el esfuerzo requerido para implementar una herramienta de tal calibre, esfuerzo que ya viene solucionado por parte una herramienta como DKAN.
 
 
 
@@ -178,8 +187,16 @@ La principales características a favor de Elasticsearch son su capacidad para c
 El punto débil de Elasticsearch es su novedad. A pesar de ser utilizado en portales como Quora\footnote{https://www.quora.com/} o GitHub\footnote{https://github.com/} no cuenta con la madurez y amplia comunidad de productos más maduros como Solr.
 
 
+\subsubsection{Buscador propio del gestor de contenidos}
+Los tres gestores de contenidos que se han analizado anteriormente cuentan con un buscador propio integrado.  La principal ventaja de éste buscador es la completa integración con los contenidos que forman parte del CMS.  Puesto que el buscador ya forma parte del CMS, normalmente no es necesario realizar ninguna tarea de programación para activarlo.
+
+La gran desventaja de ésta solución es la imposibilidad de indexar y buscar todos aquellos contenidos que no formen parte del CMS.  En éste proyecto esto haría imposible buscar los contenidos no pertenecientes a la parte social.
+
+
 
 \section{Alternativas seleccionadas}
+\label{chapter02:alternativas_seleccionadas}
+\label{seccion_alternativas}
 En esta sección se explicará qué alternativas de las anteriormente descritas se han seleccionado y las razones que han llevado a dicha selección.
 
 \subsection{Gestor de contenidos}

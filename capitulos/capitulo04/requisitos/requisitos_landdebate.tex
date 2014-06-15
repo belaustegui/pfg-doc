@@ -1,0 +1,142 @@
+\begin{longtable}[c]{|p{1mm}|p{14mm}|p{30mm}|p{90mm}|}
+ \caption{Tabla de requisitos de la zona social del portal.\label{requisitos_debate}}\\
+
+ %Cabecera en la primera pagina
+ \hline
+ \multicolumn{4}{| c |}{Listado de requisitos de la búsqueda}\\
+ \hline
+ \multicolumn{2}{|c|}{Código} & Nombre & Descripción\\
+ \hline
+ \hline
+ \endfirsthead
+ 
+ %Cabecera en el resto de páginas
+ \hline
+ \multicolumn{4}{|c|}{Continuación de la tabla \ref{requisitos_debate}}\\
+ \hline
+ \multicolumn{2}{|c|}{Código} & Nombre & Descripción\\
+ \hline
+ \hline
+ \endhead
+ 
+ \hline
+ \endfoot
+ 
+
+
+\multicolumn{2}{|l|}{RLD 1} & Registro de usuarios & El LandDebate permitirá realizar registros de nuevos usuarios en el sistema. \\
+\hline
+& RLD 1.1 & Registro de usuarios & Los nuevos registros requerirán la introducción de un nombre de usuario.  Éste nombre de usuario será único en todo el portal. \\
+\hline
+& RLD 1.2 & Registro de usuarios & Los nuevos registros requerirán la introducción de una contraseña de usuario.  Para evitar errores será necesario que el usuario repita la contraseña antes de completar el registro. \\
+\hline
+& RLD 1.4 & Registro de usuarios & Los nuevos registros requerirán la introducción del nombre real y los apellidos de la persona que se está registrando. \\
+\hline
+& RLD 1.5 & Registro de usuarios & Los nuevos usuarios podrán seleccionar el continente en el que se encuentran.  Éste campo no será obligatorio. \\
+\hline
+& RLD 1.6 & Registro de usuarios & Los nuevos usuarios podrán seleccionar hasta un máximo de 7 países en los que estén interesados.  Éste campo no será obligatorio. \\
+\hline
+& RLD 1.7 & Registro de usuarios & El registro de usuarios será accesible desde cualquier punto del portal. \\
+\hline
+& RLD 1.8 & Registro de usuarios & Los usuarios podrán registrarse en el portal utilizando sus cuentas de Twitter o Facebook. \\
+\hline
+\multicolumn{2}{|l|}{RLD 2} & Roles de usuario & Los usuarios del portal tendrán diferentes roles de usuario en función de los cuales podrán realizar diferentes tareas en el LandDebate. \\
+\hline
+& RLD 2.1 & Roles de usuario & El rol de usuario \textit{anónimo} será automáticamente asignado a todos los usuarios que no se hayan registrado o no hayan iniciado sesión en el portal. \\
+\hline
+& RLD 2.2 & Roles de usuario & El rol de usuario \textit{registrado} será automáticamente asignado a todos los usuarios que se hayan registrado e inicien sesión en el portal. Los usuarios con el rol \textit{registrado} podrán crear contenido en el LandDebate y comentar en las entradas del blog y los debates.\\
+\hline
+& RLD 2.3 & Roles de usuario & El rol de usuario \textit{administrador} tendrá permisos para gestionar cualquier parte del portal y otorgar roles al resto de usuarios. Todos los usuarios con rol \textit{administrador} tendrán también el rol \textit{registrado} automáticamente. \\
+\hline
+& RLD 2.4 & Roles de usuario & El rol de usuario \textit{con acceso al API} será asignado por los administradores a aquellos usuarios registrados que deban tener una clave de acceso al API.  Todos los usuarios pertenecientes a éste rol también pertenecerán al rol \textit{registrado}. \\
+\hline
+\multicolumn{2}{|l|}{RLD 3} & Inicio de sesión & Los usuarios que previamente se hayan registrado podrán iniciar sesión en el portal utilizando su nombre de usuario y contraseña. \\
+\hline
+& RLD 3.1 & Inicio de sesión & El formulario de inicio de sesión será accesible desde todas las partes del portal. \\
+\hline
+& RLD 3.2 & Inicio de sesión & Los usuarios que se hayan registrado utilizando su cuenta de Twitter o Facebook podrán iniciar sesión utilizando un botón y no necesitarán introducir su nombre de usuario ni contraseña. \\
+\hline
+\multicolumn{2}{|l|}{RLD 4} & Funcionamiento de los eventos & El sistema permitirá la creación de eventos que tendrán lugar en una fecha determinada. \\
+\hline
+& RLD 4.1 & Funcionamiento de los eventos & Durante la creación de un evento será necesario introducir su título, contenido y la fecha en la que tendrá lugar. \\
+\hline
+& RLD 4.2 & Funcionamiento de los eventos & Durante la creación de un evento podrán seleccionarse aquellos tópicos con los que esté relacionado. \\
+\hline
+& RLD 4.3 & Funcionamiento de los eventos & Durante la creación de un evento podrá incluirse una imagen que acompañe al contenido. \\
+\hline
+& RLD 4.4 & Funcionamiento de los eventos & Los eventos podrán ser creados por cualquier usuario que cuente con el rol de \textit{registrado}. \\
+\hline
+& RLD 4.5 & Funcionamiento de los eventos & Los eventos podrán ser editados por su creador o por un usuario con rol de \textit{administrador}. \\
+\hline
+& RLD 4.5 & Funcionamiento de los eventos & Los eventos sólo podrán ser eliminados por un usuario con rol de \textit{administrador}. \\
+\hline
+\multicolumn{2}{|l|}{RLD 5} & Funcionamiento de las noticias & El sistema permitirá la creación de noticias.  Las noticias presentarán información que sea de interés para los miembros del portal. \\
+\hline
+& RLD 5.1 & Funcionamiento de las noticias & Durante la creación de una noticia será necesario introducir su título y contenido. \\
+\hline
+& RLD 5.2 & Funcionamiento de las noticias & Durante la creación de una noticia será posible incluir una imagen que acompañe al contenido. \\
+\hline
+& RLD 5.3 & Funcionamiento de las noticias & Las noticias podrán ser creadas por cualquier usuario que cuente con el rol de \textit{registrado}. \\
+\hline
+& RLD 5.4 & Funcionamiento de las noticias & Las noticias podrán ser editadas por su creador o por un usuario con rol de \textit{administrador}. \\
+\hline
+& RLD 5.5 & Funcionamiento de las noticias & Las noticias sólo podrán ser eliminadas por un usuario con rol de \textit{administrador}. \\
+\hline
+\multicolumn{2}{|l|}{RLD 6} & Funcionamiento de las entradas del blog & El sistema permitirá la creación de entradas en el blog.  Las entradas en el blog representan información relevante u opiniones que se emiten desde el propio Land Portal. \\
+\hline
+& RLD 6.1 & Funcionamiento de las entradas del blog & Las entradas del blog sólo podrán ser creadas, editadas o eliminadas por un usuario con rol de \textit{administrador}. \\
+\hline
+& RLD 6.2 & Funcionamiento de las entradas del blog & Durante la creación de una entrada del blog será necesario introducir su título y contenido. \\
+\hline
+& RLD 6.3 & Funcionamiento de las entradas del blog & Durante la creación de una entrada del blog será posible introducir una imagen que acompañe al contenido. \\
+\hline
+& RLD 6.4 & Funcionamiento de las entradas del blog & Durante la creación de una entrada del blog será posible seleccionar aquellos tópicos que se consideren relacionados con el contenido de la misma. \\
+\hline
+& RLD 6.5 & Funcionamiento de las entradas del blog & Cualquier usuario \textit{registrado} podrá incluir un nuevo comentario o replicar a un comentario ya existente en una entrada del blog. \\
+\hline
+\multicolumn{2}{|l|}{RLD 7} & Funcionamiento de los debates & El sistema permitirá la creación de debates.  Los debates tienen como finalidad fomentar el intercambio de ideas y la participación de los usuarios de la comunidad. \\
+\hline
+& RLD 7.1 & Funcionamiento de los debates & Los debates podrán ser creados por cualquier usuario \textit{registrado}. \\
+\hline
+& RLD 7.2 & Funcionamiento de los debates & Los debates podrán ser editados por su creador o por un usuario con rol de \textit{administrador}. \\
+\hline
+& RLD 7.3 & Funcionamiento de los debates & Los debates podrán ser eliminados por un usuario con rol de \textit{administrador}. \\
+\hline
+& RLD 7.4 & Funcionamiento de los debates & Los debates permitirán a su creador o a un \textit{administrador} abrir o cerrar los comentarios en función de la fecha en la que el debate esté activo. \\
+\hline
+& RLD 7.5 & Funcionamiento de los debates & Cualquier usuario \textit{registrado} podrá crear un nuevo comentario o responder a uno ya existente en un debate, siempre que el debate esté activo. \\
+\hline
+& RLD 7.6 & Funcionamiento de los debates & Durante la creación de un nuevo debate será necesario incluir su título y contenido. \\
+\hline
+& RLD 7.7 & Funcionamiento de los debates & Durante la creación de un nuevo debate será necesario incluir las fechas entre las que el debate estará activo. \\
+\hline
+& RLD 7.8 & Funcionamiento de los debates & Durante la creación de un nuevo debate será posible incluir una imagen que acompañe al contenido. \\
+\hline
+& RLD 7.9 & Funcionamiento de los debates & Durante la creación de un nuevo debate será posible indicar los tópicos con los que está relacionado. \\
+\hline
+& RLD 7.10 & Funcionamiento de los debates & Durante la creación de un nuevo debate será posible indicar las regiones con las que está relacionado. \\
+\hline
+\hline
+
+ \end{longtable}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
