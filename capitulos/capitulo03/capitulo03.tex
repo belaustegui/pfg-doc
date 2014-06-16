@@ -29,6 +29,7 @@ En \cite{tbl-linkedopendata}, Tim Berners-Lee define los cuatro elementos fundam
 \end{itemize}
 
 
+
 \section{Datos enlazados abiertos}
 El concepto de datos enlazados abiertos (\textit{Linked Open Data}) combina los conceptos de datos abiertos (\textit{Open Data}) y datos enlazados (\textit{Linked Data}) que se han explicado en las secciones anteriores.
 
@@ -49,4 +50,34 @@ A continuación se explica el significado de cada nivel de esta escala:
 
 El portal de datos que se pretende construir en éste proyecto pretende cumplir con un nivel de 5 estrellas.
 
+
+
+\section{RDF Data Cube}
+En la especificación del RDF Data Cube Vocabulary (recomendación de enero de 2014) \cite{w3c:data-cube} se define el objetivo de éste vocabulario de la siguiente forma:
+\begin{quote}
+\textit{``There are many situations where it would be useful to be able to publish multi-dimensional data, such as statistics, on the web in such a way that it can be linked to related data sets and concepts. The Data Cube vocabulary provides a means to do this using the W3C RDF (Resource Description Framework) standard [...]''}
+\end{quote}
+
+Puesto que uno de los objetivos del portal que se construirá en éste proyecto es precisamente la publicación de datos multidimensionales en la web, la estructura del modelo de datos intentará adecuarse a la estructura descrita por el RDF Data Cube Vocabulary.  El diseño del modelo de datos puede ser visto de forma detallada en la sección SECCIÓN DEL MODELO DE DATOS.
+
+A modo de resumen, el RDF Data Cube pretende definir una estructura y un vocabulario basado en el estándar RDF con el que publicar conjuntos de datos multidimensionales en la web.  Los conjuntos de datos son colecciones de datos con una estructura determinada.  Los datos contenidos conjunto de datos serán de alguno de los siguientes tipos:
+\begin{description}
+\item[Observaciones]  Es la información final a la que se quiere acceder, los valores de las mediciones o los cálculos realizados.
+\item[Información organizativa]  Ayuda a encontrar una cierta observación o un conjunto de observaciones.  Para encontrar una observación será necesario conocer las dimensiones bajo las que se encuentra.
+\item[Información estructural]   Ayuda a interpretar una cierta observación, por ejemplo indicando su unidad de medida o si es un valor exacto o estimado.
+\item[Metadatos del conjunto de datos]  Ayudan a describir información sobre el propio conjunto de datos, por ejemplo su publicador.
+\end{description}
+
+\subsection{El modelo de cubo}
+El RDF Data Cube Vocabulary pretende crear el concepto de cubo o \textit{hypercube} como forma de representar la estructura de la información. El cubo en el que se encuentran las observaciones se organiza en torno a un conjunto de dimensiones, atributos y medidas (todos ellos reciben el nombre de \textit{componentes}).
+\begin{description}
+\item[Dimensiones]  Permiten localizar una observación concreta o un conjunto de observaciones.  Por ejemplo una dimensión podría ser la zona geográfica sobre la que las observaciones han tenido lugar o el momento en el tiempo al que las observaciones hacen referencia.
+\item[Medidas]  Representan el fenómeno concreto observado.
+\item[Atributos]  Permiten realizar cuantificar e interpretar los valores observados.  Por ejemplo un atributo podría ser la unidad de medida de una observación.
+\end{description}
+
+\subsection{Los \textit{slices}}
+El concepto de \textit{slice} hace referencia a un subconjunto o agrupación de las observaciones existentes en el cubo.
+
+Por ejemplo, usando los datos reales con los que se trabajará en el portal que se pretende construir en éste proyecto, dadas una serie de observaciones tomadas para diversos indicadores y países a lo largo de un periodo de tiempo, podría ser interesante agrupar dichas observaciones según su indicador y el momento de tiempo en el que se han realizado.  Cada uno de estos grupos representaría todas las observaciones de todos los países para un determinado indicador y momento temporal.  Éstos grupos reciben el nombre de \textit{slices}.
 
