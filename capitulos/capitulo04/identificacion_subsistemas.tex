@@ -20,9 +20,9 @@ Tras haber realizado la identificación de los subsistemas  se describirá de qu
 
 Todos los subsistemas mencionados anteriormente se encontrarán en el mismo servidor web, aunque formarán parte de diferentes aplicaciones y componentes.  Concretamente:
 \begin{itemize}
-\item los subsistemas de gestión de usuarios, debates, eventos, noticias y entradas del blog formarán parte del gestor de contenidos o CMS.
+\item Los subsistemas de gestión de usuarios, debates, eventos, noticias, entradas del blog y comentarios formarán parte del gestor de contenidos o CMS.  A lo largo de ésta documentación el conjunto de todos estos subsistemas recibirá también el nombre de ``zona social''.
 \item El subsistema de búsqueda formará parte del buscador que, como se ha explicado en la sección \nameref{chapter02:alternativas_seleccionadas} perteneciente al capítulo \ref{chapter02:alternativas_seleccionadas} sera Apache Solr.
-\item El subsistema de gestión de datos estará dividido entre una aplicación encargada de la inserción de datos provenientes de fuentes externas y un framework que dará soporte a las visualizaciones de datos.
+\item El subsistema de gestión de datos estará dividido entre una aplicación encargada de la inserción de datos provenientes de fuentes externas y un framework que dará soporte a las visualizaciones de datos.  Por su funcionalidad, éste subsistema también recibirá el nombre de ``zona de datos'' en ésta documentación.
 \end{itemize}
 
 Los subsistemas que forman parte del gestor de contenidos (gestión de usuarios, debates, eventos, noticias, entradas del blog y comentarios) se comunicarán con el subsistema de búsqueda a través del API HTTP ofrecido por el buscador. \newline
