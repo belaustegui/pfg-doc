@@ -9,6 +9,7 @@ A continuación se detalla cada uno de los subsistemas identificados:
 \item[Subsistema de gestión de noticias]  Éste subsistema se encargará de gestionar las operaciones relacionadas con las noticias, principalmente la creación y edición de noticias.
 \item[Subsistema de gestión del blog]  Éste subsistema se encargará de gestionar las tareas relacionadas con las entradas del blog.  Algunas funciones de éste subsistema serán la creación y edición de entradas en el blog y la moderación de los comentarios de usuarios.
 \item[Subsistema de gestión de datos]  Éste subsistema será el encargado de gestionar los datos de la parte de datos del portal.  Las funciones más representativas de éste subsistema son la inserción de nuevos catálogos de datos y la provisión de información con la que crear las visualizaciones.
+\item[Subsistema de gestión de comentarios]  Éste subsistema será el encargado de gestionar los comentarios de los usuarios.  Las funciones más representativas de este subsistema son la creación, la modificación y la eliminación de comentarios.
 \end{description}
 
 Es necesario tener en cuenta que el sistema final que será el nuevo Land Portal contará con más subsistemas que no son objeto de éste proyecto y, por tanto, no figuran en éste análisis.
@@ -24,7 +25,7 @@ Todos los subsistemas mencionados anteriormente se encontrarán en el mismo serv
 \item El subsistema de gestión de datos estará dividido entre una aplicación encargada de la inserción de datos provenientes de fuentes externas y un framework que dará soporte a las visualizaciones de datos.
 \end{itemize}
 
-Los subsistemas que forman parte del gestor de contenidos (gestión de usuarios, debates, eventos, noticias y entradas del blog) se comunicarán con el subsistema de búsqueda a través del API HTTP ofrecido por el buscador. \newline
+Los subsistemas que forman parte del gestor de contenidos (gestión de usuarios, debates, eventos, noticias, entradas del blog y comentarios) se comunicarán con el subsistema de búsqueda a través del API HTTP ofrecido por el buscador. \newline
 Por otra parte el gestor de contenidos y el subsistema de gestión de datos se comunicarán a través de una base de datos compartida, será el gestor de contenidos quien extraiga los datos necesarios de la base de datos en la que el subsistema de gestión de datos almacena la información.
 
 En la imagen \ref{fig:diagrama_subsistemas} se puede ver un esquema que representa la situación de dichos componentes y subsistemas.

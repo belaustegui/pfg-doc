@@ -1,5 +1,5 @@
 En esta sección se detallarán los casos de uso y escenarios pertenecientes al subsistema de gestión de usuarios.
-La figura \ref{fig:casos_uso_subsistema_usuarios} muestra el diagrama de casos de uso del subsistema de gestión de usuarios.
+La figura \ref{fig:casos_uso_subsistema_usuarios} muestra el diagrama de casos de dicho subsistema.
 
 \begin{figure}[h]
 \centering
@@ -18,7 +18,8 @@ La figura \ref{fig:casos_uso_subsistema_usuarios} muestra el diagrama de casos d
 								\item El usuario accede al formulario de registro.
 								\item Una vez en el formulario de registro, el usuario rellena todos los campos requeridos.
 								\item Si el usuario lo decide también puede rellenar los campos opcionales.
-								\item Tras rellenar los campos el usuario pulsa el botón de registro para crear la nueva cuenta.
+								\item Tras rellenar los campos el usuario pulsa el botón de registro.
+								\item El sistema guarda los datos y crea la nueva cuenta de usuario con estado bloqueado.
 								\end{enumerate}
 \item[Escenario alternativo 1]	El usuario no rellena todos los campos necesarios.
 								\begin{enumerate}
@@ -38,10 +39,27 @@ La figura \ref{fig:casos_uso_subsistema_usuarios} muestra el diagrama de casos d
 \end{description}
 
 
+\subsubsection{Caso de uso ``activar usuario''}
+\begin{description}
+\item[Descripción] 				El administrador activa una cuenta de un usuario para que éste pueda utilizarla.
+\item[Actores]					El administrador del sistema.
+\item[Precondiciones]			La cuenta de usuario debe ser registrada previamente en el sistema.
+\item[Escenario principal]	 	\hfill
+								\begin{enumerate}
+								\item El administrador accede al panel de administración.
+								\item Una vez en el panel de administración, accede a la vista de usuarios.
+								\item El administrador selecciona el usuario o usuarios a activar.
+								\item Pulsa el botón correspondiente para activar los usuarios.
+								\item El sistema actualiza el estado de los usuarios y permite que inicien sesión en el sistema.
+								\end{enumerate}
+\end{description}
+
+
 \subsubsection{Caso de uso ``iniciar sesión''}
 \begin{description}
 \item[Descripción] El usuario accede al sistema utilizando su nombre de usuario y contraseña.
 \item[Actores] Cualquier usuario anónimo.
+\item[Precondiciones] La cuenta de usuario con la que se inicia sesión ha sido activada por un administrador.
 \item[Escenario principal] \hfill
 						 	\begin{enumerate}
 							\item El usuario accede al formulario de inicio de sesión
@@ -116,13 +134,18 @@ La figura \ref{fig:casos_uso_subsistema_usuarios} muestra el diagrama de casos d
 							\item El sistema informará al usuario de su error y no modificará la información almacenada.
 							\item Se continua desde el punto 3 del escenario principal.
 							\end{enumerate}
-\item [Escenario alternativo 2] Las nuevas contraseñas no coinciden.
+\item [Escenario alternativo 2] El usuario quiere modificar su contraseña.
 							\begin{enumerate}
-							\item El usuario introduce su nueva contraseña dos veces para evitar errores. Las contraseñas introducidas no coinciden.
-							\item El sistema informa al usuario del error.
-							\item Se continua desde el punto 3 del escenario principal.
+							\item El usuario debe introducir su nueva contraseña dos veces para evitar errores.
+							\item Se continua desde el punto 4 del escenario principal.
 							\end{enumerate}							
-\item[Escenario alternativo 3] El nuevo correo es inválido o ya existe en el sistema.
+\item [Escenario alternativo 3] Las nuevas contraseñas no coinciden.
+							\begin{enumerate}
+							\item Las nuevas contraseñas introducidas no coinciden.
+							\item El sistema informa al usuario del error.
+							\item Se continua desde el punto 1 del escenario alternativo 2.
+							\end{enumerate}							
+\item[Escenario alternativo 4] El nuevo correo es inválido o ya existe en el sistema.
 							\begin{enumerate}
 							\item El sistema informará al usuario de su error y no modificará la información almacenada.
 							\item Se continua desde el punto 3 del escenario principal.

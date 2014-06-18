@@ -1,5 +1,5 @@
 En esta sección se detallarán los casos de uso y escenarios pertenecientes al subsistema de gestión de debates.
-La figura \ref{fig:casos_uso_subsistema_debates} muestra el diagrama de casos de uso del subsistema de gestión de debates.
+La figura \ref{fig:casos_uso_subsistema_debates} muestra el diagrama de casos de dicho subsistema.
 
 \begin{figure}[h]
 \centering
@@ -11,21 +11,14 @@ La figura \ref{fig:casos_uso_subsistema_debates} muestra el diagrama de casos de
 
 \subsubsection{Caso de uso ``ver debate''}
 \begin{description}
-\item[Descripción] 				El usuario quiere ver el contenidos y los comentarios de un debate.
-\item[Actores]					Cualquier usuario registrado o no en el sistema.
+\item[Descripción] 				El usuario quiere ver el contenido y los comentarios de un debate.
+\item[Actores] 					Cualquier rol de usuario registrado o no en el sistema.
 \item[Escenario principal]	 	\hfill
 								\begin{enumerate}
-								\item El usuario pulsa en el botón que carga la vista de los debates.
+								\item El usuario accede a la vista de los debates.
 								\item Una vez en la vista de debates, elige el debate del que quiere ver sus contenidos.
 								\item El usuario pulsa en el título del debate elegido.
 								\item El sistema carga la vista del debate mostrando tanto el contenido como los comentarios del mismo.
-								\end{enumerate}
-\item[Escenario alternativo 1]	El usuario utiliza la búsqueda para localizar el debate.
-								\begin{enumerate}
-								\item El usuario accede a la vista de la búsqueda.
-								\item El usuario escribe algunas palabras que se encuentren en el debate que quiere visualizar.
-								\item En la lista de resultados selecciona el debate que desee.
-								\item Se continua desde el punto 4 del escenario principal.
 								\end{enumerate}
 \end{description}
 
@@ -42,7 +35,7 @@ La figura \ref{fig:casos_uso_subsistema_debates} muestra el diagrama de casos de
 							\item Rellena los campos requeridos en el formulario de creación del debate.
 							\item Rellena los campos opcionales que considere necesarios en el formulario de creación del debate.
 							\item Pulsa el botón para guardar el debate.
-							\item El sistema guarda el debate con estado ``próximamente''.
+							\item El sistema guarda el debate con estado \textit{próximamente}.
 							\end{enumerate}
 \item[Escenario alternativo 1] El usuario no ha rellenado todos los campos requeridos.
 							\begin{enumerate}
@@ -52,45 +45,7 @@ La figura \ref{fig:casos_uso_subsistema_debates} muestra el diagrama de casos de
 \end{description}
 
 
-\subsubsection{Caso de uso ``comentar un debate''}
-\begin{description}
-\item[Descripción] El usuario quiere crear dar su opinión en un debate abierto.
-\item[Actores] Administrador, usuario registrado o usuario con capacidad de acceso al API.
-\item[Precondiciones] Haber iniciado sesión en el sistema.
-\item[Escenario principal] \hfill
-						 	\begin{enumerate}
-							\item El usuario accede a la vista de debates.
-							\item Selecciona el debate en el que quiere crear un comentario.
-							\item Una vez en la vista del debate, el usuario escribe su comentario.
-							\item Pulsa el botón de para guardar su comentario.
-							\end{enumerate}
-\item[Escenario alternativo 1] El usuario quiere añadir un comentario como respuesta a otro comentario ya existente.
-							\begin{enumerate}
-							\item Los dos primeros pasos serán similares a los del escenario principal.
-							\item Una vez en la vista de debate el usuario localiza el comentario al que quiere responder y pulsa el botón correspondiente.
-							\item El usuario escribe su comentario.
-							\item Pulsa el botón para guardar el comentario.
-							\end{enumerate}
-\end{description}
-
-
-\subsubsection{Caso de uso ``modificar comentario''}
-\begin{description}
-\item[Descripción] El usuario quiere crear modificar un comentario que ha creado previamente.
-\item[Actores] Administrador, usuario registrado o usuario con capacidad de acceso al API.
-\item[Precondiciones] Haber iniciado sesión en el sistema.
-\item[Escenario principal] \hfill
-						 	\begin{enumerate}
-							\item El usuario accede a la vista de debates.
-							\item Selecciona el debate en el que ha realizado el comentario que quiere modificar.
-							\item Una vez en la vista del debate busca su comentario y pulsa el botón destinado a modificarlo.
-							\item Introduce el nuevo texto del comentario
-							\item Pulsa el botón de para guardar su comentario.
-							\end{enumerate}
-\end{description}
-
-
-\subsubsection{Caso de uso ``moodificar debate''}
+\subsubsection{Caso de uso ``modificar debate''}
 \begin{description}
 \item[Descripción] Un usuario quiere modificar el contenido de un debate.
 \item[Actores] Administrador, usuario registrado o usuario con capacidad de acceso al API.
@@ -99,10 +54,10 @@ La figura \ref{fig:casos_uso_subsistema_debates} muestra el diagrama de casos de
 						 	\begin{enumerate}
 							\item El usuario accede a la vista de debates.
 							\item Selecciona el debate cuyo contenido desea modificar.
-							\item Una vez en la vista del debate pulsa el botón destinado a modificarlo.
+							\item Una vez en el debate adecuado, pulsa el botón destinado a modificarlo.
 							\item Modifica la información que sea necesaria (excepto el estado del debate, el proceso de modificación del estado de un debate está descrito en el escenario alternativo 1).
-							\item Pulsa el botón de para guardar las modificaciones.
-							\item El sistema actualiza los contenidos del debate.
+							\item Pulsa el botón para guardar las modificaciones.
+							\item El sistema guarda los cambios y actualiza los contenidos del debate.
 							\end{enumerate}
 \item[Escenario alternativo 1]  Modificar el estado de un debate.
 							\begin{enumerate}
@@ -121,13 +76,13 @@ La figura \ref{fig:casos_uso_subsistema_debates} muestra el diagrama de casos de
 
 \subsubsection{Caso de uso ``eliminar debate''}
 \begin{description}
-\item[Descripción] El administrador quiere eliminar un debate junto con todos sus comentarios.
-\item[Actores] Administrador.
+\item[Descripción] El administrador quiere eliminar un debate.
+\item[Actores] El administrador del sistema.
 \item[Precondiciones] Haber iniciado sesión en el sistema.
 \item[Escenario principal] \hfill
 						 	\begin{enumerate}
-							\item El administardor accede a la vista de administración.
+							\item El administrador accede a la vista de administración.
 							\item Localiza el debate que desea eliminar y pulsa el botón correspondiente.
-							\item El debate y sus comentarios serán eliminados del sistema.
+							\item El debate será eliminado del sistema.
 							\end{enumerate}
 \end{description}
