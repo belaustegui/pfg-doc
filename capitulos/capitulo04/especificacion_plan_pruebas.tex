@@ -1,0 +1,45 @@
+En esta sección se especificará el plan de pruebas que se seguirá durante el desarrollo del proyecto.  Se detallará que tipos de pruebas se realizarán, sobre qué componentes y en qué momento del desarrollo tendrán lugar.
+
+
+\subsection{Pruebas unitarias}
+Las pruebas unitarias están dirigidas a probar partes de código pequeñas y específicas. Como Martin Fowler explica en su artículo \cite{mfowler:unit-testing} existen tres características fundamentales que caracterizan a las pruebas unitarias:
+\begin{itemize}
+	\item Los tests se centran en una parte pequeña del sistema
+	\item Los tests son normalmente escritos por los propios programadores utilizando alguna variante del framework \textit{XUnit}\footnote{XUnit es el nombre que recibe una familia de frameworks destinados a la realización de pruebas.  El primero de éstos frameworks fue creado por Kent Beck para el lenguaje Smalltalk.  Para más información al respecto se recomienda el artículo \cite{mfowler:xunit}.}.
+	\item Se espera que los tests se ejecuten de una forma rápida
+\end{itemize}
+
+Un punto clave de las pruebas unitarias es su aislamiento de otras partes del sistema.  Por la estructura del subsistema de datos, cuya principal funcionalidad es insertar y extraer valores de la base de datos, sería necesario crear una gran cantidad de \textit{mocks} que simulen el funcionamiento de la propia base de datos.  Debido a esto, se ha tomado la decisión de no realizar pruebas unitarias como tal, puesto que supondría un sobreesfuerzo muy grande aislar totalmente los componentes del subsistema de la base de datos para obtener un coste muy pequeño, puesto que la propia base de datos juega un punto clave en el correcto funcionamiento de éste subsistema.
+
+Por su construcción que, como ya se ha mencionado en secciones anteriores, delega la funcionalidad principal a los mecanismos proveídos por el gestor de contenidos, las pruebas unitarias se omitirán para la zona social y los subsistemas que engloba.
+
+\subsection{Pruebas de integración}
+A pesar de lo mencionado anteriormente a cerca de las pruebas unitarias, existen opiniones divididas sobre lo que se considera exactamente una \textit{unidad} en dichas pruebas.  Para éste proyecto, y hablando del subsistema de datos, se tomará como una \textit{unidad} la lectura de un valor del fichero XML y su inmediata inserción en la base de datos.\newline
+Según la opinión de diferentes autores (entre ellos el propio Martin Fowler, como menciona en su artículo \cite{mfowler:unit-testing}), éste tipo de pruebas podrían ser consideradas pruebas unitarias.  No obstante, con el objetivo de mantener la máxima fidelidad respecto a la definición de pruebas unitarias, las pruebas que se detallan a continuación han sido finalmente consideradas como pruebas de integración.
+
+Estas pruebas se realizarán sobre el subsistema de datos, concretamente sobre el componente de inserción de datos, a lo largo de todo su desarrollo.
+\begin{itemize}
+\item En primer lugar se utilizará una metodología de Desarrollo Dirigido por Pruebas (o TDD)\footnote{El desarrollo dirigido por pruebas es una metodología de desarrollo de software creada por Kent Beck en 1990.  Para más información al respecto, se recomienda el libro ``Test Driven Development'' \cite{kbeck:test-driven-development}}, donde para cada nueva funcionalidad que se añada al sistema se desarrollarán los casos de prueba antes de su implementación.
+\item En segundo lugar, y con el objetivo de automatizar éste proceso y notificar al equipo de desarrollo de posibles fallos en los casos de prueba que hayan podido pasar desapercibidos, las pruebas descritas en el punto anterior se acompañarán de la ayuda de un servidor de integración continua\footnote{Una posible definición de integración continua, extraída de \cite{mfowler:continuous-integration} es: ``\textit{Continuous Integration is a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible.}''}.  Por su utilidad y su capacidad de integración con GitHub (plataforma de control de versiones con la que se desarrollará éste proyecto) se utilizará el servidor de integración continua Travis-CI\footnote{\url{https://travis-ci.org/}}.
+\end{itemize}
+
+
+\subsection{Pruebas de sistema}
+Las pruebas de sistema tiene lugar sobre el sistema completo con el fin de comprobar si todos los componentes del mismo interactúan correctamente entre sí y si el sistema construido se ajusta correctamente a los requisitos y necesidades del cliente.
+
+Éste tipo de pruebas tendrán lugar a lo largo de todo el proceso de desarrollo, puesto que se contará con un servidor especial en donde se integrarán las nuevas versiones del sistema según se vayan construyendo.  Este servidor estará continuamente disponible, el cliente accederá a dicho servidor, probará los diferentes aspectos del sistema y ofrecerá \textit{feedback} a los desarrolladores con aquellos posibles fallos o cuestiones que encuentre.  Será tarea del jefe de proyecto filtrar los reportes recibidos de los clientes y separar aquellos que son fallos reales o posibles mejoras de aquellos que no lo son.
+
+Concretamente, las pruebas de sistema comenzarán cuando exista una primera versión con alguna parte de funcionalidad visible para el cliente y se alargarán hasta el final del desarrollo, teniendo un especial énfasis en las fases finales del mismo.
+
+
+\subsection{Pruebas de rendimiento}
+Tal y como se ha mencionado en la sección \nameref{especificacion_requisitos_no_funcionales}, perteneciente al capítulo \ref{chapter04}, el punto de entrada de datos puede recibir conjuntos de datos de gran volumen.  Por esto será necesario realizar pruebas específicas de rendimiento para dicho componente, con el fin de asegurar su correcto comportamiento ante diferentes entradas de datos de diferentes tamaños.
+
+Dos puntos clave en éste tipo de pruebas son: el rendimiento temporal y el rendimiento espacial.  El rendimiento temporal se refiere a la velocidad con la que el componente realiza su tarea.  El rendimiento espacial se refiere a la cantidad de memoria que el componente utiliza durante su funcionamiento.
+
+El punto de entrada de datos es un componente del sistema que se ejecutará una vez cada varios meses, por lo que el rendimiento temporal del mismo no tendrá una gran importancia.  El rendimiento espacial, en cambio, si tendrá una importancia alta, puesto que el consumo de memoria deberá estar controlado para evitar fallos con la llegada de grandes volúmenes de datos.
+
+Las pruebas de rendimiento, por tanto, se centrarán en pruebas de rendimiento espacial y se realizarán utilizando un \textit{profiler} de memoria.\\
+Atendiendo a la famosa cita de Donald Knuth extraída de \cite{knuth:structuredprogramming}, las pruebas de rendimiento tendrán lugar en las últimas fases del desarrollo del punto de entrada de datos: \quote{``\textit{Premature optimization is the root of all evil (or at least most of it) in programming.}''} 
+
+
