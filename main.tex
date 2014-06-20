@@ -26,6 +26,8 @@
 % Numerate subsections and include in the content table
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
+% Makes images appear in the section they belong to
+\usepackage[section]{placeins}
 
 \title{TFG}
 \author{cristian.alvb }
@@ -71,6 +73,14 @@ I want to thank...
 
 \chapter{Diseño del sistema}
 \label{chapter05}
+
+\chapter{Manuales del sistema}
+\label{chapter08}
+\input{capitulos/capitulo08/capitulo08}
+
+\chapter{Anexos}
+\label{anexos}
+\input{capitulos/anexos/anexos}
 
 \printbibliography
 
