@@ -3,7 +3,13 @@ En ésta sección se explicará en detalle el diseño estructural del sistema.  
 	\item Se incluirá un diagrama que muestre de forma gráfica el diseño del componente y sus subcomponentes
 	\item Se dará una explicación textual de los diferentes subcomponentes y las tareas que realizan
 	\item Se dará una explicación textual sobre cómo se relacionan los subcomponentes entre sí
-	\item Se describirá de forma detallada las interfaces utilizadas por los subcomponentes
+	\item Se describirá de forma detallada las interfaces y puertos utilizadas por los subcomponentes.  Las interfaces y puertos se dividirán en tablas por componentes para hacer más sencilla su lectura.	Cada entrada constará de los siguientes apartados:
+	\begin{itemize}
+		\item \textbf{Interfaz}.  Será el nombre que recibe el puerto/interfaz en el diagrama de componentes.
+		\item \textbf{Tipo}.  El tipo de la interfaz/puerto será \textit{proveído} cuando se exponga una interfaz para su uso por parte de otro componente, o \textit{requerido} cuando se utilice una interfaz expuesta por otro componente.
+		\item \textbf{Tecnología}.  Indica el tipo de tecnología de la interfaz/puerto.
+		\item \textbf{Propiedades}.  Explica brevemente el objetivo de la interfaz/puerto.
+	\end{itemize}
 \end{itemize}
 
 Es importante destacar que ésta sección se centrará en el subsistema de datos puesto que, como ya se ha mencionado en la sección \nameref{identificacion_subsistemas} perteneciente al capítulo \ref{chapter04}, los subsistemas pertenecientes a la zona social (subsistema de gestión de usuarios, eventos, noticias, debates, entradas del blog y comentarios) delegan su funcionalidad en componentes ya implementados por el gestor de contenidos.  De la misma forma, el subsistema de búsqueda delega su funcionalidad principal en el servidor de búsqueda.
@@ -15,6 +21,8 @@ Es importante destacar que ésta sección se centrará en el subsistema de datos
 
 \subsection{Vista del punto de entrada de datos}
 \label{vista_receiver}
+\input{capitulos/capitulo05/arquitectura/receiver}
+
 
 \subsection{Vista de los módulos del gestor de contenidos}
 \label{vista_modulos_cms}
