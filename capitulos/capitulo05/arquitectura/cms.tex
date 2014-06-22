@@ -30,7 +30,7 @@ Se describirán ahora los distintos componentes que forman parte del gestor de c
 
 
 \subsubsection{Relación entre los componentes}
-Las peticiones entrantes son procesadas por el núcleo de Drupal.  En cada petición el núcleo de Drupal invoca los módulos que estén suscritos a los \textit{hooks} adecuados para que realicen su funcionalidad:
+Las peticiones entrantes son procesadas por el núcleo de Drupal.  En cada petición el núcleo de Drupal invoca los módulos que estén suscritos a los \textit{hooks} adecuados para que realicen su funcionalidad\footnote{El módulo ``\textit{landportal\_uris}'' será detallado posteriormente en la sección ``\nameref{vista_landportal_uris}'' de éste mismo capítulo.  El resto de módulos propios cuentan simplemente con un único fichero que implementa el \textit{hook} correspondiente por lo que, dada su sencillez, sus vistas se omitirán}:
 \begin{itemize}
 	\item Cuando se crea un nuevo término en la taxonomía se invoca al módulo \textit{taxonomy\_dictionary} para que lo enlace con el término correspondiente en la base de datos.
 	\item Cuando se realiza una petición que no va dirigida a mostrar la vista de administración se invoca al módulo \textit{landportal\_uris} para que provea los datos con los que se renderizarán posteriormente las vistas del tema.  Éste procedimiento será posteriormente detallado en la sección INCLUIR SECCION.
@@ -260,6 +260,8 @@ La tabla \ref{interfaces_cms_landportal_uris} muestra el detalle de las interfac
 		\textbf{hook theme} & Puerto de salida & Llamada a método & Indica al tema que renderice una determinada plantilla para una vista \\
 		\hline
 		\textbf{visualization framework} & Puerto de salida & API Web & Provee datos con los que posteriormente crear las visualizaciones \\
+		\hline
+		\textbf{database} & Puerto de salida & Conexión a base de datos & Obtiene información de la base de datos \\
 	\hline
 	\hline
 \end{longtable}
