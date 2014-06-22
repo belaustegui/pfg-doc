@@ -14,7 +14,7 @@ La figura \ref{fig:diagrama_componentes_cms} muestra el diagrama de los componen
 
 
 \subsubsection{Descripción de los componentes}
-Se describirán ahora los distintos componentes que forman parte del gestor de contenidos.
+Se describirán ahora los distintos componentes que forman parte del gestor de contenidos. La organización de dichos componentes puede verse en la figura \ref{fig:diagrama_componentes_cms}
 \begin{description}
 	\item[Drupal Core]  El núcleo de Drupal implementa la funcionalidad principal del gestor de contenidos.  Es el encargado de procesar y responder a las peticiones, además de coordinar el funcionamiento de los diferentes módulos y temas visuales.
 	\item[Contributed modules]  Los módulos contribuidos son módulos realizados por terceros y que han sido públicamente incluidos en el repositorio de módulos de Drupal.  Éstos módulos amplían la funcionalidad existente en el núcleo de Drupal\footnote{Actualmente existen unos 15.000 módulos que forman parte del repositorio.  Dichos módulos pueden verse en \url{https://www.drupal.org/project/project_module}}.
@@ -33,7 +33,7 @@ Se describirán ahora los distintos componentes que forman parte del gestor de c
 Las peticiones entrantes son procesadas por el núcleo de Drupal.  En cada petición el núcleo de Drupal invoca los módulos que estén suscritos a los \textit{hooks} adecuados para que realicen su funcionalidad\footnote{El módulo ``\textit{landportal\_uris}'' será detallado posteriormente en la sección ``\nameref{vista_landportal_uris}'' de éste mismo capítulo.  El resto de módulos propios cuentan simplemente con un único fichero que implementa el \textit{hook} correspondiente por lo que, dada su sencillez, sus vistas se omitirán}:
 \begin{itemize}
 	\item Cuando se crea un nuevo término en la taxonomía se invoca al módulo \textit{taxonomy\_dictionary} para que lo enlace con el término correspondiente en la base de datos.
-	\item Cuando se realiza una petición que no va dirigida a mostrar la vista de administración se invoca al módulo \textit{landportal\_uris} para que provea los datos con los que se renderizarán posteriormente las vistas del tema.  Éste procedimiento será posteriormente detallado en la sección INCLUIR SECCION.
+	\item Cuando se realiza una petición que no va dirigida a mostrar la vista de administración se invoca al módulo \textit{landportal\_uris} para que provea los datos con los que se renderizarán posteriormente las vistas del tema.
 	\item Cuando se accede a alguno de los nodos pertenecientes a la zona de datos se invoca al módulo \textit{landbook\_nodes\_access} para que realice la redirección hacia la vista adecuada.
 	\item Cuando se crea un nuevo usuario en el portal se invoca al módulo \textit{landportal\_api\_auth} para que cree y almacene sus claves de acceso al API.
 \end{itemize}
