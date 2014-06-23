@@ -4,7 +4,8 @@ A continuación se realizará el análisis preliminar de las clases pertenecient
 	\item gestión de debates
 	\item gestión de eventos
 	\item gestión de noticias
-	\item gestión de entradas del blog
+	\item gestión de organizaciones
+	\item gestión del blog
 	\item gestión de comentarios
 \end{itemize}
 
@@ -82,5 +83,15 @@ La figura \ref{fig:clases_preliminares_modelo_debate} muestra el diagrama de las
 							\item \textbf{Contenido}  Es el contenido del comentario.
 							\item \textbf{Fecha de creación}  Es la fecha en la que el comentario fue creado.  Este campo es almacenado automáticamente por el sistema.
 							\item \textbf{Autor}  Es el usuario registrado que crea el comentario.  Cada comentario tiene un autor, pero un usuario registrado puede ser autor de múltiples comentarios.
+							\end{itemize}
+\item[Organización]  Representa una organización que realiza alguna labor humanitaria o relacionada con la Tierra:
+							\begin{itemize}
+							\item \textbf{Nombre}  Es el nombre de la organización.
+							\item \textbf{Descripción}  Es una descripción larga de la organización y sus objetivos.
+							\item \textbf{Imagen}  Es el logotipo de la organización.
+							\item \textbf{Tópicos relacionados}  Serán los tópicos que guardan alguna relación con los intereses de la organización.  Los tópicos actuarán como metadatos que permitirán enriquecer los resultados de la búsqueda.
+							\item \textbf{Países relacionados}  Serán los países sobre los que la organización trabaja. 
+							\item \textbf{Regiones relacionadas}  Serán las regiones sobre las que la organización tiene presencia.
+							\item \textbf{url}  Será la dirección del sitio web de la organización.
 							\end{itemize}
 \end{description}
