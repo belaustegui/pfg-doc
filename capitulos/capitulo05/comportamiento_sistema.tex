@@ -41,7 +41,7 @@ La figura \ref{fig:diagrama_actividad_framework_soporte_visualizaciones} muestra
 	\item  Si no hay cacheada ninguna petición similar anterior será necesario extraer los datos de la base de datos y construir una respuesta.
 		\begin{enumerate}
 			\item  Primeramente se abre una nueva conexión con la base de datos.  La conexión se realiza a través del componente \textit{DatabaseHelper}, como se puede comprobar en la ``\nameref{vista_landportal_uris}''.
-			\item  Posteriormente se procede al escapado de los argumentos que llegaron originalmente en la petición.  Éste proceso es necesario para evitar posibles ataques del tipo \textit{SQLInjection}\footnote{INCLUIR REFERENCIA}.
+			\item  Posteriormente se procede al escapado de los argumentos que llegaron originalmente en la petición.  Éste proceso es necesario para evitar posibles ataques del tipo \textit{SQL Injection}\footnote{Una inyección de código SQL o \textit{SQL Injection} es un mecanismo de ataque que permite alterar las consultas SQL para obtener información oculta, modificar la información almacenada en la base de datos o ejecutar instrucciones del sistema de gestión de base de datos.  Para obtener más información sobre se recomienda ver la entrada del manual de PHP a cerca de éste tema en \url{http://php.net/manual/en/security.database.sql-injection.php}}.
 			\item  Tras garantizar que los parámetros recibidos son seguros, el sistema procede a realizar las consultas necesarias a la base de datos y recibir la información que devolverá posteriormente.
 			\item  Una vez se haya terminado de trabajar con la base de datos, se cerrará la conexión puesto que no se volverá a utilizar posteriormente.
 		\end{enumerate}
@@ -58,3 +58,24 @@ La figura \ref{fig:diagrama_actividad_framework_soporte_visualizaciones} muestra
 
 \subsection{Llamada a las plantillas de la sección de datos}
 \label{actividad:landportal-uris_theme}
+A continuación se explicará el funcionamiento del módulo ``\textit{landportal-uris}'' en conjunción con el tema del CMS.  En la ``\nameref{vista_modulos_cms}'' puede verse con detalle la organización de ambos componentes como parte del gestor de contenidos.
+
+La figura \ref{fig:diagrama_actividad_vistas} muestra el diagrama de actividad de las llamadas a las plantillas del tema por parte del módulo ``\textit{landportal-uris}''.  Cabe destacar que éste diagrama sólo es aplicable a las plantillas pertenecientes a la sección de datos, puesto que las plantillas de la sección social serán llamadas directamente por el núcleo de Drupal\footnote{El mecanismo utilizado por el núcleo de Drupal para seleccionar las plantillas recibe el nombre de ``\textit{template suggestions}''.  Para más información se recomienda ver el contenido de la documentación de Drupal al respecto en \url{https://www.drupal.org/node/1089656}}.  La actividad está formada por los siguientes pasos:
+\begin{enumerate}
+	\item  En primer lugar, cuando el módulo recibe una petición invoca a un \textit{callback} que se encarga de seleccionar tanto el modelo como la plantilla adecuados.
+		\begin{enumerate}
+			\item  Como se verá posteriormente, el modelo es el encargado de obtener los datos con los que se rellenarán las vistas.  El modelo adecuado para una petición se obtiene mediante un convenio de nombres, por ejemplo una petición a la ruta \textit{country} instanciará el modelo \textit{Country}, de éste modo la creación de nuevas rutas no requiere ningún tipo de configuración adicional.
+			\item  La plantilla contiene el código HTML que se mostrará al usuario.  La plantilla adecuada se obtiene utilizando un convenio de nombres de forma similar a como sucede con el modelo.
+		\end{enumerate}
+	\item  Una vez que se ha obtenido el modelo se procederá a pedirle sus datos.  En este punto es necesario mencionar que la forma en la que los modelos obtienen sus datos es similar a la forma en la que lo hacen las clases del framework de soporte a las visualizaciones.  Todo lo explicado en la sección anterior (``\nameref{actividad:framework_visualizaciones})'' es también aplicable aquí.
+	\item  En caso de que el modelo no devolviera ningún dato indicaría que los parámetros de la petición son incorrectos y, por tanto, la plantilla se cambiará para mostrar un error 404.
+	\item  Tanto si el modelo ha obtenido datos o no, se realizará un preprocesado de la plantilla.  El preprocesado permite incluir algunas variables comunes que son utilizadas por todas las plantillas.
+	\item  Por último se renderizará la plantilla para incluir todos los datos obtenidos del modelo y se devolverá el código HTML resultante al usuario que realizó la petición.
+\end{enumerate}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{actividad/actividad_modulo_vistas}
+	\caption{Diagrama de actividad de la llamada a las plantillas en la sección de datos}
+	\label{fig:diagrama_actividad_vistas}
+\end{figure}
