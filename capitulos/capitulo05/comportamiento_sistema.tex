@@ -1,8 +1,10 @@
 En esta sección se explicarán con detalle algunos aspectos del comportamiento del sistema.  Concretamente se explicará cómo funciona el proceso de importación de datos, el framework de soporte a las visualizaciones y la llamada a las plantillas de la sección de datos.
 
 
+
 \subsection{Proceso de importación de datos}
-A continuación se detallarán los pasos del proceso de importación de datos al portal.  Tal y como se ha explicado en la ``\nameref{vista_sistema}'' éste proceso es realizado por el Punto de Entrada de Datos o \textit{Receiver}.  La arquitectura de dicho componente puede verse con detalle en la sección ``\nameref{vista_receiver}'' del presente capítulo.
+\label{actividad:receiver}
+A continuación se detallarán los pasos del proceso de importación de datos al portal.  Tal y como se ha explicado en la ``\nameref{vista_sistema}'' éste proceso es realizado por el Punto de Entrada de Datos o \textit{Receiver}, perteneciente al subsistema de datos.  La arquitectura de dicho componente puede verse con detalle en la sección ``\nameref{vista_receiver}'' del presente capítulo.
 
 La figura \ref{fig:diagrama_actividad_receiver} muestra el diagrama de actividad del proceso de importación de datos.  Los pasos de dicho proceso son los siguientes:
 \begin{enumerate}
@@ -18,8 +20,7 @@ La figura \ref{fig:diagrama_actividad_receiver} muestra el diagrama de actividad
 		\end{enumerate}
 	\item En ultimo lugar y tras haber ejecutado todos los servicios de persistencia, el Punto de Entrada de Datos finaliza el proceso enviando una respuesta HTTP 200 e indicando que todo ha funcionado correctamente.
 \end{enumerate}
-
-\begin{figure}[ht]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{actividad/actividad_receiver}
 	\caption{Diagrama de actividad del proceso de importación de datos}
@@ -27,7 +28,33 @@ La figura \ref{fig:diagrama_actividad_receiver} muestra el diagrama de actividad
 \end{figure}
 
 
-\subsection{Funcionamiento del framework de soporte a visualizaciones}
 
+\subsection{Funcionamiento del framework de soporte a visualizaciones}
+\label{actividad:framework_visualizaciones}
+A continuación se explicará el funcionamiento del framework que provee los datos necesarios para crear las visualizaciones.  Anteriormente, en la ``\nameref{vista_sistema}'' se explicó que éste componente se sitúa dentro del CMS y forma parte del subsistema de datos y se encarga de ofrecer los datos que se utilizarán por las visualizaciones para presentarlos de forma gráfica al usuario.  La arquitectura de éste componente pude verse en detalle en la  ``\nameref{vista_landportal_uris}'' del presente capítulo.
+
+La figura \ref{fig:diagrama_actividad_framework_soporte_visualizaciones} muestra el diagrama de actividad de éste componente.  Los siguientes pasos tienen lugar durante su actividad.
+\begin{enumerate}
+	\item  En primer lugar, el framework recibe una petición de datos por parte de una visualización para mostrarlos de forma gráfica a un usuario.
+	\item  El primer paso que tiene lugar es la extracción de parámetros de la petición.  Por ejemplo: en caso de necesitar datos sobre una determinada región, uno de los parámetros será el identificador de dicha región.
+	\item  El segundo paso consiste en comprobar si el sistema ha recibido alguna petición similar anteriormente y, por tanto se encuentra almacenada en el caché.  En caso de que una petición anterior con los mismos parámetros se encontrara cacheada, el sistema devuelve los datos del caché y finaliza la ejecución.
+	\item  Si no hay cacheada ninguna petición similar anterior será necesario extraer los datos de la base de datos y construir una respuesta.
+		\begin{enumerate}
+			\item  Primeramente se abre una nueva conexión con la base de datos.  La conexión se realiza a través del componente \textit{DatabaseHelper}, como se puede comprobar en la ``\nameref{vista_landportal_uris}''.
+			\item  Posteriormente se procede al escapado de los argumentos que llegaron originalmente en la petición.  Éste proceso es necesario para evitar posibles ataques del tipo \textit{SQLInjection}\footnote{INCLUIR REFERENCIA}.
+			\item  Tras garantizar que los parámetros recibidos son seguros, el sistema procede a realizar las consultas necesarias a la base de datos y recibir la información que devolverá posteriormente.
+			\item  Una vez se haya terminado de trabajar con la base de datos, se cerrará la conexión puesto que no se volverá a utilizar posteriormente.
+		\end{enumerate}
+	\item  Cuando ya se han obtenido todos los datos necesarios de la base de datos y se haya cerrado la conexión, el sistema procesará los datos para transformarlos al formato JSON en el que se enviará la respuesta.
+	\item  Una vez que los datos ya se encuentran en formato JSON y listos para ser devueltos, el sistema los almacenará en el caché para que, como ya se ha explicado anteriormente, las posteriores peticiones similares no tengan que volver a consultar la base de datos ni volver a procesar los resultados.
+	\item  Por último, se devolverán los datos ya procesados en formato JSON para que sean utilizados por las visualizaciones.
+\end{enumerate}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{actividad/actividad_framework_visualizaciones}
+	\caption{Diagrama de actividad del framework de soporte a visualizaciones}
+	\label{fig:diagrama_actividad_framework_soporte_visualizaciones}
+\end{figure}
 
 \subsection{Llamada a las plantillas de la sección de datos}
+\label{actividad:landportal-uris_theme}
