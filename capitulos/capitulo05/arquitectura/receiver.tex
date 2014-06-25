@@ -21,7 +21,7 @@ Tras haber mostrado el diagrama de los componentes que forman parte del punto de
 \begin{description}
 	\item[Router]  El enrutador se encarga de dirigir las peticiones HTTP que provienen del exterior hacia el controlador.  También es el encargado de responder a las peticiones que no se correspondan con ningún controlador, o que no utilicen un verbo adecuado.
 	\item[Controller (Receiver)]  El controlador se encarga de las peticiones de inserción de datos.  Su misión es comprobar si la petición que recibe tiene una forma adecuada y llamar a los distintos servicios para que procesen los datos.
-	\item[Parser]  El parser es el encargado de transformar los datos provenientes de las peticiones externas a un modelo de datos que será utilizado por los servicios para realizar los diferentes procesados.  El modelo de datos será visto con más detalle en la sección ``\nameref{diseno_base_datos}'' de éste mismo capítulo.
+	\item[Parser]  El parser es el encargado de transformar los datos provenientes de las peticiones externas a un modelo de datos que será utilizado por los servicios para realizar los diferentes procesados.  El modelo de datos será visto con más detalle en la sección ``\nameref{diseno_modelo_datos}'' de éste mismo capítulo.
 	\item[SQLService]  El servicio de SQL se encarga de procesar los datos que llegan al punto de entrada y generar las consultas necesarias para almacenarlos en una base de datos relacional.  Éste servicio delega la generación de consultas SQL al ORM.
 	\item[ORM]  El Mapeador Objeto-Relacional actúa como una capa de abstracción sobre la base de datos y permite al desarrollador trabajar con objetos sin necesidad de ocuparse de su transformación al modelo relacional.
 	\item[RDFService]  El servicio de RDF se encarga de procesar los datos que llegan al punto de entrada y generar los grafos RDF que serán almacenados en el servidor semántico.
@@ -30,7 +30,7 @@ Tras haber mostrado el diagrama de los componentes que forman parte del punto de
 
 
 \subsubsection{Relacion entre los componentes}
-Las peticiones provenientes de los importadores llegan al enrutador.  El enrutador redirige las peticiones que utilicen un verbo adecuado hacia el controlador, quien comprueba si la petición cuenta con todos los parámetros necesarios.
+Las peticiones provenientes de los importadores llegan al enrutador.  El enrutador redirige las peticiones que utilicen un verbo adecuado (POST) hacia el controlador, quien comprueba si la petición cuenta con todos los parámetros necesarios.
 
 Si la petición cuenta con los parámetros adecuados, el controlador llama a cada uno de los servicios para que realicen su trabajo.  Los distintos servicios utilizarán a su vez el parser para convertir la información que proviene de la petición a un modelo de datos con el que ellos pueden trabajar.
 
@@ -61,7 +61,7 @@ La tabla \ref{interfaces_receiver_receiver} muestra el detalle de las interfaces
  \hline
  \endfoot
  
-	\textbf{getData} & Proveída & Servicio web REST & Recibe las peticiones procedentes del exterior \\
+	\textbf{HTTP Request} & Proveída & Servicio web REST & Recibe las peticiones procedentes del exterior \\
 	\hline
 		
 	\textbf{HTTP Response} & Proveída & Servicio web REST & Responde a las peticiones HTTP recibidas \\
@@ -106,7 +106,7 @@ La tabla \ref{interfaces_receiver_receiver} muestra el detalle de las interfaces
   \hline
   \endfoot
   
- 	\textbf{request} & Puerto de entrada & Servicio web REST & Recibe las peticiones procedentes del exterior \\
+ 	\textbf{HTTP Request} & Puerto de entrada & Servicio web REST & Recibe las peticiones procedentes del exterior \\
  	\hline
  	
  	\textbf{receiver} & Puerto de salida & Llamada a método & Pasa la petición al controlador correspondiente tras haber comprobado que utiliza el verbo adecuado \\
