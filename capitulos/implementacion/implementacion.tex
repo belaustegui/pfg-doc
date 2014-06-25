@@ -1,0 +1,37 @@
+En esta sección se detallarán los aspectos más importantes de la implementación del sistema, desde los lenguajes de programación y herramientas utilizadas hasta los principales problemas surgidos durante el desarrollo y sus soluciones.
+
+
+\section{Lenguajes de programación utilizados}
+\label{implementacion:lenguajes_programacion}
+
+A continuación se describirán los lenguajes de programación utilizados y sus respectivas versiones.
+\begin{description}
+	\item[PHP]
+		Para el desarrollo de los módulos pertenecientes al gestor de contenidos, así como las plantillas del tema visual, se ha utilizado el lenguaje PHP (\textit{PHP: Hypertext Preprocessor}).  La versión del lenguaje PHP utilizada es la 5.5\footnote{La versión 5.5 del lenguaje PHP incluye, entre otras características, soporte a generadores y capacidad de iteración por cualquier tipo de clave (no sólo numérica) en los bucles \textit{foreach}.  Para una mayor información al respecto se recomienda leer el anuncio oficial en \url{http://php.net/releases/5_5_0.php}}.  La única extensión de PHP utilizada ha sido APC (\textit{Alternative PHP Cache}), que permite cachear y optimizar el código intermedio de PHP con el objetivo de aumentar el rendimiento siempre que sea posible, el uso de éste caché puede verse descrito en la sección ``\nameref{actividad:framework_visualizaciones}'' perteneciente al capítulo \ref{chapter05}.
+	\item[Python]
+		Para el desarrollo del Punto de Entrada de Datos (o \textit{Receiver}) se ha utilizado el lenguaje Python en su versión 2.7. Se ha decidido utilizar la versión 2.7 de Python debido a que las versiones 3.x contienen varias incompatibilidades con las anteriores versiones, éstas incompatibilidades provocan que la existencia de librerías externas sea más reducida.  En el PEP (\textit{Python Enhancement Proposal}) 373\footnote{El PEP 373 está disponible para su consulta en \url{http://legacy.python.org/dev/peps/pep-0373/}} se establece que la versión 2.7 de Python estará soportada hasta el año 2020..  En la posterior sección ``\nameref{implementacion:herramientas_utilizadas}'' se explicarán las herramientas que se han utilizado para aislar el entorno y gestionar las dependencias externas.
+	\item[SQL]
+		Para interactuar con la base de datos se ha utilizado el lenguaje SQL, Cabe destacar que todas las consultas realizadas se adhieren a la especificación de SQL estándar y no utilizan características propias de ningún sistema de gestión de bases de datos.
+	\item[Otros]
+		A pesar de no ser lenguajes de programación como tal, también se incluirán algunos lenguajes que se han utilizado en varias partes del sistema.
+		\begin{itemize}
+			\item \textbf{XML}
+				Para el intercambio de datos entre los importadores y el Punto de Entrada de Datos se ha utilizado el lenguaje de marcas XML (\textit{Extensible Markup Language}).  A pesar de la existencia de otros lenguajes con un objetivo similar (JSON es uno de ellos y se verá a continuación) se ha decidido utilizar XML para ésta tarea por su capacidad para validar la estructura del documento contra un esquema dado.
+			\item \textbf{JSON}
+			Para el envío de datos a las vistas y visualizaciones se ha utilizado el formato JSON (\textit{JavaScript Object Notation}).  Se ha utilizado JSON por ser un formato mucho más ligero que XML.  Además, puesto que en éstos casos los datos provienen desde dentro del sistema, se garantiza su integridad.
+				\begin{enumerate}
+				\item
+					El formato JSON también se ha utilizado para albergar varios ficheros de configuración, como se puede ver en la ``\nameref{vista_landportal_uris}''.  A pesar de la existencia de otros formatos como YAML (\textit{YAML Ain't Markup Language}) se ha decidido utilizar JSON por consistencia con el resto de partes del sistema.
+				\end{enumerate}
+			\item \textbf{HTML y CSS}
+			Toda la interfaz web del portal se ha desarrollado utilizando el lenguaje HTML 5 para crear el contenido de las diferentes páginas, así como el lenguaje CSS 3 para dar estilo a las mismas.
+		\end{itemize}
+\end{description}
+
+
+\section{Herramientas utilizadas}
+\label{implementacion:herramientas_utilizadas}
+
+
+\section{Problemas encontrados}
+\label{implementacion:problemas_encontrados}
