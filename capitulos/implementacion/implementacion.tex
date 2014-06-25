@@ -18,19 +18,33 @@ A continuación se describirán los lenguajes de programación utilizados y sus 
 			\item \textbf{XML}
 				Para el intercambio de datos entre los importadores y el Punto de Entrada de Datos se ha utilizado el lenguaje de marcas XML (\textit{Extensible Markup Language}).  A pesar de la existencia de otros lenguajes con un objetivo similar (JSON es uno de ellos y se verá a continuación) se ha decidido utilizar XML para ésta tarea por su capacidad para validar la estructura del documento contra un esquema dado.
 			\item \textbf{JSON}
-			Para el envío de datos a las vistas y visualizaciones se ha utilizado el formato JSON (\textit{JavaScript Object Notation}).  Se ha utilizado JSON por ser un formato mucho más ligero que XML.  Además, puesto que en éstos casos los datos provienen desde dentro del sistema, se garantiza su integridad.
-				\begin{enumerate}
-				\item
-					El formato JSON también se ha utilizado para albergar varios ficheros de configuración, como se puede ver en la ``\nameref{vista_landportal_uris}''.  A pesar de la existencia de otros formatos como YAML (\textit{YAML Ain't Markup Language}) se ha decidido utilizar JSON por consistencia con el resto de partes del sistema.
+				Para el envío de datos a las vistas y visualizaciones se ha utilizado el formato JSON (\textit{JavaScript Object Notation}).  Se ha utilizado JSON por ser un formato mucho más ligero que XML.  Además, puesto que en éstos casos los datos provienen desde dentro del sistema, se garantiza su integridad.
+					\begin{enumerate}
+						\item
+							El formato JSON también se ha utilizado para albergar varios ficheros de configuración, como se puede ver en la ``\nameref{vista_landportal_uris}''.  A pesar de la existencia de otros formatos como YAML (\textit{YAML Ain't Markup Language}) se ha decidido utilizar JSON por consistencia con el resto de partes del sistema.
 				\end{enumerate}
 			\item \textbf{HTML y CSS}
-			Toda la interfaz web del portal se ha desarrollado utilizando el lenguaje HTML 5 para crear el contenido de las diferentes páginas, así como el lenguaje CSS 3 para dar estilo a las mismas.
+				Toda la interfaz web del portal se ha desarrollado utilizando el lenguaje HTML 5 para crear el contenido de las diferentes páginas, así como el lenguaje CSS 3 para dar estilo a las mismas.
 		\end{itemize}
 \end{description}
 
 
 \section{Herramientas utilizadas}
 \label{implementacion:herramientas_utilizadas}
+
+A continuación se describirán las herramientas utilizadas durante el desarrollo del sistema.
+\begin{description}
+	\item[PyCharm]
+		Para el desarrollo del Punto de Entrada de Datos se ha utilizado el entorno de desarrollo integrado PyCharm en su versión 3.3 y 3.4.  PyCharm es un IDE para el desarrollo en lenguaje Python desarrollado por JetBrains\footnote{\url{http://www.jetbrains.com/pycharm/}}.
+	\item[Editor de texto]
+		Para el desarrollo del código PHP que forma parte de los módulos de Drupal se ha utilizado en primer lugar el editor de texto Sublime Text 2\footnote{\url{http://www.sublimetext.com/2}} y posteriormente el editor Atom\footnote{\url{https://atom.io/}}.  Se ha decidido cambiar desde Sublime Text a Atom debido a ser éste último un producto de código abierto, gratuito y con un desarrollo muy activo.
+	\item[VirtualEnv]
+		Se ha utilizadoo la herramienta VirtualEnv\footnote{\url{http://virtualenv.readthedocs.org/en/latest/virtualenv.html}} para crear entornos de Python aislados.  Utilizar entornos aislados permite instalar librerías y paquetes sin que colisionen entre los diferentes entornos existentes, también permite mantener múltiples intérpretes de Python funcionando de forma simultánea.
+	\item[PIP]
+		En conjunción con la herramienta VirtualEnv mencionada anteriormente, también se ha utilizado la herramienta PIP\footnote{\url{https://pypi.python.org/pypi/pip}} para gestionar los distintos paquetes y dependencias.  PIP permite descargar e instalar de forma automática paquetes externos junto a sus dependencias, también permite especificar todas las dependencias en un único fichero de texto.
+	\item[Git y GitHub]
+		Durante todo el desarrollo se ha utilizado Git\footnote{\url{http://www.git-scm.com/}} como sistema de control de versiones.  En conjunción con Git, se ha utilizado GitHub\footnote{\url{https://github.com/}} como \textit{hosting} para los distintos repositorios que forman parte del sistema.
+\end{description}
 
 
 \section{Problemas encontrados}
