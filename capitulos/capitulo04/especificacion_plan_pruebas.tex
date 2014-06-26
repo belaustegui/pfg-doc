@@ -19,17 +19,31 @@ Según la opinión de diferentes autores (entre ellos el propio Martin Fowler, c
 
 Estas pruebas se realizarán sobre el subsistema de datos, concretamente sobre el componente de inserción de datos, a lo largo de todo su desarrollo.
 \begin{itemize}
-\item En primer lugar se utilizará una metodología de Desarrollo Dirigido por Pruebas (o TDD)\footnote{El desarrollo dirigido por pruebas es una metodología de desarrollo de software creada por Kent Beck en 1990.  Para más información al respecto, se recomienda el libro ``Test Driven Development'' \cite{kbeck:test-driven-development}}, donde para cada nueva funcionalidad que se añada al sistema se desarrollarán los casos de prueba antes de su implementación.
+\item En primer lugar se utilizará una metodología de Desarrollo Dirigido por Pruebas (o TDD)\footnote{El desarrollo dirigido por pruebas es una metodología de desarrollo de software creada por Kent Beck en 1990.  Para más información al respecto, se recomienda el libro ``Test Driven Development'' \cite{kbeck:test-driven-development}}, donde para cada nueva funcionalidad que se añada al sistema se desarrollarán los casos de prueba antes de su implementación.  El Desarrollo Dirigido por Pruebas repite los siguientes pasos continuamente:
+	\begin{enumerate}
+		\item
+			Antes de añadir una nueva funcionalidad escribir uno o varios tests para ella.  Puesto que la funcionalidad aún no está implementada, los tests fallarán.
+		\item
+			Implementar la funcionalidad hasta que pase correctamente los tests diseñados anteriormente.
+		\item
+			Refactorizar el código cuando sea necesario.  Puesto que los tests ya están escritos, se puede comprobar rápidamente si la refactorización ha introducido nuevos errores en el código.
+	\end{enumerate}
 \item En segundo lugar, y con el objetivo de automatizar éste proceso y notificar al equipo de desarrollo de posibles fallos en los casos de prueba que hayan podido pasar desapercibidos, las pruebas descritas en el punto anterior se acompañarán de la ayuda de un servidor de integración continua\footnote{Una posible definición de integración continua, extraída de \cite{mfowler:continuous-integration} es: ``\textit{Continuous Integration is a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible.}''}.  Por su utilidad y su capacidad de integración con GitHub (plataforma de control de versiones con la que se desarrollará éste proyecto) se utilizará el servidor de integración continua Travis-CI\footnote{\url{https://travis-ci.org/}}.
 \end{itemize}
 
+Las ventajas que el uso de un servidor de integración continua como Travis-CI aporta al proceso de desarrollo de software son varias, entre ellas destacan la automatización y la notificación de los resultados de las pruebas a las partes implicadas.  La siguiente cita de Martin Fowler \cite{mfowler:continuous-integration} puede ayudar al lector a comprender la funcionalidad de éste tipo de servidores:
+\begin{quote}
+	``\textit{A continuous integration server acts as a monitor to the repository. Every time a commit against the repository finishes the server automatically checks out the sources onto the integration machine, initiates a build, and notifies the committer of the result of the build. The committer isn't done until she gets the notification - usually an email.}''
+\end{quote}
 
-\subsection{Pruebas de sistema}
-Las pruebas de sistema tiene lugar sobre el sistema completo con el fin de comprobar si todos los componentes del mismo interactúan correctamente entre sí y si el sistema construido se ajusta correctamente a los requisitos y necesidades del cliente.
 
-Éste tipo de pruebas tendrán lugar a lo largo de todo el proceso de desarrollo, puesto que se contará con un servidor especial en donde se integrarán las nuevas versiones del sistema según se vayan construyendo.  Este servidor estará continuamente disponible, el cliente accederá a dicho servidor, probará los diferentes aspectos del sistema y ofrecerá \textit{feedback} a los desarrolladores con aquellos posibles fallos o cuestiones que encuentre.  Será tarea del jefe de proyecto filtrar los reportes recibidos de los clientes y separar aquellos que son fallos reales o posibles mejoras de aquellos que no lo son.
+\subsection{Pruebas de aceptación}
+Las pruebas de aceptación consisten en comprobar que el sistema realizado satisface las necesidades del usuario y el usuario \textit{acepta} la solución creada.  Normalmente las pruebas de aceptación son realizadas por el cliente del sistema que se construye y tienen lugar en las últimas fases del desarrollo del sistema.  Las pruebas de aceptación funcionan como una verificación final de que el sistema cumple con los requisitos y funciona de una forma adecuada para los usuarios.
+En éste proyecto las pruebas de aceptación se realizarán en forma de pruebas beta.
 
-Concretamente, las pruebas de sistema comenzarán cuando exista una primera versión con alguna parte de funcionalidad visible para el cliente y se alargarán hasta el final del desarrollo, teniendo un especial énfasis en las fases finales del mismo.
+Las pruebas beta se realizarán durante la última fase de desarrollo.  Concretamente tendrán lugar a lo largo de una semana en la que se contará con un servidor especial en el cual se desplegará la última versión estable del sistema.  Este servidor estará continuamente disponible, el cliente accederá a dicho servidor, probará los diferentes aspectos del sistema y ofrecerá \textit{feedback} a los desarrolladores con aquellos posibles fallos o cuestiones que encuentre.
+
+Una vez recibidos los reportes será tarea del jefe de proyecto filtrarlos y separar aquellos que son fallos reales o posibles mejoras de aquellos que no lo son, y será tarea del equipo de desarrollo arreglar los fallos encontrados para obtener una versión final del sistema.
 
 
 \subsection{Pruebas de rendimiento}
