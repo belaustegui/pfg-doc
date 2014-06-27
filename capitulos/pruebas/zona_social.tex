@@ -1,0 +1,410 @@
+
+\subsubsection{Subsistema de gestión de usuarios}
+La tabla \ref{table:casos_prueba_usuarios} muestra los casos de prueba del subsistema de gestión de usuarios.
+
+
+\begin{landscape}
+	\begin{longtable}[c]{|p{50mm}|p{50mm}|p{50mm}|p{50mm}|}
+	 \caption{Casos de prueba del subsistema de gestión de usuarios\label{table:casos_prueba_usuarios}}\\
+	
+	 %Cabecera en la primera pagina
+	 \hline
+	 \multicolumn{4}{|c|}{\textbf{Casos de prueba del subsistema de gestión de usuarios}}\\
+	 \hline
+	 \textbf{Descripción} & \textbf{Proceso de prueba} & \textbf{Resultado esperado} & \textbf{Resultado obtenido}\\
+	 \hline
+	 \hline
+	 \endfirsthead
+	 
+	 %Cabecera en el resto de páginas
+	 \hline
+	 \multicolumn{4}{|c|}{Continuación de la tabla \ref{table:casos_prueba_usuarios}}\\
+	 \hline
+	 \textbf{Descripción} & \textbf{Proceso de prueba} & \textbf{Resultado esperado} & \textbf{Resultado obtenido}\\
+	 \hline
+	 \hline
+	 \endhead
+	 
+	 \hline
+	 \endfoot
+	 
+	Registrar un nuevo usuario con un nombre y email no existentes en el sistema & Acceder al formulario de registro e introducir los como nombre de usuario ``\textit{prueba}'' y como email ``\textit{prueba@example.com}''.  El resto de campos pueden tener cualquier valor siempre que se rellenen los campos obligatorios & La nueva cuenta de usuario se crea correctamente y con estado bloqueado & Resultado esperado\\
+	\hline
+	Registrar un nuevo usuario con un nombre ya existente en el sistema & Acceder al formulario de registro e introducir como nombre de usuario ``\textit{prueba}'' y como email ``\textit{prueba2@example.com}''.  El resto de campos pueden tener cualquier valor siempre que se rellenen los campos obligatorios & El sistema no crea la cuenta de usuario y notifica de que el nombre no puede utilizarse & Resultado esperado\\
+	\hline
+	Registrar un nuevo usuario con un email ya existente en el sistema & Acceder al formulario de registro e introducir como nombre de usuario ``\textit{prueba2}'' y como email ``\textit{prueba@example.com}''.  El resto de campos pueden tener cualquier valor siempre que se rellenen los campos obligatorios & El sistema no crea la cuenta de usuario y notifica de que el email no puede utilizarse & Resultado esperado\\
+	\hline
+	Registrar un nuevo usuario con un nombre inválido & Acceder al formulario de registro e introducir como nombre de usuario ``\textit{prueba,3}'' y como email ``\textit{prueba3@example.com}''.  El resto de campos pueden tener cualquier valor siempre que se rellenen los campos obligatorios & El sistema no crea la cuenta de usuario y notifica de que el nombre contiene caracteres incorrectos & Resultado esperado\\
+	\hline
+	Registrar un nuevo usuario con un email inválido & Acceder al formulario de registro e introducir como nombre de usuario ``\textit{prueba3}'' y como email ``\textit{correofalso}''.  El resto de campos pueden tener cualquier valor siempre que se rellenen los campos obligatorios & El sistema no crea la cuenta de usuario y notifica de que el email tiene un formato inválido & Resultado esperado\\
+	\hline
+	Registrar un nuevo usuario sin rellenar todos los campos obligatorios & Acceder al formulario de registro e introducir como email ``\textit{prueba3@example.com}''. El resto de campos puede tener cualquier valor salvo el nombre, que se dejará en blanco & El sistema no crea la cuenta de usuario y notifica de que el nombre debe ser introducido & Resultado esperado\\
+	\hline
+	Iniciar sesión en el sistema con un usuario bloqueado & Acceder al formulario de login e intentar iniciar sesión con el usuario ``\textit{prueba}'' & El sistema no permite el inicio de sesión puesto que el usuario está bloqueado & Resultado esperado. \\
+	\hline
+	Activar un usuario bloqueado & Acceder a la vista de administración y activar al usuario ``\textit{prueba}'', que se encuentra bloqueado & El sistema cambiará el estado del usuario y enviará un correo indicándole que establezca su contraseña para iniciar sesión en el sistema & Falla.  Se produce un error al enviar el correo electrónico, aunque el estado del usuario se cambia a activo correctamente\\
+	\hline
+	Iniciar sesión en el sistema con un usuario activado & Acceder al formulario de login e introducir como nombre ``\textit{prueba}'' y como contraseña la que haya establecido el usuario & El sistema permite iniciar sesión correctamente al usuario & Resultado esperado\\
+	\hline
+	Iniciar sesión en el sistema con campos vacíos & Acceder al formulario de login e introducir como nombre ``\textit{prueba}'', dejar el campo contraseña vacío e iniciar sesión & El sistema no permitirá iniciar sesión por haber dejado campos vacíos en el formulario & Resultado esperado\\
+	\hline
+	Iniciar sesión en el sistema con una contraseña incorrecta & Acceder al formulario de login e introducir como nombre ``\textit{prueba}'' y como contraseña un diferente a la escogida por el usuario & El sistema no permitirá iniciar sesión porque la contraseña es incorrecta & Resultado esperado\\
+	\hline
+	Un usuario anónimo accede al perfil de un usuario registrado & Sin haber iniciado sesión en el sistema acceder a la vista de perfil de un usuario registrado & El sistema no permite que los usuarios anónimos vean los perfiles de los usuarios registrados y mostrará la página de error & Resultado esperado\\
+	\hline
+	Un usuario registrado accede al perfil de otro usuario registrado & Habiendo iniciado sesión en el sistema acceder a la vista de perfil de un usuario registrado & El sistema mostrará los datos del perfil del usuario & Resultado esperado\\
+	\hline
+	Un usuario registrado accede al perfil de otro usuario con capacidad de acceso al API & Habiendo iniciado sesión en el sistema acceder a la vista de perfil de un usuario con capacidad de acceso al API & El sistema mostrará los datos del perfil del usuario excepto la clave de acceso al API & Resultado esperado\\
+	\hline
+	Un usuario registrado accede a su perfil & Habiendo iniciado sesión en el sistema acceder a la vista del propio perfil & El sistema mostrará los datos del usuario e incluirá un botón para editar la información de su perfil & Resultado esperado\\
+	\hline
+	Un usuario con capacidad de acceso al API accede a su perfil & Habiendo iniciado sesión en el sistema con una cuenta de usuario que tenga capacidad de acceso al API acceder a la vista del propio perfil & El sistema mostrará los datos del usuario incluyendo la clave de acceso al API y un botón para editar la información del perfil & Resultado esperado\\
+	\hline
+	Un usuario cierra sesión en el sistema & Habiendo iniciado sesión en el sistema pulsar el botón para cerrar sesión & El sistema cerrará la sesión del usuario y redirigirá a la página de inicio del portal & Resultado esperado\\
+	\hline
+	Dar permisos de acceso al API a un usuario registrado & Habiendo iniciado sesión como administrador acceder a la vista de usuarios del sistema y modificar el rol de un usuario registrado para darle permisos de acceso al API & Cuando el usuario modificado inicie sesión y acceda a la vista de su perfil podrá ver su clave de acceso al API junto con el resto de sus datos & Resultado esperado\\
+	\hline
+	Dar permisos de administración a un usuario registrado & Habiendo iniciado sesión como administrador acceder a la vista de usuarios del sistema y modificar el rol de un usuario registrado para darle permisos de administración & Cuando el usuario modificado inicie sesión podrá ver la barra superior de administración y realizar las tareas reservadas para el rol de administrador del sistema & Resultado esperado\\
+	\hline
+	\hline
+	
+	 \end{longtable}
+\end{landscape}
+
+\begin{landscape}
+	\subsubsection{Subsistema de gestión de entradas del blog}
+	La tabla \ref{table:casos_prueba_blog} muestra los casos de prueba del subsistema de gestión de entradas del blog.
+	
+	\begin{longtable}[c]{|p{50mm}|p{50mm}|p{50mm}|p{50mm}|}
+	 \caption{Casos de prueba del subsistema de gestión de entradas del blog\label{table:casos_prueba_blog}}\\
+	
+	 %Cabecera en la primera pagina
+	 \hline
+	 \multicolumn{4}{|c|}{\textbf{Casos de prueba del subsistema de gestión de entradas del blog}}\\
+	 \hline
+	 \textbf{Descripción} & \textbf{Proceso de prueba} & \textbf{Resultado esperado} & \textbf{Resultado obtenido}\\
+	 \hline
+	 \hline
+	 \endfirsthead
+	 
+	 %Cabecera en el resto de páginas
+	 \hline
+	 \multicolumn{4}{|c|}{Continuación de la tabla \ref{table:casos_prueba_blog}}\\
+	 \hline
+	 \textbf{Descripción} & \textbf{Proceso de prueba} & \textbf{Resultado esperado} & \textbf{Resultado obtenido}\\
+	 \hline
+	 \hline
+	 \endhead
+	 
+	 \hline
+	 \endfoot
+	 
+	Crear una nueva entrada en el blog como administrador & Habiendo iniciado sesión en el portal como administrador acceder a la vista del blog y pulsar el botón para crear una nueva entrada.  Rellenar el formulario de creación de una entrada sin dejar ningún campo obligatorio en blanco y guardar los cambios & La nueva entrada aparece como la más reciente del blog y los usuarios pueden acceder a ella & Resultado esperado\\
+	\hline
+	Crear una nueva entrada en el blog sin ser administrador & Habiendo iniciado sesión en el portal como un usuario sin privilegios de administración acceder a la vista del blog e intentar crear una nueva entrada & El botón para crear una nueva entrada no se mostrará y el usuario no podrá crear la entrada & Resultado esperado\\
+	\hline
+	Ver una entrada del blog como usuario anónimo & Como usuario anónimo acceder a la vista del blog y pulsar sobre una entrada cualquiera & El sistema mostrará la entrada en detalle y los comentarios si existen & Resultado esperado\\
+	\hline
+	Ver una entrada del blog como usuario registrado & Habiendo iniciado sesión en el portal como un usuario sin privilegios de administración acceder a la vista del blog y pulsar sobre una entrada cualquiera & El sistema mostrará la entrada en detalle a los comentarios también permitirá al usuario crear nuevos comentarios & Resultado esperado \\
+	\hline
+	Ver una entrada del blog como administrador & Habiendo iniciado sesión en el portal como administrador acceder a la vista del blog y pulsar sobre una entrada cualquiera & El sistema mostrará la entrada en detalle y los comentarios, permitirá agregar nuevos comentarios y también mostrará los botones para editar y eliminar la entrada & Resultado esperado\\
+	\hline
+	Editar una entrada del blog como administrador & Habiendo iniciado sesión en el portal como administrador acceder a la vista del blog y pulsar sobre una entrada cualquiera.  Una vez en la vista de detalle de la entrada pulsar sobre el botón correspondiente para editar su contenido.  Rellenar el formulario de modificación de la entrada sin dejar ningún campo obligatorio en blanco y guardar los cambios & El sistema actualiza la entrada con los nuevos datos & Resultado esperado\\
+	\hline
+	Editar una entrada del blog como administrador & Habiendo iniciado sesión en el portal como administrador acceder a la vista del blog y pulsar sobre una entrada cualquiera.  Una vez en la vista de detalle de la entrada pulsar sobre el botón correspondiente para editar su contenido.  Rellenar el formulario de modificación de la entrada dejando algún campo obligatorio en blanco y guardar los cambios & El sistema no modifica la entrada y avisa al usuario de que algún campo requerido se ha dejado en blanco & Resultado esperado\\
+	\hline
+	Editar una entrada del blog sin ser administrador & Habiendo iniciado sesión en el portal como un usuario sin privilegios de administración acceder a la vista del blog y pulsar sobre una entrada cualquiera.  Una vez en la vista de la entrada intentar modificar su contenido & El sistema no muestra el botón de modificación de la entrada & Resultado esperado\\
+	\hline
+	Eliminar una entrada del blog como administrador & Habiendo iniciado sesión en el portal como administrador acceder a la vista del blog y pulsar sobre una entrada cualquiera.  Una vez en la vista de la entrada pulsar sobre el botón correspondiente para su eliminación & El sistema elimina la entrada del blog & Resultado esperado\\
+	\hline
+	Eliminar una entrada del blog sin ser administrador & Habiendo iniciado sesión en el portal como un usuario sin privilegios de administración acceder a la vista del blog y pulsar sobre una entrada cualquiera.  Una vez en la vista de la entrada intentar eliminarla & El sistema no muestra el botón de eliminación de la entrada & Resultado esperado\\
+	\hline
+	\hline
+	
+	 \end{longtable}
+\end{landscape} 
+	 
+\begin{landscape}
+	 \subsubsection{Subsistema de gestión de debates}
+	 	La tabla \ref{table:casos_prueba_debates} muestra los casos de prueba del subsistema de gestión de debates.
+	 	
+	 	\begin{longtable}[c]{|p{50mm}|p{50mm}|p{50mm}|p{50mm}|}
+	 	 \caption{Casos de prueba del subsistema de gestión de debates\label{table:casos_prueba_debates}}\\
+	 	
+	 	 %Cabecera en la primera pagina
+	 	 \hline
+	 	 \multicolumn{4}{|c|}{\textbf{Casos de prueba del subsistema de gestión de debates}}\\
+	 	 \hline
+	 	 \textbf{Descripción} & \textbf{Proceso de prueba} & \textbf{Resultado esperado} & \textbf{Resultado obtenido}\\
+	 	 \hline
+	 	 \hline
+	 	 \endfirsthead
+	 	 
+	 	 %Cabecera en el resto de páginas
+	 	 \hline
+	 	 \multicolumn{4}{|c|}{Continuación de la tabla \ref{table:casos_prueba_debates}}\\
+	 	 \hline
+	 	 \textbf{Descripción} & \textbf{Proceso de prueba} & \textbf{Resultado esperado} & \textbf{Resultado obtenido}\\
+	 	 \hline
+	 	 \hline
+	 	 \endhead
+	 	 
+	 	 \hline
+	 	 \endfoot
+	 	 
+	 	Crear un nuevo debate como usuario anónimo & Sin iniciar sesión en el portal acceder a la vista de debates e intentar crear un nuevo debate & El sistema no mostrará el botón de creación de un nuevo debate & Resultado esperado\\
+	 	\hline
+	 	Crear un nuevo debate como usuario registrado & Habiendo iniciado sesión en el portal acceder a la vista de debates y pulsar en el botón correspondiente para crear un nuevo debate.  En el formulario rellenar todos los campos requeridos y pulsar el botón de guardar & El sistema crea el debate con los comentarios cerrados y estado ``próximamente'' & Resultado esperado\\
+	 	\hline
+	 	Crear un nuevo debate como usuario registrado con datos insuficientes & Habiendo iniciado sesión en el portal acceder a la vista de debates y pulsar en el botón correspondiente para crear un nuevo debate.  En el formulario dejar algún campo obligatorio en blanco y pulsar el botón de guardar & El sistema no crea el debate y notifica al usuario de que algunos campos se han dejado en blanco & Resultado esperado\\
+	 	\hline
+	 	Acceder a un debate como usuario registrado & Habiendo iniciado sesión en el portal como un usuario sin privilegios de administración acceder a la vista de debates y pulsar sobre un debate creado por otro usuario & El sistema muestra la vista de detalle del debate pero no incluye el botón de eliminar ni modificar el debate & Resultado esperado\\
+	 	\hline
+	 	Acceder a un debate como autor & Habiendo iniciado sesión en el portal como un usuario sin privilegios de administración acceder a la vista de debates y pulsar sobre un debate creado por el propio usuario & El sistema muestra la vista de detalle del debate incluyendo un botón para eliminar el debate & Resultado esperado\\
+	 	\hline
+	 	Acceder a un debate como administrador & Habiendo iniciado sesión en el portal como administrador acceder a la vista de debates y pulsar sobre un debate creado por otro usuario & El sistema muestra la vista de detalle del debate incluyendo un botón para eliminar el debate y otro para modificar su contenido & Resultado esperado\\
+	 	\hline
+	 	Editar un debate & Habiendo iniciado sesión en el portal como administrador acceder a la vista de debates y pulsar sobre un debate.  Una vez en la vista del debate pulsar sobre el botón correspondiente para editar su contenido.  En el formulario rellenar todos los campos obligatorios y guardar los cambios & El sistema modifica la información del debate & Resultado esperado \\
+	 	\hline
+	 	Editar un debate con datos insuficientes & Habiendo iniciado sesión en el portal como administrador acceder a la vista de debates y pulsar sobre un debate.  Una vez en la vista del debate pulsar sobre el botón correspondiente para editar su contenido.  En el formulario dejar en blanco algún campo obligatorio y guardar los cambios & El sistema no modifica la información del debate y notifica al usuario de que algunos campos se han dejado en blanco & Resultado esperado \\
+	 	\hline
+	 	Abrir un debate & Habiendo iniciado sesión como administrador acceder a la vista de debates y pulsar sobre un debate con estado ``próximamente''.  Una vez en la vista del debate pulsar en el botón correspondiente para su modificación, cambiar su estado a ``abierto'' y abrir los comentarios & El sistema cambia el estado del debate y permite que los usuarios creen nuevos comentarios & Resultado esperado\\
+	 	\hline
+	 	Cerrar un debate & Habiendo iniciado sesión como administrador acceder a la vista de debates y pulsar sobre un debate con estado ``abierto''.  Una vez en la vista del debate pulsar en el botón correspondiente para su modificación, cambiar su estado a ``cerrado'' y cerrar los comentarios & El sistema cambia el estado del debate y no permite que los usuarios creen nuevos comentarios & Resultado esperado\\
+	 	\hline
+	 	\hline
+	 	
+	 	 \end{longtable}
+\end{landscape}
+
+
+\begin{landscape}
+	 \subsubsection{Subsistema de gestión de eventos}
+	 	La tabla \ref{table:casos_prueba_eventos} muestra los casos de prueba del subsistema de gestión de eventos.
+	 	
+	 	\begin{longtable}[c]{|p{50mm}|p{50mm}|p{50mm}|p{50mm}|}
+	 	 \caption{Casos de prueba del subsistema de gestión de eventos\label{table:casos_prueba_eventos}}\\
+	 	
+	 	 %Cabecera en la primera pagina
+	 	 \hline
+	 	 \multicolumn{4}{|c|}{\textbf{Casos de prueba del subsistema de gestión de eventos}}\\
+	 	 \hline
+	 	 \textbf{Descripción} & \textbf{Proceso de prueba} & \textbf{Resultado esperado} & \textbf{Resultado obtenido}\\
+	 	 \hline
+	 	 \hline
+	 	 \endfirsthead
+	 	 
+	 	 %Cabecera en el resto de páginas
+	 	 \hline
+	 	 \multicolumn{4}{|c|}{Continuación de la tabla \ref{table:casos_prueba_eventos}}\\
+	 	 \hline
+	 	 \textbf{Descripción} & \textbf{Proceso de prueba} & \textbf{Resultado esperado} & \textbf{Resultado obtenido}\\
+	 	 \hline
+	 	 \hline
+	 	 \endhead
+	 	 
+	 	 \hline
+	 	 \endfoot
+	 	 
+	 	Acceder a un evento como usuario anónimo & Sin iniciar sesión en el portal acceder a la vista de eventos y pulsar sobre un evento cualquiera & El sistema muestra la información del evento & Resultado esperado\\
+	 	\hline
+	 	Acceder a un evento como autor & Habiendo iniciado sesión como un usuario sin privilegios de administración acceder a la vista de eventos y pulsar sobre un evento creado por el propio usuario & El sistema muestra la información del evento junto con un botón para editar su contenido & Resultado esperado \\
+	 	\hline
+	 	Acceder a un evento como administrador & Habiendo iniciado sesión como administrador acceder a la vista de eventos y pulsar sobre un evento cualquiera & El sistema muestra la información del evento junto con un botón para modificar su contenido y otro para eliminar el evento & Resultado esperado\\
+	 	\hline
+	 	Crear un evento & Habiendo iniciado sesión como un usuario sin privilegios de administración acceder a la vista de eventos y pulsar sobre el botón para crear un nuevo evento.  En el formulario rellenar todos los campos obligatorios y guardar los cambios & El sistema crea el evento y lo hace visible para el resto de usuarios & Resultado esperado\\
+	 	\hline
+	 	Crear un evento con datos insuficientes & Habiendo iniciado sesión como un usuario sin privilegios de administración acceder a la vista de eventos y pulsar sobre el botón para crear un nuevo evento.  En el formulario dejar algún campo obligatorio en blanco y guardar los cambios & El sistema no crea el evento y notifica al usuario de que algún campo obligatorio está vacío & Resultado esperado\\
+	 	\hline
+	 	Modificar un evento & Habiendo iniciado sesión como un usuario sin privilegios de administración acceder a la vista de eventos y pulsar sobre un evento creado por el propio usuario.  Una vez en el evento pulsar sobre el botón para editar su información.  En el formulario rellenar todos los campos obligatorios y guardar los cambios & El sistema modifica la información del evento & Resultado esperado\\
+	 	\hline
+	 	Modificar un evento con datos insuficientes & Habiendo iniciado sesión como administrador acceder a la vista de eventos y entrar en un evento cualquiera.  En el evento pulsar sobre el botón para editar su información.  En el formulario dejar algún campo obligatorio en blanco y guardar los cambios & El sistema no modifica la información del evento y notifica al usuario de que algún campo se ha dejado en blanco & Resultado esperado\\
+	 	\hline
+	 	Eliminar un evento & Habiendo iniciado sesión como administrador acceder a la vista de eventos y entrar en un evento cualquiera, una vez en el evento pulsar sobre el botón para eliminarlo & El sistema elimina toda la información del evento & Resultado esperado\\
+	 	\hline
+	 	\hline
+	 	
+	 	 \end{longtable}
+\end{landscape}
+
+
+\begin{landscape}
+	 \subsubsection{Subsistema de gestión de noticias}
+	 	La tabla \ref{table:casos_prueba_noticias} muestra los casos de prueba del subsistema de gestión de noticias.
+	 	
+	 	\begin{longtable}[c]{|p{50mm}|p{50mm}|p{50mm}|p{50mm}|}
+	 	 \caption{Casos de prueba del subsistema de gestión de noticias\label{table:casos_prueba_noticias}}\\
+	 	
+	 	 %Cabecera en la primera pagina
+	 	 \hline
+	 	 \multicolumn{4}{|c|}{\textbf{Casos de prueba del subsistema de gestión de noticias}}\\
+	 	 \hline
+	 	 \textbf{Descripción} & \textbf{Proceso de prueba} & \textbf{Resultado esperado} & \textbf{Resultado obtenido}\\
+	 	 \hline
+	 	 \hline
+	 	 \endfirsthead
+	 	 
+	 	 %Cabecera en el resto de páginas
+	 	 \hline
+	 	 \multicolumn{4}{|c|}{Continuación de la tabla \ref{table:casos_prueba_noticias}}\\
+	 	 \hline
+	 	 \textbf{Descripción} & \textbf{Proceso de prueba} & \textbf{Resultado esperado} & \textbf{Resultado obtenido}\\
+	 	 \hline
+	 	 \hline
+	 	 \endhead
+	 	 
+	 	 \hline
+	 	 \endfoot
+	 	 
+	 	Acceder a una noticia como usuario anónimo & Sin iniciar sesión en el portal acceder a la vista de noticias y pulsar sobre una noticia cualquiera & El sistema muestra la información de la noticia & Resultado esperado\\
+	 	\hline
+	 	Acceder a una noticia como autor & Habiendo iniciado sesión como un usuario sin privilegios de administración acceder a la vista de noticias y pulsar sobre una noticia creada por el propio usuario & El sistema muestra la información de la noticia junto con un botón para editar su contenido & Resultado esperado \\
+	 	\hline
+	 	Acceder a una noticia como administrador & Habiendo iniciado sesión como administrador acceder a la vista de noticias y pulsar sobre una noticia cualquiera & El sistema muestra la información de la noticia junto con un botón para modificar su contenido y otro para eliminarla & Resultado esperado\\
+	 	\hline
+	 	Crear una noticia & Habiendo iniciado sesión como un usuario sin privilegios de administración acceder a la vista de noticias y pulsar sobre el botón para crear una nueva noticia.  En el formulario rellenar todos los campos obligatorios y guardar los cambios & El sistema crea la noticia y la hace visible para el resto de usuarios & Resultado esperado\\
+	 	\hline
+	 	Crear una noticia con datos insuficientes & Habiendo iniciado sesión como un usuario sin privilegios de administración acceder a la vista de noticias y pulsar sobre el botón para crear una nueva noticia.  En el formulario dejar algún campo obligatorio en blanco y guardar los cambios & El sistema no crea la noticia y notifica al usuario de que algún campo obligatorio está vacío & Resultado esperado\\
+	 	\hline
+	 	Modificar una noticia & Habiendo iniciado sesión como un usuario sin privilegios de administración acceder a la vista de noticias y pulsar sobre una noticia creada por el propio usuario.  Una vez en la noticia pulsar sobre el botón para editar su información.  En el formulario rellenar todos los campos obligatorios y guardar los cambios & El sistema modifica la información de la noticia & Resultado esperado\\
+	 	\hline
+	 	Modificar una noticia con datos insuficientes & Habiendo iniciado sesión como administrador acceder a la vista de noticias y entrar en una noticia cualquiera.  En la noticia pulsar sobre el botón para editar su información.  En el formulario dejar algún campo obligatorio en blanco y guardar los cambios & El sistema no modifica la información de la noticia y notifica al usuario de que algún campo se ha dejado en blanco & Resultado esperado\\
+	 	\hline
+	 	Eliminar una noticia & Habiendo iniciado sesión como administrador acceder a la vista de noticias y entrar en una noticia cualquiera, una vez en la noticia pulsar sobre el botón para eliminarla & El sistema elimina toda la información de la noticia & Resultado esperado\\
+	 	\hline
+	 	\hline
+	 	
+	 	 \end{longtable}
+\end{landscape}
+
+
+\begin{landscape}
+	 \subsubsection{Subsistema de gestión de organizaciones}
+	 	La tabla \ref{table:casos_prueba_organizaciones} muestra los casos de prueba del subsistema de gestión de organizaciones.
+	 	
+	 	\begin{longtable}[c]{|p{50mm}|p{50mm}|p{50mm}|p{50mm}|}
+	 	 \caption{Casos de prueba del subsistema de gestión de organizaciones\label{table:casos_prueba_organizaciones}}\\
+	 	
+	 	 %Cabecera en la primera pagina
+	 	 \hline
+	 	 \multicolumn{4}{|c|}{\textbf{Casos de prueba del subsistema de gestión de organizaciones}}\\
+	 	 \hline
+	 	 \textbf{Descripción} & \textbf{Proceso de prueba} & \textbf{Resultado esperado} & \textbf{Resultado obtenido}\\
+	 	 \hline
+	 	 \hline
+	 	 \endfirsthead
+	 	 
+	 	 %Cabecera en el resto de páginas
+	 	 \hline
+	 	 \multicolumn{4}{|c|}{Continuación de la tabla \ref{table:casos_prueba_organizaciones}}\\
+	 	 \hline
+	 	 \textbf{Descripción} & \textbf{Proceso de prueba} & \textbf{Resultado esperado} & \textbf{Resultado obtenido}\\
+	 	 \hline
+	 	 \hline
+	 	 \endhead
+	 	 
+	 	 \hline
+	 	 \endfoot
+	 	 
+	 	Acceder a una organización como usuario anónimo & Sin iniciar sesión en el portal acceder a la vista de organizaciones y pulsar sobre una organización cualquiera & El sistema muestra la información de la organización & Resultado esperado\\
+	 	\hline
+	 	Acceder a una organización como usuario registrado & Habiendo iniciado sesión como un usuario sin privilegios de administración acceder a la vista de organización y pulsar sobre una organización cualquiera & El sistema muestra la información de la organización & Resultado esperado \\
+	 	\hline
+	 	Acceder a una organización como administrador & Habiendo iniciado sesión como administrador acceder a la vista de organizaciones y pulsar sobre una organización cualquiera & El sistema muestra la información de la organización junto con un botón para modificar su contenido y otro para eliminarla & Resultado esperado\\
+	 	\hline
+	 	Crear una organización & Habiendo iniciado sesión como administrador acceder a la vista de organizaciones y pulsar sobre el botón para crear una nueva organización.  En el formulario rellenar todos los campos obligatorios y guardar los cambios & El sistema crea la organización y la hace visible para el resto de usuarios & Resultado esperado\\
+	 	\hline
+	 	Crear una noticia con datos insuficientes & Habiendo iniciado sesión como administrador acceder a la vista de organizaciones y pulsar sobre el botón para crear una nueva organización.  En el formulario dejar algún campo obligatorio en blanco y guardar los cambios & El sistema no crea la organización y notifica al usuario de que algún campo obligatorio está vacío & Resultado esperado\\
+	 	\hline
+	 	Modificar una organización & Habiendo iniciado sesión como administrador acceder a la vista de organizaciones y pulsar sobre una organización cualquiera.  Una vez en la organización pulsar sobre el botón para editar su información.  En el formulario rellenar todos los campos obligatorios y guardar los cambios & El sistema modifica la información de la organización & Resultado esperado\\
+	 	\hline
+	 	Modificar una organización con datos insuficientes & Habiendo iniciado sesión como administrador acceder a la vista de organizaciones y entrar en una organización cualquiera.  En la organización pulsar sobre el botón para editar su información.  En el formulario dejar algún campo obligatorio en blanco y guardar los cambios & El sistema no modifica la información de la organización y notifica al usuario de que algún campo se ha dejado en blanco & Resultado esperado\\
+	 	\hline
+	 	Eliminar una organización & Habiendo iniciado sesión como administrador acceder a la vista de organizaciones y entrar en una organización cualquiera, una vez en la organización pulsar sobre el botón para eliminarla & El sistema elimina toda la información de la organización & Resultado esperado\\
+	 	\hline
+	 	\hline
+	 	
+	 	 \end{longtable}
+\end{landscape}
+
+
+\begin{landscape}
+	 \subsubsection{Subsistema de gestión de comentarios}
+	 	La tabla \ref{table:casos_prueba_comentarios} muestra los casos de prueba del subsistema de gestión de comentarios.
+	 	
+	 	\begin{longtable}[c]{|p{50mm}|p{50mm}|p{50mm}|p{50mm}|}
+	 	 \caption{Casos de prueba del subsistema de gestión de comentarios\label{table:casos_prueba_comentarios}}\\
+	 	
+	 	 %Cabecera en la primera pagina
+	 	 \hline
+	 	 \multicolumn{4}{|c|}{\textbf{Casos de prueba del subsistema de gestión de comentarios}}\\
+	 	 \hline
+	 	 \textbf{Descripción} & \textbf{Proceso de prueba} & \textbf{Resultado esperado} & \textbf{Resultado obtenido}\\
+	 	 \hline
+	 	 \hline
+	 	 \endfirsthead
+	 	 
+	 	 %Cabecera en el resto de páginas
+	 	 \hline
+	 	 \multicolumn{4}{|c|}{Continuación de la tabla \ref{table:casos_prueba_comentarios}}\\
+	 	 \hline
+	 	 \textbf{Descripción} & \textbf{Proceso de prueba} & \textbf{Resultado esperado} & \textbf{Resultado obtenido}\\
+	 	 \hline
+	 	 \hline
+	 	 \endhead
+	 	 
+	 	 \hline
+	 	 \endfoot
+	 	 
+	 	Comentar en una entrada del blog & Habiendo iniciado sesión como un usuario sin privilegios de administración acceder al blog y pulsar sobre una entrada cualquiera.  Una vez en la entrada introducir un nuevo comentario y guardar los cambios & El sistema guarda el comentario como parte de la entrada y lo muestra a todos los usuarios & Resultado esperado\\
+	 	\hline
+	 	Comentar en un debate cerrado & Habiendo iniciado sesión como un usuario sin privilegios de administración acceder a los debates y pulsar sobre un debate con estado ``cerrado`` & El sistema muestra los comentarios existentes y no permite que el usuario introduzca un nuevo comentario & Resultado esperado\\
+	 	\hline
+	 	Comentar un debate abierto & Habiendo iniciado sesión como un usuario sin privilegios de administración acceder a los debates y pulsar sobre un debate con estado ``abierto'' & El sistema muestra los comentarios existentes y permite que el usuario introduzca un nuevo comentario & Resultado esperado\\
+	 	\hline
+	 	Modificar un comentario & Habiendo iniciado sesión como administrador acceder al blog y pulsar sobre una entrada con comentarios.  En uno de los comentarios pulsar el botón correspondiente para editarlo e introducir el nuevo mensaje & El sistema actualiza el comentario con los cambios introducidos por el administrador & Resultado esperado\\
+	 	\hline
+	 	Eliminar un comentario & Habiendo iniciado sesión como administrador acceder al blog y pulsar sobre una entrada con comentarios.  En uno de los comentarios pulsar el botón correspondiente para eliminarlo & El sistema elimina el comentario y deja de mostrarlo a los usuarios & Resultado esperado\\
+	 	\hline
+	 	\hline
+	 	
+	 	 \end{longtable}
+\end{landscape}
+
+
+\begin{landscape}
+	 \subsubsection{Subsistema de búsqueda}
+	 	La tabla \ref{table:casos_prueba_busqueda} muestra los casos de prueba del subsistema de búsqueda.
+	 	
+	 	\begin{longtable}[c]{|p{50mm}|p{50mm}|p{50mm}|p{50mm}|}
+	 	 \caption{Casos de prueba del subsistema de búsqueda\label{table:casos_prueba_busqueda}}\\
+	 	
+	 	 %Cabecera en la primera pagina
+	 	 \hline
+	 	 \multicolumn{4}{|c|}{\textbf{Casos de prueba del subsistema de gestión de búsqueda}}\\
+	 	 \hline
+	 	 \textbf{Descripción} & \textbf{Proceso de prueba} & \textbf{Resultado esperado} & \textbf{Resultado obtenido}\\
+	 	 \hline
+	 	 \hline
+	 	 \endfirsthead
+	 	 
+	 	 %Cabecera en el resto de páginas
+	 	 \hline
+	 	 \multicolumn{4}{|c|}{Continuación de la tabla \ref{table:casos_prueba_busqueda}}\\
+	 	 \hline
+	 	 \textbf{Descripción} & \textbf{Proceso de prueba} & \textbf{Resultado esperado} & \textbf{Resultado obtenido}\\
+	 	 \hline
+	 	 \hline
+	 	 \endhead
+	 	 
+	 	 \hline
+	 	 \endfoot
+	 	 
+	 	Crear índice de contenidos & Habiendo iniciado sesión como administrador acceder a las opciones de búsqueda en panel de administración.  Pulsar el botón destinado a la actualización del índice de contenidos & El sistema envía los datos al motor de búsqueda para su indexación & Resultado esperado\\
+	 	\hline
+	 	Realizar búsqueda & Habiendo iniciado sesión como un usuario sin privilegios de administración acceder a la vista de búsqueda.  En el campo de búsqueda introducir el término ``España'' y pulsar el botón para buscar & El sistema mostrará al menos un resultado correspondiente al país España junto a su bandera. Al pulsar en el resultado el sistema cargará la vista de la sección de datos para el país España & Resultado esperado\\
+	 	\hline
+	 	\hline
+	 	
+	 	 \end{longtable}
+\end{landscape}
