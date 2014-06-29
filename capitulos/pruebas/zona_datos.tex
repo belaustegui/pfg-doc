@@ -1,0 +1,47 @@
+Como se ha explicado anteriormente en la sección ``\nameref{especificacion_plan_pruebas}'' perteneciente al capítulo \ref{chapter04}, el subsistema de datos se ha desarrollado utilizando una metodología de Desarrollo Dirigido por Pruebas acompañada de un proceso de integración continua.  A continuación se explicará la forma en la que se han aplicado las pruebas y los beneficios que han aportado al proceso de desarrollo.
+
+\subsubsection{Desarrollo Dirigido por Pruebas}
+	El Desarrollo Dirigido por Pruebas (o \textit{Test Driven Development}) consiste en repetir los siguientes pasos continuamente durante el proceso de desarrollo del sistema:
+	\begin{enumerate}
+		\item
+			Antes de añadir una nueva funcionalidad escribir una o varias pruebas para ella.  Las pruebas fallarán hasta que la funcionalidad en cuestión no esté implementada.
+		\item
+			Implementar la funcionalidad hasta que pase correctamente las pruebas diseñadas anteriormente.
+		\item
+			Refactorizar el código cuando sea necesario.  Puesto que las pruebas ya están escritas, se puede comprobar rápidamente si la refactorización ha introducido nuevos errores en el código.
+	\end{enumerate}
+	
+	Las ventajas que ha aportado el uso de esta metodología durante el desarrollo se detallarán a continuación:
+	\begin{itemize}
+		\item
+			La obligación de escribir las pruebas antes que la propia funcionalidad revierte la situación 
+		\item
+			Pensar en las pruebas previamente a la implementación hace más fácil encontrar posibles situaciones extrañas que puedan provocar problemas en el sistema.
+		\item
+			Dado que las pruebas actúan como los primeros clientes del código, existe una cierta obligación a hacer que la implementación real tenga una interfaz más definida y consistente.
+		\item
+			La existencia de las pruebas ayuda a aumentar la confianza durante las refactorizaciones de código.  Ésto ha sido especialmente útil dado que el lenguaje utilizado para el desarrollo del subsistema de datos ha sido Python, cuya dinamicidad aporta en muchas ocasiones menos seguridad que otros más estáticos.
+	\end{itemize}
+	
+\subsubsection{Integración continua}
+	Con el objetivo de automatizar el proceso de pruebas y notificar al equipo de desarrollo de posibles fallos en los casos de prueba que hayan podido pasar desapercibidos, las pruebas descritas en el punto anterior se acompañan de la ayuda de un servidor de integración continua.
+	
+	Una posible definición de integración continua, extraída de \cite{mfowler:continuous-integration} es la siguiente:
+	\begin{quote}
+		``\textit{Continuous Integration is a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible.}''
+	\end{quote}}.
+	
+	Por su utilidad y su capacidad de integración con GitHub (plataforma de control de versiones con la que se desarroló éste proyecto) se ha utilizado el servidor de integración continua Travis-CI\footnote{\url{https://travis-ci.org/}}.  
+	
+	La siguiente cita de Martin Fowler \cite{mfowler:continuous-integration} puede ayudar al lector a comprender la funcionalidad de éste tipo de servidores:
+	\begin{quote}
+		``\textit{A continuous integration server acts as a monitor to the repository. Every time a commit against the repository finishes the server automatically checks out the sources onto the integration machine, initiates a build, and notifies the committer of the result of the build. The committer isn't done until she gets the notification - usually an email.}''
+	\end{quote}
+	
+	Las principales ventajas que ha aportado el uso de un servidor de integración continua como Travis-CI al proceso de desarrollo han sido varias entre las que destacan:
+	\begin{itemize}
+		\item
+			El servidor de integración continua asegura que las pruebas se ejecutarán ante cualquier cambio del código que se produzca en el repositorio.
+		\item
+			En caso de que surga algún fallo durante la ejecución de las pruebas, el servidor de integración continua notifica al autor de los cambios del problema.  Ésta capacidad de notificación prácticamente inmediata ha ayudad a detectar y solucionar varios problemas de forma rápida antes de que se propaguen a otras partes del sistema.
+	\end{itemize}

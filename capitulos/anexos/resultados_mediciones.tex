@@ -1,0 +1,70 @@
+La tabla \ref{table:mediciones_receiver} muestra los resultados obtenidos durante las mediciones y que se han utilizado para la realización de las figuras \ref{fig:obs_vs_tiempo}, \ref{fig:obs_segundo} y \ref{fig:obs_vs_memoria}.
+
+Como ya se ha mencionado anteriormente en la sección ``\nameref{pruebas:proceso_ambito_mediciones}'' perteneciente al capítulo \ref{chapter:desarrollo_pruebas}, para obtener éstos resultados se han utilizado dos herramientas:
+\begin{itemize}
+	\item
+		El módulo \textit{memory profiler} para medir el consumo de memoria durante el procesado de datos
+	\item
+		El comando \textit{time} para medir el tiempo de ejecución del programa ante cada entrada
+\end{itemize}
+\begin{landscape}
+	\begin{longtable}[c]{|p{30mm}|p{30mm}|p{30mm}|p{30mm}|p{30mm}|}
+		 \caption{Mediciones de rendimiento del Punto de Entrada de Datos\label{table:mediciones_receiver}}\\
+		
+		 %Cabecera en la primera pagina
+		 \hline
+		 \multicolumn{5}{|c|}{\textbf{Mediciones de rendimiento del Punto de Entrada de Datos}}\\
+		 \hline
+		 \textbf{Número de observaciones} & \textbf{Tamaño del fichero (MB)} & \textbf{Uso de memoria (MB)} & \textbf{Tiempo (s)} & \textbf{Observaciones / Tiempo (Obs / s)}\\
+		 \hline
+		 \hline
+		 \endfirsthead
+		 
+		 %Cabecera en el resto de páginas
+		 \hline
+		 \multicolumn{5}{|c|}{\textbf{Continuación de la tabla \ref{table:mediciones_receiver}}}\\
+		 \hline
+		 \textbf{Número de observaciones} & \textbf{Tamaño del fichero (MB)} & \textbf{Uso de memoria (MB)} & \textbf{Tiempo (s)}\\
+		 \hline
+		 \hline
+		 \endhead
+		 
+		 \hline
+		 \endfoot
+		 
+		120 & 0,0506 & 39,5 & 1,552 & 77,31958763\\
+		\hline
+		1469 & 0,6355 & 86,5 & 12,705 & 115,6237702\\
+		\hline
+		1589 & 0,679 & 89,6 & 10,794 & 147,2114137\\
+		\hline
+		2080 & 0,8897 & 102,5 & 18,53 & 112,2504047\\
+		\hline
+		2600 & 1,1 & 120,7 & 22,938 & 113,3490278\\
+		\hline
+		4920 & 1,8 & 193,1 & 40,927 & 120,2140396\\
+		\hline
+		5215 & 1,9 & 201,6 & 44,27 & 117,7998645\\
+		\hline
+		5324 & 1,9 & 204,5 & 44,481 & 119,6915537\\
+		\hline
+		11178 & 4,2 & 374 & 93,964 & 118,9604529\\
+		\hline
+		11178 & 4,2 & 373,8 & 93,461 & 119,6006891\\
+		\hline
+		22356 & 8,8 & 657,8 & 192,125 & 116,3617437\\
+		\hline
+		28860 & 10,8 & 813,8 & 247,301 & 116,699892\\
+		\hline
+		33534 & 13 & 957,9 & 293,974 & 114,0713124\\
+		\hline
+		78246 & 29,7 & 2125,5 & 696,019 & 112,4193449\\
+		\hline
+		89424 & 35,5 & 2422,6 & 794,02 & 112,6218483\\
+		\hline
+		111780 & 42,3 & 2918,9 & 1059,911 & 105,461685\\
+		\hline
+		\hline
+		
+	 \end{longtable}
+\end{landscape}

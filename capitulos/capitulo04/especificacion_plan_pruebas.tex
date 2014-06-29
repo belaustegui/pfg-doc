@@ -17,24 +17,11 @@ Por su construcción que, como ya se ha mencionado en secciones anteriores, dele
 A pesar de lo mencionado anteriormente a cerca de las pruebas unitarias, existen opiniones divididas sobre lo que se considera exactamente una \textit{unidad} en dichas pruebas.  Para éste proyecto, y hablando del subsistema de datos, se tomará como una \textit{unidad} la lectura de un valor del fichero XML y su inmediata inserción en la base de datos.\newline
 Según la opinión de diferentes autores (entre ellos el propio Martin Fowler, como menciona en su artículo \cite{mfowler:unit-testing}), éste tipo de pruebas podrían ser consideradas pruebas unitarias.  No obstante, con el objetivo de mantener la máxima fidelidad respecto a la definición de pruebas unitarias, las pruebas que se detallan a continuación han sido finalmente consideradas como pruebas de integración.
 
-Estas pruebas se realizarán sobre el subsistema de datos, concretamente sobre el componente de inserción de datos, a lo largo de todo su desarrollo.
-\begin{itemize}
-\item En primer lugar se utilizará una metodología de Desarrollo Dirigido por Pruebas (o TDD)\footnote{El desarrollo dirigido por pruebas es una metodología de desarrollo de software creada por Kent Beck en 1990.  Para más información al respecto, se recomienda el libro ``Test Driven Development'' \cite{kbeck:test-driven-development}}, donde para cada nueva funcionalidad que se añada al sistema se desarrollarán los casos de prueba antes de su implementación.  El Desarrollo Dirigido por Pruebas repite los siguientes pasos continuamente:
-	\begin{enumerate}
-		\item
-			Antes de añadir una nueva funcionalidad escribir uno o varios tests para ella.  Puesto que la funcionalidad aún no está implementada, los tests fallarán.
-		\item
-			Implementar la funcionalidad hasta que pase correctamente los tests diseñados anteriormente.
-		\item
-			Refactorizar el código cuando sea necesario.  Puesto que los tests ya están escritos, se puede comprobar rápidamente si la refactorización ha introducido nuevos errores en el código.
-	\end{enumerate}
-\item En segundo lugar, y con el objetivo de automatizar éste proceso y notificar al equipo de desarrollo de posibles fallos en los casos de prueba que hayan podido pasar desapercibidos, las pruebas descritas en el punto anterior se acompañarán de la ayuda de un servidor de integración continua\footnote{Una posible definición de integración continua, extraída de \cite{mfowler:continuous-integration} es: ``\textit{Continuous Integration is a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible.}''}.  Por su utilidad y su capacidad de integración con GitHub (plataforma de control de versiones con la que se desarrollará éste proyecto) se utilizará el servidor de integración continua Travis-CI\footnote{\url{https://travis-ci.org/}}.
-\end{itemize}
+Para el desarrollo del subsistema de datos se utilizará una metodología de Desarrollo Dirigido por Pruebas (o TDD)\footnote{El desarrollo dirigido por pruebas es una metodología de desarrollo de software creada por Kent Beck en 1990.  Para más información al respecto, se recomienda el libro ``Test Driven Development'' \cite{kbeck:test-driven-development}}.  Con el objetivo de facilitar ésta metodología se utilizará también un servidor de integración continua.
 
-Las ventajas que el uso de un servidor de integración continua como Travis-CI aporta al proceso de desarrollo de software son varias, entre ellas destacan la automatización y la notificación de los resultados de las pruebas a las partes implicadas.  La siguiente cita de Martin Fowler \cite{mfowler:continuous-integration} puede ayudar al lector a comprender la funcionalidad de éste tipo de servidores:
-\begin{quote}
-	``\textit{A continuous integration server acts as a monitor to the repository. Every time a commit against the repository finishes the server automatically checks out the sources onto the integration machine, initiates a build, and notifies the committer of the result of the build. The committer isn't done until she gets the notification - usually an email.}''
-\end{quote}
+Debido al carácter de los subsistemas de la zona social, cuya principal funcionalidad queda delegada al núcleo del CMS, las pruebas para estos componentes tendrán lugar en forma de casos de prueba que se ejecutarán durante el desarrollo de las distintas partes.  
+
+El resultado de ambas pruebas podrá verse con mayor detalle en el capítulo \ref{chapter:desarrollo_pruebas} titulado ``\nameref{chapter:desarrollo_pruebas}''.
 
 
 \subsection{Pruebas de aceptación}
