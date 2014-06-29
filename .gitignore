@@ -98,5 +98,5 @@ sympy-plots-for-*.tex/
 *.xdy
 
 #Compiled files
-#*.pdf
-*main.pdf
+*.pdf
+!imagenes/*
