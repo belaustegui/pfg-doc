@@ -1,0 +1,89 @@
+A continuación se enumerarán las posibles ampliaciones que se podrían realizar
+para aumentar el valor y la funcionalidad del sistema.
+
+
+\subsection{Incluir soporte a nuevas visualizaciones en el subsistema de datos}
+	El framework de soporte a visualizaciones podría ser ampliado para facilitar
+	la creación de nuevos tipos de visualizaciónes con las que enriquecer la
+	sección del portal dedicada a los datos.
+
+\subsection{Incluir soporte a nuevas redes sociales para iniciar sesión en el sistema}
+	Actualmente el sistema soporta el inicio de sesión utilizando las redes sociales
+	Twitter y Facebook.  Permitir el inicio de sesión en el portal utilizando nuevas
+	redes sociales como Google+, LinkedIn o GitHub facilitaría el acceso a los
+	usuarios.
+
+\subsection{Facilitar el mecanismo de obtención de claves de acceso al API}
+	Actualmente los usuarios que quieran obtener una clave de acceso al API
+	deben enviar un correo electrónico a la administración del portal, para que
+	sea el administrador quien modifique el rol del usuario y le permita obtener
+	su clave de aceso al API.
+	
+	Una ampliación interesante para los usuarios 
+	consistiría en permitirles solicitar una nueva clave de acceso al API
+	de forma automática desde la vista de su perfil de usuario.
+
+\subsection{Gestión automática de los debates}
+	Actualmente es la administración del portal quien se encarga de abrir y cerrar
+	los debates cuando se alcance su periodo de participación.
+	
+	Una ampliación
+	destinada a gestionar automáticamente la apertura y el cierre de los debates
+	facilitaría la tarea de los administradores, sobre todo cuando el número de
+	debates existentes es muy alto.
+
+\subsection{Migración del contenido desde el viejo LandPortal}
+	El viejo LandPortal cuenta con una gran cantidad de información creada por sus
+	usuarios a lo largo del tiempo.  Una posible ampliación consistiría en migrar
+	dicha información desde el viejo al nuevo portal.
+	
+	La tésis de Alan Chavoshe, titulada ``Linked Data for the Land Portal''
+	\cite{lod_landportal}, contiene una explicación detallada de la estructura con la
+	que se almacenan los datos en el viejo Land Portal.	Atendiendo a lo expuesto 
+	en dicha tésis, el modelo de datos del viejo Land Portal difiere bastante
+	del modelo utilizado en éste proyecto.  
+	
+	El primer paso para realizar ésta migración requeriría crear un nuevo módulo
+	que extienda del módulo \textit{migrate}\footnote{El módulo \textit{migrate}
+	es un módulo de Drupal destinado a facilitar la migración de contenidos 
+	entre distintos portales.  El módulo \textit{migrate} esta disponible en
+	\url{https://www.drupal.org/project/migrate}}.
+	
+	El mayor problema provendría de los tipos de contenido que no existen en 
+	el nuevo portal como:  \textit{OrganisationType}, \textit{GPL Drivers} o
+	\textit{Expertise}.  Para migrar éste tipo de contenidos sería necesario
+	modificar la estructura de datos del nuevo Land Portal y modificar también
+	las vistas correspondientes para presentarlos a los usuarios.
+	
+	Una primera estimación sobre el tiempo necesario para realizar ésta ampliación
+	sería entre 100 o 150 horas, en las que modificar las estructuras del modelo
+	de datos y las vistas necesarias.
+	
+\subsection{Futuros proyectos con el IFAD}
+	Además de las posibles ampliaciones detalladas anteriormente, también existen una
+	serie de futuros proyectos que se realizarán con el mismo cliente.
+	\begin{itemize}
+		\item Un \textit{hackatón}\footnote{Un \textit{hackatón} o \textit{hackathon} es un encuentro de programadores destinado a realizar un desarrollo colaborativo de software} para la creación de nuevos componentes del portal.  Concretamente
+		el \textit{hackatón} consistiría en crear nuevos importadores para incluir catálogos de
+		datos en el portal y nuevas visualizaciones con las que presentar los datos
+		ya existentes.\\
+		Originalmente el hackatón ha sido planteado para tener lugar durante el verano
+		de 2014 en Alemania.
+		
+		\item Creación de la biblioteca o LandLibrary.  El LandLibrary es la tercera
+		sección del portal y tiene como objetivo ser un repositorio de documentos,
+		publicaciones, estudios, mapas, etc.  El LandLibrary tendrá también	capacidad
+		de búsqueda y contará con un enriquecimiento semántico de los metadatos de
+		las publicaciones que albergue.
+		
+		La información almacenada en el LandLibrary se hará pública en forma de
+		datos enlazados abiertos para ser utilizados por servicios de terceros y 
+		para ser incluidos en diferentes partes del portal, concretamente en el
+		LandBook.
+		
+		Por su gran tamaño, ésta ampliación tendrá lugar como un proyecto con
+		entidad propia.  Éste proyecto está planificado para comenzar en otoño
+		del 2014.
+		
+	\end{itemize}
+
