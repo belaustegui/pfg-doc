@@ -1,93 +1,16 @@
-En la tabla \ref{table:reportes_aceptacion} se muestran los reportes obtenidos de
-los usuarios durante las pruebas de aceptación.  Cada entrada en la tabla contará
-con los siguientes campos:
-\begin{description}
-	\item[Descripción] Descripción del reporte realizada por el usuario.  Es importante
-		destacar que la descripción se incluirá tal y como se recibió por parte
-		del usuario y, por tanto, se encontrará en inglés.
-	\item[Estado] Estado del reporte.  Indica si el reporte ha sido aceptado como
-		un error en el sistema o no.
-	\item[Respuesta]  Respuesta tomada ante el reporte.
-\end{description}
+A continuación se muestran los reportes obtenidos del cliente durante las pruebas de aceptación\footnote{Únicamente se incluyen los reportes que afectan a las partes desarrolladas en éste TFG.  La lista con todos los reportes obtenidos puede consultarse en \url{http://goo.gl/GhBDRw}}.  La categorización filtrado de los reportes ha sido realizada por el jefe de proyecto.
 
-Todos los reportes que figuran en la tabla se han podido reproducir correctamente.
-Aquellos reportes aceptados han sido solucionados antes de la entrega de la versión
-final del sistema.
-
-\begin{longtable}[c]{|p{60mm}|p{20mm}|p{50mm}|}
-	\caption{Reportes tras las pruebas de aceptación\label{table:reportes_aceptacion}}\\
-		%Cabecera en la primera pagina
-		\hline
-		\multicolumn{3}{|c|}{\textbf{Reportes tras las pruebas de aceptación}}\\
-		\hline
-		\textbf{Descripción} & \textbf{Estado} & \textbf{Respuesta}\\
-		\hline
-		\hline
-	\endfirsthead
-
-		%Cabecera en el resto de páginas
-		\hline
-		\multicolumn{3}{|c|}{\textbf{Continuación de la tabla \ref{table:reportes_aceptacion}}}\\
-		\hline
-		\textbf{Descripción} & \textbf{Estado} & \textbf{Respuesta}\\
-		\hline
-		\hline
-	\endhead
-
-	\hline
-	\endfoot
-
-	Community page is entirely empty, normal? & Rechazado & La página estaba vacía porque aún no se había insertado ninguna organización en el sistema\\
-	\hline
-	Data sources menu has some issues: twice the same sources is cited (one with the right name one with a type: Faostat: Statistcis division of the FAO) & & \\
-	\hline
-	The data sources menu is using multiple time the same value, creating issues with the second menu (not pointing to the right optgroup) & & \\
-	\hline
-	It seems that all countries are in spanish in the map & Aceptado & Resuelto \\
-	\hline
-	Label issues: in the data sources one cannot read the full name, in e.g. \url{http://5.9.221.11/book/countries/GNQ?indicator=INDFAOSTAT6&comparing-country=ABW} and the button in blue has a similar problem & Aceptado & Resuelto\\
-	\hline
-	The widget by country in the center below the social economic indicators has also some label issues, like when you go to DRC, only half of the country name display & Aceptado & Resuelto \\
-	\hline
-	In country main index ranking at the left column, the label seems wrong too, using a code rather than a name? & Aceptado & Resuelto\\
-	\hline
-	In the widget, the selection of countries is strange: there are white lines in the middle of the list, plus countries that are not sorted alphabetically as usual & Aceptado & Resuelto \\
-	\hline
-	In indicators (\url{http://5.9.221.11/book/indicators}) expanding all reveal some strange things like the ``temporal topics'' & Aceptado & Resuelto \\
-	\hline
-	Most of the links in \url{http://5.9.221.11/book/reuse} are broken & Aceptado & Resuelto \\
-	\hline
-	On the blog.  Before going live it would be good to ensure that postings come from a real named person, rather than ``admin'' & Aceptado & Resuelto \\
-	\hline
-	It would be great if land debates display ``Fascilited by'' with a real name, rather than username & Aceptado & Resuelto \\
-	\hline
-	On the list of debates consider placing ``Coming Soon'' debates either in a distinct box, or underneath ``Open'' debates & & \\
-	\hline
-	When I completed registration I got redirected to the homepage with no ``Registration complete'' messages & & \\
-	\hline
-	The auto-complete tagging for Regions and Countries doesn't feel quite right: a select list / multi-select component might work better here & & \\
-	\hline
-	The header with the logo on the left and the three entries is not consistent. On the homepage, there is no indication this is the home page and ``landLibrary'' is selected. Selecting an entry cite this entry next to the logo and then shift the header to the right. A ``home'' entry should be added and selected by default, this way there would always be something next to the logo & Rechazado & La entrada de ``LandLibrary'' está desactivada debido a que su renovación no forma parte de éste proyecto.  El enlace a ``home'' se encuentra en el propio logo de LandPortal\\
-	\hline
-	On \url{http://5.9.221.11/book/regions?region=1&indicator=INDOECD11&comparing-region=2} the ``JSON'', ``XML'', and ``CSV'' buttons all point to a ``data'' URI. This works in a browser but it's harder to download in a script (IMHO). I would have prefered having a distinct URI that points to the data with content negociated formats & Rechazado & Este tipo de negociación de contenido es soportado por el API, las visualizaciones utilizan un framework interno no orientado al usuario final. \\
-	\hline
-	Speaking about content negociation I found no trace of RDF/LOD on this page. Also, why only ``JSON'', ``XML'', and ``CSV'' buttons and no ``RDF'' button ? & Rechazado & Fuera del alcance del proyecto.  Requeriría crear consultas SPARQL para cada una de las diferentes visualizaciones ofrecidas \\
-	\hline
-	In ``Data Reuse'' there is a SPARQL interface that does not work yet but also does not explain to the user what he is currently seeing & Aceptado & Resuelto \\
-	\hline
-	The layout of \url{http://5.9.221.11/debate/events} is messed up on my screen and the calendar get pushed to the bottom right & Aceptado & Resuelto \\
-	\hline
-	User profile: there is no space to add any information on topics of interest, who you work for etc & & \\
-	\hline
-	Since debates are at the core for this page, it should be more prominent - currently there is blog, news, events first, then debates. The Debates tab should be the first one in the list, and the page seen when one opens this section of the LP & & \\
-	\hline
-	Data sources box is confusing: there are a number of sources though it isn't possible to read them in full as the titles are longer than the box), then indicators grouped by population indicators etc. The data sources box should only contain data sources, the indicators box the indicators grouped by sub-theme & & \\
-	\hline
-	The second reference in the data sources list for FAO statistics has a typo in ``statistics'' & & \\
-	\hline
-	There is a typo in the first indicator here, it should be women's access to land (currently woman access) & & \\
-	\hline
-	I also saw on the left hand side where the SIGI indicators appear that there is a repetition in the list & &\\
-	\hline
-	\hline
-\end{longtable}
+Todos los reportes que se listan a continuación han podido reproducirse correctamente y se encuentran arreglados en la versión final del sistema.
+\begin{itemize}
+	\item En los debates y las entradas del blog sería conveniente mostrar el nombre real del usuario en lugar de su \textit{nickname}.
+	\item Cuando un registro se completa adecuadamente el sistema no muestra ningún mensaje al usuario tras hacer la redirección a la página de inicio.
+	\item En el menú de la sección social se debe modificar la entrada de los debates por ``Discussions | Diálogos | Discussions''.
+	\item Cuando un usuario solicita una nueva contraseña el sistema debería mostrar un mensaje indicando que la contraseña se ha restaurado correctamente antes de hacer la redirección a la página de inicio.
+	\item El nombre de los usuarios que se muestra en las entradas de la sección social debería estar enlazado al perfil del usuario.
+	\item Cuando se pulsa en una etiqueta de la zona social en ocasiones se muestra una vista errónea y similar a la de un nodo.
+	\item Los enlaces para compartir contenidos en redes sociales como Twitter o Facebook contienen muchos espacios en el contenido.
+	\item En los debates y las entradas del blog se muestra el texto ``\textit{What the user say}''.  Éste texto es incorrecto y debería modificarse por ``\textit{What the users say}''.
+	\item En la vista de eventos el nombre del calendario se muestra incorrectamente y en ocasiones se tapa por los botones de navegación.
+	\item Las etiquetas ``\textit{Coming soon}'', ``\textit{Open}'' y ``\textit{Closed}'' de los debates no se muestran internacionalizadas.
+	\item No existe ningún botón para que un usuario cierre sesión en el portal.
+\end{itemize}
