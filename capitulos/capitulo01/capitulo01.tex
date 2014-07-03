@@ -23,15 +23,16 @@ Dicha información procede de diversas fuentes de datos pertenecientes a gobiern
 \item la Organización de las Naciones Unidas para la Alimentación y la Agricultura (\textit{FAO})
 \item la Organización Mundial de la Salud (\textit{WHO})
 \item el Instituto Internacional de Investigación sobre Políticas Alimentarias (\textit{IFPRI})
-\item la Organización para la Cooperación y el Desarrollo Económicos(\textit{OECD})
+\item la Organización para la Cooperación y el Desarrollo Económicos (\textit{OECD})
 \end{itemize}
-Puesto que los datos proceden de fuentes tan diversas, es importante para el portal centralizar y unificar la inserción de nuevos datos, con el fin de facilitar la colaboración de entidades externas que quieran ver sus datos reflejados en el portal y, al mismo tiempo, asegurar la calidad de los mismos, haciendo que cumplan unos estándares mínimos de calidad.
+Puesto que los datos proceden de fuentes tan diversas, es importante para el portal centralizar y unificar el proceso de inserción de nuevos datos, con el fin de facilitar la colaboración de entidades externas que quieran ver sus datos reflejados en el portal y, al mismo tiempo, asegurar la calidad de los mismos, haciendo que cumplan unos estándares mínimos de calidad.
 
 Un segundo objetivo de gran importancia para este proyecto es fomentar el diálogo, el intercambio de información y la participación de los usuarios de una forma que permita complementar, combinar y enriquecer la información presentada desde las fuentes de datos oficiales. Para ello es importante contar con un lugar en el que los usuarios puedan debatir y compartir información de una forma sencilla.\newline
 En relación con el interés por fomentar la participación de los usuarios en el portal también se pretende simplificar el método de acceso al mismo, de forma que se consiga integrar en un único punto el acceso a todas las partes del portal y al registro e inicio de sesión de los usuarios
 
 Por último, y como no puede ser de otra forma en un portal destinado a almacenar y presentar datos sobre las distintas regiones del mundo, es de especial interés establecer un sistema de internacionalización que permita a los usuarios visualizar la información en el idioma que prefieran y, de esta forma democratizar el acceso a toda la información expuesta.
-Éstos objetivos se exponen de forma más detallada a continuación:
+
+Éstos objetivos se desarrollarán en mayor detalle en el capítulo \ref{chapter04}.
 
 
 
@@ -41,16 +42,14 @@ En la actualidad, los portales de datos son una tendencia que se hace cada vez m
 En esta sección se enumerarán algunos portales de datos abiertos que han servido como referente e inspiración a la hora de construir el nuevo Land Portal, al mismo tiempo que se repasarán las referencias y similitudes con cada uno de ellos.
 
 \subsection{Portal de datos del Gobierno de Estados Unidos}
-El portal de datos del Gobierno de Estados Unidos \footnote{http://www.data.gov/} es un referente en cuanto a la construcción de portales de datos abiertos.
-
-El portal se publicó en mayo de 2009 y recibió un rediseño completo en el aniversario de su primer año (el 21 de mayo de 2010).  Actualmente es uno de los portales de datos con mayor cantidad de información, puesto que contiene casi 250000 conjuntos de datos.
+El portal de datos del Gobierno de Estados Unidos \footnote{http://www.data.gov/} es un referente en cuanto a la construcción de éste tipo de portales.  Fue publicado por primera vez en mayo de 2009 y recibió un rediseño completo en el aniversario de su primer año (el 21 de mayo de 2010).  Actualmente es uno de los portales de datos con mayor cantidad de información, puesto que contiene casi 250000 conjuntos de datos.
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth]{datagov.PNG}
+\includegraphics[width=\textwidth]{estado_arte/datagov}
 \caption{Página principal del portal de datos del Gobierno de Estados Unidos}
 \end{figure}
 
-El portal utiliza CKAN \footnote{http://ckan.org/} para almacenar todos los conjuntos de datos y Drupal \footnote{https://drupal.org/} como gestor de contenidos.  Como se explicará posteriormente en esta misma sección, el nuevo Land Portal también utiliza el mismo sistema.  El nuevo Land Portal también se ha inspirado en el diseño claro y simple de éste portal.
+El portal utiliza CKAN \footnote{http://ckan.org/} para almacenar todos los conjuntos de datos y Drupal\footnote{https://drupal.org/} como gestor de contenidos.
 
 Un apartado en el que el nuevo Land Portal intenta mejorar a éste portal es la visualización de datos. El nuevo Land Portal ofrecerá visualizaciones destinadas a facilitar la interpretación de los datos por parte de los usuarios.
 
@@ -60,25 +59,25 @@ El portal de datos del Gobierno Británico \footnote{http://data.gov.uk/}, al ig
 El portal se hizo público en enero de 2010 y actualmente contiene más de 9000 conjuntos de datos procedentes de varios departamentos del Gobierno.  Todos los conjuntos de datos se encuentran disponibles de forma gratuita para uso privado y comercial siempre que se atribuya su creación al Gobierno Británico.
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth]{datagovuk.PNG}
+\includegraphics[width=\textwidth]{estado_arte/datagovuk}
 \caption{Página principal del portal de datos del Gobierno Británico}
 \end{figure}
-Al igual que el portal de datos del Gobierno de Estados Unidos, también utiliza CKAN y Drupal como principales gestores de datos y contenido respectivamente.
+
+Al igual que el portal de datos del Gobierno de Estados Unidos, este portal también utiliza CKAN y Drupal como gestor de datos y de contenido respectivamente.  Como se explicará posteriormente en esta misma sección, el nuevo Land Portal también utiliza un sistema similar, debido a su probada estabilidad en sistemas similares.  El aspecto del nuevo Land portal también se ha inspirado en el diseño claro y simple de éste portal.
 
 \subsection{Antiguo Land Portal}
-El Land Portal \footnote{http://landportal.info/} fue creado en marzo de 2011 y actualmente cuenta con casi 1000 usuarios registrados y un total de 70 organizaciones diferentes. En 2012 el portal tuvo unos 70000 visitantes únicos, con cerca de 10000 visitas mensuales, ver \cite[página 3]{landportal-strategy}.
-
-A pesar de no ser un portal de datos abiertos como tal, el viejo Land Portal ha sido la principal inspiración a la hora de realizar este proyecto. El nuevo portal pretende reunir y mejorar las características de los portales de datos del Gobierno Británico y del Gobierno de Estados Unidos y, al mismo tiempo, mantener el espíritu original de colaboración e intercambio de conocimientos del viejo Land Portal.
+El Land Portal\footnote{http://landportal.info/} pertenece al Fondo Internacional para
+el Desarrollo Agrícola, que forma parte de la ONU.  Fue creado en marzo de 2011 y actualmente cuenta con casi 1000 usuarios registrados y un total de 70 organizaciones diferentes. En el año 2012 el portal tuvo unos 70000 visitantes únicos, con cerca de 10000 visitas mensuales\footnote{Ésta información puede consultarse en \cite[página 3]{landportal-strategy}}.
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth]{old_landportal_home.PNG}
+\includegraphics[width=\textwidth]{estado_arte/old_landportal_home}
 \caption{Página principal del antiguo Land Portal}
 \end{figure}
 
-Los principales puntos en los que este proyecoto pretende mejorar lo ofrecido por el viejo Land Portal son:
+A pesar de no ser un portal de datos abiertos como tal, el viejo Land Portal ha sido la principal inspiración a la hora de realizar este proyecto. El nuevo portal pretende reunir y mejorar las características de los portales de datos del Gobierno Británico y del Gobierno de Estados Unidos y, al mismo tiempo, mantener el espíritu original de colaboración e intercambio de conocimientos del viejo Land Portal.  Los principales puntos en los que este proyecto pretende mejorar lo ofrecido por el viejo Land Portal son los siguientes:
 \begin{itemize}
-\item ofrecer una interfaz más amigable, en línea con la sencillez y vistosidad de los portales de datos del Gobierno Británico y el Gobierno de Estados Unidos
-\item ofrecer acceso a los conjuntos de datos procedentes de diferentes organizaciones
-\item fomentar la participación de todos los miembros de la comunidad aportando nueva información y debatiendo sobre la ya existente
+\item Ofrecer una interfaz más amigable, en línea con la sencillez y vistosidad de los portales de datos del Gobierno Británico y el Gobierno de Estados Unidos.
+\item Ofrecer acceso a los conjuntos de datos procedentes de diferentes organizaciones, tanto de forma visual como a través de un API para desarrolladores y un catálogo de datos con capacidad de negociación de contenido.
+\item Fomentar la participación de todos los miembros de la comunidad aportando nueva información y debatiendo sobre la ya existente.
 \end{itemize}
 
