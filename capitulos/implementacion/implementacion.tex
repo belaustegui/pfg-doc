@@ -16,15 +16,19 @@ En éste capítulo se detallarán los aspectos más importantes de la implementa
 			A pesar de no ser lenguajes de programación como tal, también se incluirán algunos lenguajes que se han utilizado en varias partes del sistema.
 			\begin{itemize}
 				\item \textbf{XML}
-					Para el intercambio de datos entre los Importadores y el Punto de Entrada de Datos se ha utilizado el lenguaje de marcas XML (\textit{Extensible Markup Language}).  A pesar de la existencia de otros lenguajes con un objetivo similar (JSON es uno de ellos y se verá a continuación) se ha decidido utilizar XML para ésta tarea por su capacidad para validar la estructura del documento contra un esquema dado.
+					Para el intercambio de datos entre los Importadores y el Punto de Entrada de Datos se ha utilizado el lenguaje de marcas XML (\textit{Extensible Markup Language}).  A pesar de la existencia de otros lenguajes con un objetivo similar (JSON es uno de ellos y se verá a continuación) se ha decidido utilizar XML para ésta tarea por su capacidad para validar que la estructura del documento recibido satisface un esquema dado.
 				\item \textbf{JSON}
 					Para el envío de datos a las vistas y visualizaciones se ha utilizado el formato JSON (\textit{JavaScript Object Notation}).  Se ha escogido JSON por ser un formato mucho más ligero que XML.  Además, puesto que en éstos casos los datos provienen desde dentro del sistema su integridad está garantizada.
 						\begin{itemize}
 							\item
 								El formato JSON también se ha utilizado para albergar varios ficheros de configuración, como se puede ver en la ``\nameref{vista_landportal_uris}''.  A pesar de la existencia de otros formatos como YAML (\textit{YAML Ain't Markup Language}) se ha decidido utilizar JSON por consistencia con el resto de partes del sistema.
 						\end{itemize}
+					
 				\item \textbf{HTML y CSS}
 					Toda la interfaz web del portal se ha desarrollado utilizando el lenguaje HTML 5 para crear el contenido de las diferentes páginas, así como el lenguaje CSS 3 para dar estilo visual a las mismas.
+					
+				\item \textbf{Mustache}
+					Para facilitar la creación de plantillas HTML se ha utilizado Mustache\footnote{\url{http://mustache.github.io/}}.  Mustache define sus plantillas como \textit{logic-less} debido a que no cuenta con ningún tipo de estructura de control (\textit{if}, \textit{for}, \textit{while}, etc) características de los lenguajes de programación imperativos, sino que construye las plantillas HTML expandiendo las etiquetas especificadas con una serie de valores que se envíen a través de un diccionario u objeto.
 			\end{itemize}
 	\end{description}
 
@@ -35,7 +39,7 @@ En éste capítulo se detallarán los aspectos más importantes de la implementa
 A continuación se describirán las herramientas utilizadas durante el desarrollo del sistema.
 \begin{description}
 	\item[PyCharm]
-		Para el desarrollo del Punto de Entrada de Datos se ha utilizado el entorno de desarrollo integrado PyCharm en su versión 3.3 y 3.4.  PyCharm es un IDE para el desarrollo en lenguaje Python desarrollado por JetBrains\footnote{\url{http://www.jetbrains.com/pycharm/}}.
+		Para el desarrollo del Punto de Entrada de Datos se ha utilizado el entorno de desarrollo integrado PyCharm en su versión 3.3 y 3.4.  PyCharm es un IDE para el desarrollo en lenguaje Python desarrollado por JetBrains\footnote{\url{http://www.jetbrains.com/pycharm/}}.  PyCharm se ha utilizado en su versión comercial debido a su soporte para diversos frameworks de desarrollo web, en concreto para el framework \textit{Flask} que se ha utilizado en el proyecto.
 	\item[Editor de texto]
 		Para el desarrollo del código PHP que forma parte de los módulos de Drupal se ha utilizado en primer lugar el editor de texto Sublime Text 2\footnote{\url{http://www.sublimetext.com/2}} y posteriormente el editor Atom\footnote{\url{https://atom.io/}}.  Se ha decidido cambiar desde Sublime Text a Atom debido a ser éste último un producto de código abierto, gratuito y con un ritmo de desarrollo muy activo.
 	\item[VirtualEnv]
@@ -44,6 +48,8 @@ A continuación se describirán las herramientas utilizadas durante el desarroll
 		En conjunción con la herramienta VirtualEnv mencionada anteriormente, también se ha utilizado la herramienta PIP\footnote{\url{https://pypi.python.org/pypi/pip}} para gestionar los distintos paquetes y dependencias.  PIP permite descargar e instalar de forma automática paquetes externos junto a sus dependencias, también permite especificar todas las dependencias en un único fichero de texto.
 	\item[Git y GitHub]
 		Durante todo el desarrollo se ha utilizado Git\footnote{\url{http://www.git-scm.com/}} como sistema de control de versiones.  En conjunción con Git, se ha utilizado GitHub\footnote{\url{https://github.com/}} como \textit{hosting} para los distintos repositorios que forman parte del sistema.
+	\item[Flask]
+		Para el desarrollo del Punto de Entrada de Datos se ha utilizado Flask\footnote{\url{http://flask.pocoo.org/}}. Flask es un framework para el desarrollo de aplicaciones web escrito en el lenguaje Python.  Flask tiene una licencia BSD.  Se ha decidido utilizar Flask en lugar de otros frameworks como Django\footnote{\url{https://www.djangoproject.com/}} debido a que Flask se define a sí mismo como un \textit{microframework}, lo que provoca que su núcleo sea muy simple y cuente con una gran capacidad de extensión.
 \end{description}
 
 
@@ -66,7 +72,7 @@ A continuación se describirán las herramientas utilizadas durante el desarroll
 		
 		Ésta complejidad proviene principalmente de la necesidad de cumplir con la especificación del vocabulario RDF Data Cube (éste concepto fue explicado en detalle en la sección \ref{concept:rdf_data_cube} perteneciente al capítulo ``\nameref{chapter03}'') y de la necesidad de internacionalizar los datos del sistema.
 		
-		La solución a éste problema consistió en asumir dicha complejidad y tenerla siempre presente para optimizar la inserción y la extracción de datos en la medida de lo posible.
+		La solución a éste problema consistió en asumir dicha complejidad y tenerla siempre presente de cara a optimizar la inserción y la extracción de datos en la medida de lo posible.
 		
 	\subsection{Importación de datos}
 	\label{implementacion:importacion de datos}
@@ -76,7 +82,7 @@ A continuación se describirán las herramientas utilizadas durante el desarroll
 		Debido a ésta cantidad de información fue necesario tomar algunas medidas para hacer más efectivo el proceso de importación.  A continuación se explicará que soluciones se tomaron al respecto.
 		\begin{itemize}
 			\item
-				Uso de nu nuevo módulo para el parseo de los ficheros entrantes.  Python cuenta con dos implementaciones del parser XML de su librería estándar\footnote{El parser recibe el nombre de \textit{ElementTree}.  Para más información véase la entrada en la documentación oficial de Python al respecto en \url{https://docs.python.org/2/library/xml.etree.elementtree.html}}: una de ellas en lenguaje Python y la otra en lenguaje C.  Puesto que ambas implementaciones tienen la misma interfaz, pueden intercambiarse de forma transparente.  Usar la implementación en lengaje C del parser permitió aumentar la velocidad y reducir el consumo de memoria del proceso de importación de datos.
+				Uso de un nuevo módulo para el parseo de los ficheros entrantes.  Python cuenta con dos implementaciones del parser XML de su librería estándar\footnote{El parser recibe el nombre de \textit{ElementTree}.  Para más información véase la entrada en la documentación oficial de Python al respecto en \url{https://docs.python.org/2/library/xml.etree.elementtree.html}}: una de ellas en lenguaje Python y la otra en lenguaje C.  Puesto que ambas implementaciones tienen la misma interfaz, pueden intercambiarse de forma transparente.  Usar la implementación en lengaje C del parser permitió aumentar la velocidad y reducir el consumo de memoria del proceso de importación de datos.
 			\item
 				Uso de generadores.  El uso de listas hace necesario mantener grandes cantidades de objetos de forma simultánea en la memoria.  La utilización de generadores permite que los objetos sean devueltos bajo demanda y, por tanto, los objetos no utilizados pueden ser eliminados por el recolector de basura con la consiguiente reducción en el uso de memoria.
 			\item
