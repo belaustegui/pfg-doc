@@ -49,5 +49,5 @@ Anteriormente, en la sección ``\nameref{especificacion_plan_pruebas}'' pertenec
 		\item
 			El \textit{profiling} de memoria hace notablemente más lento el procesado de datos, por lo que la decisión de medir por separado el consumo de memoria y de tiempo ha sido positiva para evitar interferencias entre ambas mediciones.
 		\item
-			La complejidad del modelo de datos obliga a crear multitud de objetos relacionados entre sí durante el parseo y la persistencia del catálogo de datos.  Ésto provoca el alto consumo de memoria mostrado en las mediciones, que en varias ocasiones llega a multiplicar por un factor de 70 el tamaño del catálogo de datos entrante.
+			La complejidad del modelo de datos, así como el uso de un Mapeador Objeto-Relacional (ORM) para gestionar la persistencia obligan a crear multitud de objetos relacionados entre sí durante el parseo y la persistencia del catálogo de datos.  Ésto provoca el alto consumo de memoria mostrado en las mediciones, que en varias ocasiones llega a multiplicar por un factor de 70 el tamaño del catálogo de datos entrante.
 	\end{itemize}
