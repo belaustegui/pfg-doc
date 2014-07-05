@@ -19,7 +19,7 @@ Según la opinión de diferentes autores (entre ellos el propio Martin Fowler, c
 
 Para el desarrollo del subsistema de datos se utilizará una metodología de Desarrollo Dirigido por Pruebas (o TDD)\footnote{El desarrollo dirigido por pruebas es una metodología de desarrollo de software creada por Kent Beck en 1990.  Para más información al respecto, se recomienda el libro ``Test Driven Development'' \cite{kbeck:test-driven-development}}.  Con el objetivo de facilitar ésta metodología se utilizará también un servidor de integración continua.
 
-Debido al carácter de los subsistemas de la zona social, cuya principal funcionalidad queda delegada al núcleo del CMS, las pruebas para estos componentes tendrán lugar en forma de casos de prueba que se ejecutarán durante el desarrollo de las distintas partes.  
+Debido al carácter de los subsistemas de la zona social, cuya principal funcionalidad queda delegada al núcleo del CMS, las pruebas para estos componentes tendrán lugar en forma de casos de prueba que se ejecutarán manualmente durante el desarrollo.  
 
 El resultado de ambas pruebas podrá verse con mayor detalle en el capítulo \ref{chapter:desarrollo_pruebas} titulado ``\nameref{chapter:desarrollo_pruebas}''.
 
@@ -40,7 +40,6 @@ Dos puntos clave en éste tipo de pruebas son: el rendimiento temporal y el rend
 
 El punto de entrada de datos es un componente del sistema que se ejecutará una vez cada varios meses, por lo que el rendimiento temporal del mismo no tendrá una gran importancia.  El rendimiento espacial, en cambio, si tendrá una importancia alta, puesto que el consumo de memoria deberá estar controlado para evitar fallos con la llegada de grandes volúmenes de datos.
 
-Las pruebas de rendimiento, por tanto, se centrarán en pruebas de rendimiento espacial y se realizarán utilizando un \textit{profiler} de memoria.\\
 Atendiendo a la famosa cita de Donald Knuth extraída de \cite{knuth:structuredprogramming}, las pruebas de rendimiento tendrán lugar en las últimas fases del desarrollo del punto de entrada de datos: \quote{``\textit{Premature optimization is the root of all evil (or at least most of it) in programming.}''} 
 
 
