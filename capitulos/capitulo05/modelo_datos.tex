@@ -8,7 +8,7 @@ En esta sección se explicará el diseño final del modelo de datos que se utili
 
 \subsection{Modelo de la zona social}
 \label{modelo_datos_zona_social}
-A diferencia de como sucedió con la zona de datos, el modelo de datos de la zona social no ha sufrido ninguna variación respecto a lo ya expuesto en la fase de análisis del sistema.  El diagrama que muestra el modelo de datos de la zona social puede ser visto en la imagen \ref{fig:clases_preliminares_modelo_debate}, perteneciente a la sección ``\nameref{clases_preliminares_modelo_debate}'' del capítulo \ref{chapter04}.
+\input{capitulos/capitulo05/modelo/modelo_social}
 
 
 \subsection{Sistema de gestión de base de datos}
@@ -16,6 +16,6 @@ Puesto que, tal y como se explicó en las secciones ``\nameref{vista_landportal_
 
 En primer lugar, el punto de entrada de datos utilizará un ORM (\textit{Mapeador Objeto-Relacional}) que actúe como intermediario con la base de datos.  De ésta forma  durante la inserción de datos no se tendrá que recurrir a realizar consultas SQL manualmente y el ORM será el encargado de persistir los nuevos objetos y actualizar el estado de los ya existentes.
 
-Por otra parte, el framework que da soporte a la creación de visualizaciones y obtiene los datos con los que rellenar las vistas del CMS utilizará consultas manuales en lenguaje SQL.  En este caso se ha optado por la realización de consultas directamente en lenguaje SQL principalmente por la necesidad de reducir tanto el número de consultas como el número de datos innecesarios que se piden a la base de datos.  La necesidad de optimización viene dada por los grandes volúmenes de datos con los que se trabajará, teniendo lugar además estas transacciones en un momento crítico debido a que el usuario estará esperando activamente a que el sistema le muestre los datos y, por tanto, el tiempo de respuesta deberá ser el mínimo posible\footnote{Para intentar reducir aún más el tiempo de respuesta, también se utiliza un sistema de caché para evitar pedir en múltiples ocasiones los mismos datos.  El funcionamiento del caché puede consultarse en la sección \nameref{vista_receiver} del presente capítulo}.
+Por otra parte, el framework que da soporte a la creación de visualizaciones y obtiene los datos con los que rellenar las vistas del CMS utilizará consultas manuales en lenguaje SQL.  En este caso se ha optado por la realización de consultas directamente en lenguaje SQL principalmente por la necesidad de reducir tanto el número de consultas como el número de datos innecesarios que se piden a la base de datos.  La necesidad de optimización viene dada por los grandes volúmenes de datos con los que se trabajará, teniendo lugar además estas transacciones en un momento crítico debido a que el usuario estará esperando activamente a que el sistema le muestre los datos y, por tanto, el tiempo de respuesta deberá ser el mínimo posible\footnote{Para intentar reducir aún más el tiempo de respuesta, también se utiliza un sistema de caché para evitar pedir en múltiples ocasiones los mismos datos.  El funcionamiento del caché puede consultarse en la sección ``\nameref{vista_receiver}'' del presente capítulo}.
 
 En cuanto al sistema de gestión de bases de datos, se ha utilizado una base de datos MySQL debido a su probada estabilidad y rendimiento, además de ser la base de datos utilizada nativamente por Drupal.
