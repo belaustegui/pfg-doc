@@ -1,0 +1,20 @@
+En esta sección se describirá el material entregado junto a la presente documentación.  El material entregado se encuentra en un fichero comprimido y tiene el siguiente contenido:
+\begin{itemize}
+	\item \textbf{Mediciones receiver}  Éste fichero contiene los resultados obtenidos de las mediciones realizadas durante las pruebas de rendimiento del Punto de Entrada de Datos.  El análisis de los resultados puede consultarse con detalle en la sección \ref{pruebas:rendimiento}.  Para una mayor comodidad del lector, los resultados de las mediciones también se encuentran en forma tabular en el anexo \ref{anexo:resultados_mediciones}.
+	\item \textbf{Planificación inicial}  Éste fichero contiene la planificación inicial del proyecto.  La planificación fue explicada con detalle en la sección \ref{planificacion:inicial}.
+	\item \textbf{Planificación final}  Éste fichero contiene la planificación real del proyecto.  La planificación fue explicada con detalle en la sección \ref{planificacion:real}.
+	\item \textbf{Presupuestos}  Éste fichero contiene los presupuestos de cliente y de costes para el proyecto.  Dichos presupuestos pueden consultarse en las secciones \ref{presupuesto:costes} y \ref{presupuesto:costes}.
+	\item \textbf{Database}  Éste fichero alberga los contenidos de la base de datos del LandPortal y puede ser utilizado para restaurar una copia de la base de datos sin necesidad de ejecutar los importadores\footnote{Los importadores se conectan a multitud de APIs y fuentes de datos externas para obtener los catálogos de datos que procesarán y enviarán al Punto de Entrada.  Debido al número de fuentes externas a consultar y al volumen de datos, éste proceso puede durar varias horas.}.  El fichero se encuentra comprimido debido a que, por el gran volumen de datos que se maneja, el mismo fichero sin compresión ocupa 200MB.
+	\item \textbf{Fuentes}  Éste directorio contiene los ficheros de código fuente del sistema construido.
+		\begin{itemize}
+			\item \textbf{Installation scripts}  Éste directorio contiene los \textit{scripts} de instalación del sistema.  Éstos \textit{scripts} se han utilizado con éxito para desplegar el sistema en producción
+			\item \textbf{Landportal model\footnote{\url{https://github.com/weso/landportal-drupal}}}  Éste directorio contiene el código del modelo de datos del nuevo Land Portal.  Éste modelo de datos puede consultarse con detalle en la sección \ref{modelo_datos_zona_datos}.
+			\item \textbf{Landportal drupal\footnote{\url{https://github.com/weso/landportal_model}}}  Éste directorio contiene el tema y los módulos de Drupal desarrollados durante éste proyecto.  El diseño de éstos componentes puede consultarse en las secciones \ref{vista_modulos_cms} y \ref{vista_landportal_uris}.
+			\item \textbf{Landportal receiver\footnote{\url{https://github.com/weso/landportal-receiver}}}  Éste directorio contiene el Punto de Entrada de Datos del sistema.  El diseño de éste componente fue explicado anteriormente en la sección \ref{vista_receiver}.
+		\end{itemize}	
+	\item \textbf{Otros}  Éste directorio contiene varios ficheros relacionados con el proyecto:
+		\begin{itemize}
+			\item \textbf{IFAD 2013 016 RFQ Technical Specifications}  Éste fichero contiene las especificaciones técnicas del proyecto \textit{Rebuilding IFAD's LandPortal}, del cual forma parte el presente Trabajo Fin de Grado.
+			\item \textbf{SBC4D Technical Offer}  Éste fichero contiene la oferta técnica propuesta por la consultora SBC4D y bajo al cual se ha realizado éste proyecto.
+		\end{itemize}
+\end{itemize}
