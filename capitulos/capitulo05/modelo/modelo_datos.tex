@@ -63,10 +63,11 @@ A continuación se explicará el cometido de cada una de las clases del modelo q
 		\end{itemize}
 	\item[DataSet]  Representa un conjunto de datos que se ha incluido en el sistema.  Sus atributos son los siguientes:
 		\begin{itemize}
-			\item \textbf{Id}:  Identifica de forma única a cada organización
+			\item \textbf{Id}:  Identifica de forma única a cada fuente de datos.
 			\item \textbf{Sdmx frequency}:  Frecuencia con la cual la fuente actualiza sus datos.  Los valores para este campo son tomados de la ontología SDMX\footnote{Para más información véase \url{http://publishing-statistical-data.googlecode.com/svn/trunk/specs/src/main/vocab/sdmx-code.ttl}}
 			\item \textbf{Datasource id}:  Identificador de la fuente de datos a la que pertenece éste conjunto de datos
 			\item \textbf{License id}:  Identificador de la licencia bajo la que se publica éste conjunto de datos
+			\item \textbf{Indicators}: Indicadores con los que cuenta la fuente de datos.
 		\end{itemize}
 	\item[OrganizationTranslation]  Almacena los datos de una organización en diferentes idiomas.  Sus atributos son los siguientes:
 		\begin{itemize}
@@ -123,7 +124,7 @@ A continuación se explicará el cometido de cada una de las clases del modelo q
 		\begin{itemize}
 			\item \textbf{Id}:  Identificador único de la unidad de medida
 			\item \textbf{Name}:  Nombre de la unidad de medida
-			\item \textbf{ConvertibleTo}:  Unidad estándar a la que es convertible\footnote{Por ejemplo: si la unidad de medida fueran centímetros, la unidad estándar a la que es convertible serían metros}
+			\item \textbf{Convertible to}:  Unidad estándar a la que es convertible\footnote{Por ejemplo: si la unidad de medida fueran centímetros, la unidad estándar a la que es convertible serían metros}
 			\item \textbf{Factor}:  Factor de conversión a aplicar al valor para convertirlo a la unidad estándar
 		\end{itemize}
 	\item[License]  Representa una licencia bajo la cual se publica algún conjunto de datos almacenado en el sistema.  Sus atributos son los siguientes:
@@ -147,7 +148,7 @@ A continuación se explicará el cometido de cada una de las clases del modelo q
 			\item \textbf{Value}:  Almacena el valor concreto
 			\item \textbf{Value type}:  Indica el tipo del valor almacenado
 		\end{itemize}
-	\item[IndicatorRelationship]  Representa una relación entre varios indicadores.  Su único atributo es un código que identifica la relación.  Existen dos tipos de relaciones:  \textbf{Becomes}, que representa un indicador que se trasnforma en otro a lo largo del tiempo y \textit{IsPartOf}, que representa un indicador que forma parte de otro
+	\item[IndicatorRelationship]  Representa una relación entre varios indicadores.  Su único atributo es un código que identifica la relación.  Existen dos tipos de relaciones:  \textbf{Becomes}, que representa un indicador que se transforma en otro a lo largo del tiempo y \textit{IsPartOf}, que representa un indicador que forma parte de otro
 	\item \textbf{Dimension}:  Representa una dimensión tal y como se define en el \nameref{concept:rdf_data_cube}.  Su único atributo es un código que la identifica
 	\item[Time]  Representa una unidad de tiempo.  Hereda los atributos de \textbf{Dimension}
 	\item[Instant]  Representa un momento concreto en el tiempo.  Además de los atributos que hereda de \textbf{Time} también incluye:
