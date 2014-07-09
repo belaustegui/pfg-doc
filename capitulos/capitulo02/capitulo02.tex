@@ -1,11 +1,11 @@
-En éste capítulo se analizarán las posibles alternativas a los distintos componentes del sistema y posteriormente se seleccionarán las que se utilizarán para el desarrollo del sistema final.
+En este capítulo se analizarán las posibles alternativas a los distintos componentes del sistema y posteriormente se seleccionarán las que se utilizarán para el desarrollo del sistema final.
 
 \section{Alternativas evaluadas}
 
 \subsection{Gestor de contenidos}
 Un gestor de contenidos (\textit{CMS}) permite publicar, editar y modificar de forma sencilla los contenidos de una página web.  La mayoría de gestores de contenidos también se encargan de la gestión de los usuarios, los roles de usuario y permisos de cada uno de ellos.
 
-Hay multitud de gestores de contenido disponibles en el mercado. En esta sección se van a analizarán varios de ellos y posteriormente se explicará cual se ha escogido para su utilización en éste proyecto.
+Hay multitud de gestores de contenido disponibles en el mercado. En esta sección se van a analizarán varios de ellos y posteriormente se explicará cual se ha escogido para su utilización en este proyecto.
 
 
 \subsubsection{Joomla}
@@ -67,20 +67,20 @@ Como se ha mencionado anteriormente en la sección ``\nameref{estudio_situacion_
 \subsubsection{DKAN}
 DKAN\footnote{\url{http://nucivic.com/dkan/}} es una plataforma basada en CKAN y Drupal para facilitar la publicación de datos.  A diferencia de CKAN, DKAN está escrito utilizando el lenguaje de programación PHP.
 
-La principal ventaja de DKAN es la estrecha integración entre el catálogo de datos (CKAN) y el gestor de contenidos (Drupal).  Ésta integración entre los dos componentes permite aprovechar las mejores características de cada uno de ellos.  Por otra parte, ésta integración también permite desplegar el catálogo de datos de una forma simple sobre una instalación de Drupal ya existente.
+La principal ventaja de DKAN es la estrecha integración entre el catálogo de datos (CKAN) y el gestor de contenidos (Drupal).  Esta integración entre los dos componentes permite aprovechar las mejores características de cada uno de ellos.  Por otra parte, esta integración también permite desplegar el catálogo de datos de una forma simple sobre una instalación de Drupal ya existente.
 
 Un punto en contra de DKAN es su falta de madurez.  DKAN fue creado en 2012 y recientemente ha alcanzado la versión 1.0.  A pesar de todo, ha sido utilizado en algunos proyectos como el portal de datos de la Ciudad de Colonia y el portal de datos del Gobierno de Puerto Rico.
 
 
 \subsubsection{Herramienta creada especialmente para la ocasión}
-La funcionalidad de un catálogo de datos podría ser implementada por una herramienta creada especialmente para éste proyecto e implementada como un módulo del gestor de contenidos.
+La funcionalidad de un catálogo de datos podría ser implementada por una herramienta creada especialmente para este proyecto e implementada como un módulo del gestor de contenidos.
 
-La principal ventaja de esta aproximación es que, dado que la herramienta se crearía especialmente para éste proyecto, cumpliría totalmente con las necesidades del mismo.  La principal desventaja radica en el esfuerzo requerido para implementar una herramienta de tal calibre, esfuerzo que ya viene solucionado por parte de otras herramientas existentes y de probada estabilidad.
+La principal ventaja de esta aproximación es que, dado que la herramienta se crearía especialmente para este proyecto, cumpliría totalmente con las necesidades del mismo.  La principal desventaja radica en el esfuerzo requerido para implementar una herramienta de tal calibre, esfuerzo que ya viene solucionado por parte de otras herramientas existentes y de probada estabilidad.
 
 
 
 \subsection{Servidor semántico}
-Puesto que éste proyecto consiste en la creación de un portal de datos enlazados abiertos, es necesario incluir un componente que se encargue de aportar la parte de datos enlazados.  Éstos componentes suelen llamarse servidores semánticos o \textit{triple-stores}, puesto que almacenan los datos en formato RDF\footnote{\url{http://www.w3.org/RDF/}}, que modela los datos en forma de tripletas.
+Puesto que este proyecto consiste en la creación de un portal de datos enlazados abiertos, es necesario incluir un componente que se encargue de aportar la parte de datos enlazados.  Estos componentes suelen llamarse servidores semánticos o \textit{triple-stores}, puesto que almacenan los datos en formato RDF\footnote{\url{http://www.w3.org/RDF/}}, que modela los datos en forma de tripletas.
 
 
 \subsubsection{Virtuoso Universal Server / Virtuoso OpenLink}
@@ -120,7 +120,7 @@ Pubby\footnote{\url{http://wifo5-03.informatik.uni-mannheim.de/pubby/}} es un vi
 
 La principal ventaja de Pubby es su facilidad de configuración y su demostrada estabilidad. Tal y como Chris Bizer explica en \cite[]{dbpedia-architecture}, originalmente Pubby fue utilizado como \textit{frontend} de Virtuoso en DBPedia.  Posteriormente Pubby fue sustituido por consumidores especializados en HTML y RDF por cuestiones de rendimiento.
 
-La principal desventaja de Pubby es su estado de abandono. Al momento de realizar éste proyecto, la última actualización de Pubby data de enero de 2011.
+La principal desventaja de Pubby es su estado de abandono. Al momento de realizar este proyecto, la última actualización de Pubby data de enero de 2011.
 
 \subsubsection{Wesby}
 Wesby\footnote{\url{https://github.com/weso/wesby}} es un visualizador de datos enlazados escrito en el lenguaje Scala. Es un desarrollo propio de WESO\footnote{\url{http://www.weso.es/}} que tiene por objetivo establecerse como alternativa que mejore lo ofrecido por Pubby.
@@ -131,7 +131,7 @@ Wesby\footnote{\url{https://github.com/weso/wesby}} es un visualizador de datos 
 \caption{Logotipo de Wesby}
 \end{figure}
 
-La principal ventaja de Wesby sobre Pubby es su apariencia y su rendimiento. Wesby ofrece una interfaz limpia y adaptable a diferentes dispositivos. Además, una característica ofrecida por Wesby es el soporte para la creación de visualizaciones para diferentes tipos de nodos dentro del grafo RDF. Otra ventaja de Wesby es que éste construye automáticamente el esquema de URIs a partir del grafo de datos presente en el servidor semántico al que se conecta.
+La principal ventaja de Wesby sobre Pubby es su apariencia y su rendimiento. Wesby ofrece una interfaz limpia y adaptable a diferentes dispositivos. Además, una característica ofrecida por Wesby es el soporte para la creación de visualizaciones para diferentes tipos de nodos dentro del grafo RDF. Otra ventaja de Wesby es que este construye automáticamente el esquema de URIs a partir del grafo de datos presente en el servidor semántico al que se conecta.
 
 Una posible desventaja de Wesby respecto a Pubby es su novedad. Wesby es un proyecto relativamente nuevo, y únicamente se ha utilizado en el portal de datos de la Web Foundation, por lo que su estabilidad no está totalmente probada.
 
@@ -190,9 +190,9 @@ El punto débil de Elasticsearch es su novedad. A pesar de ser utilizado en port
 
 
 \subsubsection{Buscador propio del gestor de contenidos}
-Los tres gestores de contenidos que se han analizado anteriormente cuentan con un buscador propio integrado.  La principal ventaja de éste buscador es la completa integración con los contenidos que forman parte del CMS.  Puesto que el buscador ya forma parte del CMS, normalmente no es necesario realizar ninguna tarea de programación ni configuración para activarlo.
+Los tres gestores de contenidos que se han analizado anteriormente cuentan con un buscador propio integrado.  La principal ventaja de este buscador es la completa integración con los contenidos que forman parte del CMS.  Puesto que el buscador ya forma parte del CMS, normalmente no es necesario realizar ninguna tarea de programación ni configuración para activarlo.
 
-La gran desventaja de ésta solución es la imposibilidad de indexar y buscar todos aquellos contenidos que no formen parte del CMS,  algo que enn éste proyecto esto haría imposible buscar los contenidos pertenecientes a la sección de datos.
+La gran desventaja de esta solución es la imposibilidad de indexar y buscar todos aquellos contenidos que no formen parte del CMS,  algo que enn este proyecto esto haría imposible buscar los contenidos pertenecientes a la sección de datos.
 
 
 
@@ -201,25 +201,25 @@ La gran desventaja de ésta solución es la imposibilidad de indexar y buscar to
 En esta sección se explicará qué alternativas de las anteriormente descritas se han seleccionado y las razones por las que se ha llevado a cabo dicha selección.
 
 \subsection{Gestor de contenidos}
-De los tres gestores de contenidos analizados para éste proyecto, se ha seleccionado Drupal debido principalmente su madurez y flexibilidad.
+De los tres gestores de contenidos analizados para este proyecto, se ha seleccionado Drupal debido principalmente su madurez y flexibilidad.
 
-A pesar de que los tres gestores de contenidos analizados se utilizan actualmente en multitud de proyectos, Drupal forma parte de varios proyectos con objetivos similares a éste, como los portales de datos del Gobierno Británico y del Gobierno de Estados Unidos ya mencionados anteriormente. Por otra parte, una característica a tener muy en cuenta es la cantidad de módulos disponibles para extender Drupal, que en éste momento supera los 15000.
+A pesar de que los tres gestores de contenidos analizados se utilizan actualmente en multitud de proyectos, Drupal forma parte de varios proyectos con objetivos similares a este, como los portales de datos del Gobierno Británico y del Gobierno de Estados Unidos ya mencionados anteriormente. Por otra parte, una característica a tener muy en cuenta es la cantidad de módulos disponibles para extender Drupal, que en este momento supera los 15000.
 
 Un punto importante en esta decisión es que, como Larry Garfield explica en \cite[]{pac-vs-mvc} Drupal utiliza el patrón arquitectónico PAC\footnote{Presentation Abstraction Control - \url{http://en.wikipedia.org/wiki/Presentation-abstraction-control}} para organizar su estructura y funcionamiento.  El patrón PAC es menos conocido y utilizado que el patrón MVC\footnote{Model View Controller - \url{http://martinfowler.com/eaaDev/uiArchs.html}}, lo que puede reflejarse en una mayor dificultad a la hora de realizar la implementación.
 
 
 \subsection{Catálogo de datos}
-Entre las tres alternativas mencionadas anteriormente, se ha seleccionado CKAN como catálogo de datos para éste proyecto.
+Entre las tres alternativas mencionadas anteriormente, se ha seleccionado CKAN como catálogo de datos para este proyecto.
 
-Al igual que Drupal, CKAN se utiliza en varios portales de datos con objetivos similares al que se pretende construir en éste proyecto. CKAN permitirá ofrecer una vista completa de los conjuntos de datos incluidos en Land Portal.
+Al igual que Drupal, CKAN se utiliza en varios portales de datos con objetivos similares al que se pretende construir en este proyecto. CKAN permitirá ofrecer una vista completa de los conjuntos de datos incluidos en Land Portal.
 
 La alternativa de utilizar una herramienta implementada especialmente para el proyecto se ha descartado por la gran complejidad que conlleva tanto la propia implementación como la integración con el gestor de contenidos y la creación de una interfaz de acceso a los datos.
 
 
 \subsection{Servidor semántico}
-Se ha seleccionado Virtuoso como servidor semántico para el nuevo Land Portal. Ésta seleccion viene motivada por varios factores que se explicarán a continuación.
+Se ha seleccionado Virtuoso como servidor semántico para el nuevo Land Portal. Esta seleccion viene motivada por varios factores que se explicarán a continuación.
 
-Como se ha explicado anteriormente, Virtuoso ofrece un punto de acceso SPARQL, algo que se considera indispensable en cualquier portal de datos abiertos y enlazados.  Además, a diferencia de otras alternativas como Stardog, la versión libre de Virtuoso no tiene ninguna limitación en el número de conexiones que puede recibir ni en el uso de CPU, la única limitación de la versión libre es su capacidad para funcionar como una única instancia, pero ésto no debería ser un problema dada la cantidad de datos que se pretende almacenar en el sistema.
+Como se ha explicado anteriormente, Virtuoso ofrece un punto de acceso SPARQL, algo que se considera indispensable en cualquier portal de datos abiertos y enlazados.  Además, a diferencia de otras alternativas como Stardog, la versión libre de Virtuoso no tiene ninguna limitación en el número de conexiones que puede recibir ni en el uso de CPU, la única limitación de la versión libre es su capacidad para funcionar como una única instancia, pero esto no debería ser un problema dada la cantidad de datos que se pretende almacenar en el sistema.
 
 Por último, al contrario que 4store, Virtuoso ofrece un API que permite almacenar y extraer datos, lo que puede resultar de utilidad a la hora de realizar el proceso de importación y enriquecimiento de datos.
 
@@ -227,7 +227,7 @@ Por último, al contrario que 4store, Virtuoso ofrece un API que permite almacen
 \subsection{Visualizador de datos enlazados}
 Entre las dos alternativas para el visualizador de datos enlazados se ha seleccionado Wesby.
 
-Ésta selección viene motivada principalmente por ser Wesby un desarrollo propio del grupo de investigación WESO en el que el propio autor de éste Proyecto Fin de Grado ha participado, además de por ofrecer una interfaz moderna, amigable y adaptable a diferentes dispositivos que permitirá que no desentone respecto a las demás partes del nuevo Land Portal.
+Esta selección viene motivada principalmente por ser Wesby un desarrollo propio del grupo de investigación WESO en el que el propio autor de este Proyecto Fin de Grado ha participado, además de por ofrecer una interfaz moderna, amigable y adaptable a diferentes dispositivos que permitirá que no desentone respecto a las demás partes del nuevo Land Portal.
 
 
 \subsection{Framework de diseño web}

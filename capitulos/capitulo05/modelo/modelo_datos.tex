@@ -9,19 +9,19 @@ La figura \ref{fig:diagrama_modelo_final} muestra el diagrama con el diseño fin
 	\end{figure}
 \end{landscape}
 
-Como se puede comprobar, existe una variación importante respecto a lo originalmente diseñado en la figura \ref{fig:clases_preliminares_modelo_book} perteneciente a la sección ``\nameref{clases_preliminares_modelo_datos}'' del capítulo \ref{chapter04}.  A continuación se expondrán las razones para ésta divergencia:
+Como se puede comprobar, existe una variación importante respecto a lo originalmente diseñado en la figura \ref{fig:clases_preliminares_modelo_book} perteneciente a la sección ``\nameref{clases_preliminares_modelo_datos}'' del capítulo \ref{chapter04}.  A continuación se expondrán las razones para esta divergencia:
 
 \paragraph{Especificación más cercana al RDF Data Cube Vocabulary} \hfill \\
 Como se explicó anteriormente en el capítulo \ref{chapter03}, el RDF Data Cube Vocabulary organiza las observaciones en torno a un grupo de \textit{dimensiones}, \textit{medidas} y \textit{atributos}.
 
-Para dar soporte a ésto se han incluido la clase ``\textit{Dimension}'', de la que heredarán todas las dimensiones, las clases ``\textit{MeasurementUnit}`` y ``\textit{Value} pretenden dar entidad completa a las medidas y, por último, las clases ``\textit{Computation}'' y ``\textit{Time}'' pretenden dar entidad a los atributos de las observaciones.
+Para dar soporte a esto se han incluido la clase ``\textit{Dimension}'', de la que heredarán todas las dimensiones, las clases ``\textit{MeasurementUnit}`` y ``\textit{Value} pretenden dar entidad completa a las medidas y, por último, las clases ``\textit{Computation}'' y ``\textit{Time}'' pretenden dar entidad a los atributos de las observaciones.
 
 También se ha incluido soporte a slices con la clase ``\textit{Slice}''.
 
 \paragraph{Inclusión de soporte para la internacionalización de datos} \hfill \\
 Tal y como se definió en el requisito \textit{RLB 7} en la sección ``\nameref{requisitos_seccion_datos}'' del capítulo \ref{chapter04}, es necesario soportar la internacionalización en el nivel de datos.
 
-Éste soporte ha sido incluido con las clases ``\textit{Language}``, ``\textit{OrganizationTranslation}``, ``\textit{RegionTranslation}``, ``\textit{TopicTranslation}`` e ``\textit{IndicatorTranslation}``.
+Este soporte ha sido incluido con las clases ``\textit{Language}``, ``\textit{OrganizationTranslation}``, ``\textit{RegionTranslation}``, ``\textit{TopicTranslation}`` e ``\textit{IndicatorTranslation}``.
 
 \paragraph{Soporte a distintos intervalos temporales} \hfill \\
 Puesto que las observaciones pueden hacer referencia a diferentes intervalos temporales, se han incluido las clases ``\textit{Interval}'', ``\textit{YearInterval}'' y ``\textit{MonthInterval}''.
@@ -65,8 +65,8 @@ A continuación se explicará el cometido de cada una de las clases del modelo q
 		\begin{itemize}
 			\item \textbf{Id}:  Identifica de forma única a cada fuente de datos.
 			\item \textbf{Sdmx frequency}:  Frecuencia con la cual la fuente actualiza sus datos.  Los valores para este campo son tomados de la ontología SDMX\footnote{Para más información véase \url{http://publishing-statistical-data.googlecode.com/svn/trunk/specs/src/main/vocab/sdmx-code.ttl}}
-			\item \textbf{Datasource id}:  Identificador de la fuente de datos a la que pertenece éste conjunto de datos
-			\item \textbf{License id}:  Identificador de la licencia bajo la que se publica éste conjunto de datos
+			\item \textbf{Datasource id}:  Identificador de la fuente de datos a la que pertenece este conjunto de datos
+			\item \textbf{License id}:  Identificador de la licencia bajo la que se publica este conjunto de datos
 			\item \textbf{Indicators}: Indicadores con los que cuenta la fuente de datos.
 		\end{itemize}
 	\item[OrganizationTranslation]  Almacena los datos de una organización en diferentes idiomas.  Sus atributos son los siguientes:
@@ -144,7 +144,7 @@ A continuación se explicará el cometido de cada una de las clases del modelo q
 	\item[Value]  Representa un valor de una observación.  Sus atributos son:
 		\begin{itemize}
 			\item \textbf{Id}:  Identificador único del valor
-			\item \textbf{Obs status}:  Estado de la observación\footnote{Éste campo permite distinguir entre aquellas observaciones nulas y aquellas observaciones que no cuentan con un valor.  Ésta distinción es necesaria para asegurar la calidad estadística de los datos.}
+			\item \textbf{Obs status}:  Estado de la observación\footnote{Este campo permite distinguir entre aquellas observaciones nulas y aquellas observaciones que no cuentan con un valor.  Esta distinción es necesaria para asegurar la calidad estadística de los datos.}
 			\item \textbf{Value}:  Almacena el valor concreto
 			\item \textbf{Value type}:  Indica el tipo del valor almacenado
 		\end{itemize}
@@ -172,19 +172,19 @@ A continuación se explicará el cometido de cada una de las clases del modelo q
 	\end{itemize}
 	\item[Region]  Representa una región sobre la que se almacenan observaciones.  Además de los atributos que hereda de \textbf{Dimension} también tiene:
 	\begin{itemize}
-		\item \textbf{Un code}:  Será el código numérico asignado por la División Estadística de las Naciones Unidas\footnote{Éste código recibe el nombre formal de ``ISO 3166-1 numeric''.  En \cite{un:standard-country-codes} y \cite{un:iso-3166-country-codes} puede encontrarse más información sobre éstos códigos.} para la región
+		\item \textbf{Un code}:  Será el código numérico asignado por la División Estadística de las Naciones Unidas\footnote{Este código recibe el nombre formal de ``ISO 3166-1 numeric''.  En \cite{un:standard-country-codes} y \cite{un:iso-3166-country-codes} puede encontrarse más información sobre estos códigos.} para la región
 		\item \textbf{Is part of id}:  Identificador único de la región de la que forma parte (en caso de formar parte de alguna)
 	\end{itemize}
 	\item[Country]  Representa un país sobre el que se almacenan observaciones.  Además de los atributos que hereda de \textbf{Region} también tiene:
 	\begin{itemize}
-		\item \textbf{Fao URI}:  URI única del país en la Ontología Geopolítica de la Organización para la Alimentación y la Agricultura de las Naciones Unidas\footnote{La información sobre ésta ontología se encuentra disponible en \cite{fao:geopolitical-ontology}} ``\nameref{clases_preliminares_modelo_datos}'' perteneciente al capítulo \ref{chapter04}
-		\item \textbf{ISO2}:  Código alfabético de dos letras asignado por la división estadística de las Naciones Unidas\footnote{Éste código recibe el nombre formal de ``ISO 3166-1 alpha-2''}
-		\item \textbf{ISO3}:  Código alfabético de tres letras asignado por la división estadística de las Naciones Unidas\footnote{Éste código recibe el nombre formal de ``ISO 3166-1 alpha-3''}
+		\item \textbf{Fao URI}:  URI única del país en la Ontología Geopolítica de la Organización para la Alimentación y la Agricultura de las Naciones Unidas\footnote{La información sobre esta ontología se encuentra disponible en \cite{fao:geopolitical-ontology}} ``\nameref{clases_preliminares_modelo_datos}'' perteneciente al capítulo \ref{chapter04}
+		\item \textbf{ISO2}:  Código alfabético de dos letras asignado por la división estadística de las Naciones Unidas\footnote{Este código recibe el nombre formal de ``ISO 3166-1 alpha-2''}
+		\item \textbf{ISO3}:  Código alfabético de tres letras asignado por la división estadística de las Naciones Unidas\footnote{Este código recibe el nombre formal de ``ISO 3166-1 alpha-3''}
 		\item \textbf{Taxonomy id}:  Identificador del país en la taxonomía creada por el gestor de contenidos
 	\end{itemize}
 	\item[CompoundIndicator]  Representa un indicador compuesto de varios indicadores simples.  Además de los atributos que hereda de \textbf{Indicator} también incluye:
 		\begin{itemize}
-			\item \textbf{Indicator ref group id}:  Identificador único del grupo de indicadores al que pertenece éste indicador compuesto
+			\item \textbf{Indicator ref group id}:  Identificador único del grupo de indicadores al que pertenece este indicador compuesto
 		\end{itemize}
 \end{description}
 

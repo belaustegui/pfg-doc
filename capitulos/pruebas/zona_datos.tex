@@ -14,13 +14,13 @@ Como se ha explicado anteriormente en la sección ``\nameref{especificacion_plan
 	Las ventajas que ha aportado el uso de esta metodología durante el desarrollo se detallarán a continuación:
 	\begin{itemize}
 		\item
-			En muchas ocasiones las pruebas se realizan únicamente al final del desarrollo del software, lo que provoca que éstas sean ineficientes e incompletas.  La obligación de escribir las pruebas antes que la propia funcionalidad revierte esta situación y asegura la existencia de las pruebas (la corrección y completitud de las mismas queda siempre en manos del desarrollador).
+			En muchas ocasiones las pruebas se realizan únicamente al final del desarrollo del software, lo que provoca que estas sean ineficientes e incompletas.  La obligación de escribir las pruebas antes que la propia funcionalidad revierte esta situación y asegura la existencia de las pruebas (la corrección y completitud de las mismas queda siempre en manos del desarrollador).
 		\item
 			Pensar en las pruebas previamente a la implementación hace más fácil encontrar posibles situaciones extrañas que puedan provocar problemas en el sistema.
 		\item
 			Dado que las pruebas actúan como los primeros clientes del código, existe una cierta obligación a hacer que la implementación real tenga una interfaz más definida y consistente.
 		\item
-			La existencia de las pruebas ayuda a aumentar la confianza durante las refactorizaciones de código.  Ésto ha sido especialmente útil dado que el lenguaje utilizado para el desarrollo del subsistema de datos ha sido Python, cuya dinamicidad aporta en muchas ocasiones menos seguridad que otros más estáticos.
+			La existencia de las pruebas ayuda a aumentar la confianza durante las refactorizaciones de código.  Esto ha sido especialmente útil dado que el lenguaje utilizado para el desarrollo del subsistema de datos ha sido Python, cuya dinamicidad aporta en muchas ocasiones menos seguridad que otros más estáticos.
 	\end{itemize}
 	
 \subsubsection{Integración continua}
@@ -31,9 +31,9 @@ Como se ha explicado anteriormente en la sección ``\nameref{especificacion_plan
 		``\textit{Continuous Integration is a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible.}''
 	\end{quote}}
 	
-	Por su utilidad y su capacidad de integración con GitHub (plataforma de control de versiones con la que se desarroló éste proyecto) se ha utilizado el servidor de integración continua Travis-CI\footnote{\url{https://travis-ci.org/}}.  
+	Por su utilidad y su capacidad de integración con GitHub (plataforma de control de versiones con la que se desarrolló este proyecto) se ha utilizado el servidor de integración continua Travis-CI\footnote{\url{https://travis-ci.org/}}.  
 	
-	La siguiente cita de Martin Fowler \cite{mfowler:continuous-integration} puede ayudar al lector a comprender la funcionalidad de éste tipo de servidores:
+	La siguiente cita de Martin Fowler \cite{mfowler:continuous-integration} puede ayudar al lector a comprender la funcionalidad de este tipo de servidores:
 	\begin{quote}
 		``\textit{A continuous integration server acts as a monitor to the repository. Every time a commit against the repository finishes the server automatically checks out the sources onto the integration machine, initiates a build, and notifies the committer of the result of the build. The committer isn't done until she gets the notification - usually an email.}''
 	\end{quote}
@@ -43,5 +43,5 @@ Como se ha explicado anteriormente en la sección ``\nameref{especificacion_plan
 		\item
 			El servidor de integración continua asegura que las pruebas se ejecutarán ante cualquier cambio del código que se produzca en el repositorio.
 		\item
-			En caso de que surga algún fallo durante la ejecución de las pruebas, el servidor de integración continua notifica al autor de los cambios que lo producen.  Ésta capacidad de notificación prácticamente inmediata ha ayudad a detectar y solucionar varios problemas de forma rápida antes de que se propaguen a otras partes del sistema.
+			En caso de que surga algún fallo durante la ejecución de las pruebas, el servidor de integración continua notifica al autor de los cambios que lo producen.  Esta capacidad de notificación prácticamente inmediata ha ayudad a detectar y solucionar varios problemas de forma rápida antes de que se propaguen a otras partes del sistema.
 	\end{itemize}

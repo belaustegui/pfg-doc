@@ -1,4 +1,4 @@
-A continuación se detallará la estructura completa del punto de entrada de datos.  Éste componente del sistema también es conocido como \textit{Receiver} por ser su principal función el recibimiento y posterior almacenado de datos que provienen de fuentes externas al sistema.
+A continuación se detallará la estructura completa del punto de entrada de datos.  Este componente del sistema también es conocido como \textit{Receiver} por ser su principal función el recibimiento y posterior almacenado de datos que provienen de fuentes externas al sistema.
 
 
 \subsubsection{Diagrama de componentes}
@@ -21,8 +21,8 @@ Tras haber mostrado el diagrama de los componentes que forman parte del punto de
 \begin{description}
 	\item[Router]  El enrutador se encarga de dirigir las peticiones HTTP que provienen del exterior hacia el controlador.  También es el encargado de responder a las peticiones que no se correspondan con ningún controlador, o que no utilicen un verbo adecuado.
 	\item[Controller (Receiver)]  El controlador se encarga de las peticiones de inserción de datos.  Su misión es comprobar si la petición que recibe tiene una forma adecuada y llamar a los distintos servicios para que procesen los datos.
-	\item[Parser]  El parser es el encargado de transformar los datos provenientes de las peticiones externas a un modelo de datos que será utilizado por los servicios para realizar los diferentes procesados.  El modelo de datos será visto con más detalle en la sección ``\nameref{diseno_modelo_datos}'' de éste mismo capítulo.
-	\item[SQLService]  El servicio de SQL se encarga de procesar los datos que llegan al punto de entrada y generar las consultas necesarias para almacenarlos en una base de datos relacional.  Éste servicio delega la generación de consultas SQL al ORM.
+	\item[Parser]  El parser es el encargado de transformar los datos provenientes de las peticiones externas a un modelo de datos que será utilizado por los servicios para realizar los diferentes procesados.  El modelo de datos será visto con más detalle en la sección ``\nameref{diseno_modelo_datos}'' de este mismo capítulo.
+	\item[SQLService]  El servicio de SQL se encarga de procesar los datos que llegan al punto de entrada y generar las consultas necesarias para almacenarlos en una base de datos relacional.  Este servicio delega la generación de consultas SQL al ORM.
 	\item[ORM]  El Mapeador Objeto-Relacional actúa como una capa de abstracción sobre la base de datos y permite al desarrollador trabajar con objetos sin necesidad de ocuparse de su transformación al modelo relacional.
 	\item[RDFService]  El servicio de RDF se encarga de procesar los datos que llegan al punto de entrada y generar los grafos RDF que serán almacenados en el servidor semántico.
 	\item[CKANService]  El servicio de CKAN se encarga de procesar los datos que llegan al punto de entrada y generar los metadatos que se almacenan en el catálogo de datos.

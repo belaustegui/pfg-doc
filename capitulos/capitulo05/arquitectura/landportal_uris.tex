@@ -15,7 +15,7 @@ La figura \ref{fig:diagrama_componentes_landportal_uris} muestra el diagrama de 
 \subsubsection{Descripción de los componentes}
 Se describirán ahora los distintos componentes que forman parte del módulo ``\textit{landportal\_uris}''.  La organización de dichos componentes puede verse en la figura \ref{fig:diagrama_componentes_landportal_uris}
 \begin{description}
-	\item[Module]  Contiene la implementación del \textit{hook} que el gestor de contenidos utilizará para llamar a éste módulo.  Es el principal punto de entrada al módulo.  Incluye un fichero donde se declararán las rutas y las vistas que estarán disponibles.
+	\item[Module]  Contiene la implementación del \textit{hook} que el gestor de contenidos utilizará para llamar a este módulo.  Es el principal punto de entrada al módulo.  Incluye un fichero donde se declararán las rutas y las vistas que estarán disponibles.
 	\item[DatabaseHelper]  Funciona como una capa de abstracción sobre la base de datos.  Ofrece una serie de métodos que serán utilizados por el resto de componentes que necesiten acceder a la base de datos.  Incluye un fichero que configura la información de conexión a la base de datos y otro que incluye las consultas disponibles.
 	\item[CacheHelper]  Permite el cacheo de datos con el fin de agilizar la consulta y procesado de grandes cantidades de datos.  Ofrece una serie de métodos que serán utilizados por el resto de componentes que necesiten acceder al caché.
 	\item[Ajax]  Implementa el framewok que da soporte a la creación de visualizaciones.  Expone varias interfaces que serán utilizadas por las visualizaciones para obtener los datos que posteriormente presentarán a los usuarios.

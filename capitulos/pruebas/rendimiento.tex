@@ -3,7 +3,7 @@ Anteriormente, en la sección ``\nameref{especificacion_plan_pruebas}'' pertenec
 
 \subsection{Proceso y ámbito de las mediciones}
 \label{pruebas:proceso_ambito_mediciones}
-	En la sección ``\nameref{definicion_sistema}'', también del capítulo \ref{chapter04} se indicó que sólo forma parte del alcance de éste proyecto la creación de un servicio de generación de SQL como parte del Punto de Entrada de Datos.  Debido a esto y con el fin de aislar las mediciones a un ámbito relevante para ésta documentación, éstas han sido realizadas con los servicios de generación de RDF y CKAN desactivados.
+	En la sección ``\nameref{definicion_sistema}'', también del capítulo \ref{chapter04} se indicó que sólo forma parte del alcance de este proyecto la creación de un servicio de generación de SQL como parte del Punto de Entrada de Datos.  Debido a esto y con el fin de aislar las mediciones a un ámbito relevante para esta documentación, estas han sido realizadas con los servicios de generación de RDF y CKAN desactivados.
 	
 	Las mediciones tendrán lugar mediante el envío de un fichero XML al Punto de Entrada de Datos para su procesado e inserción en base de datos usando el parser común y el servicio de generación de SQL.  Para hacer las mediciones lo más exactas posible se repetirán un total de tres veces y posteriormente se calculará la mediana.  Con el fin de evitar interferencias externas, cada medición se realizará sobre una base de datos MySQL\footnote{La versión de MySQL utilizada durante las mediciones es la 5.5.37} vacía y un servicio Apache\footnote{La versión de Apache utilizada durante las mediciones es la 2.4.7} recién iniciado.
 	
@@ -45,9 +45,9 @@ Anteriormente, en la sección ``\nameref{especificacion_plan_pruebas}'' pertenec
 		\item
 			El número de observaciones entrantes es directamente proporcional tanto al tiempo como a la memoria utilizados durante el procesado de datos. 
 		\item
-			La velocidad de procesado de datos tiende a estabilizarse en torno a un valor concreto.  En el caso de la máquina en la que se realizaron las mediciones éste valor fue de 105 observaciones por segundo.
+			La velocidad de procesado de datos tiende a estabilizarse en torno a un valor concreto.  En el caso de la máquina en la que se realizaron las mediciones este valor fue de 105 observaciones por segundo.
 		\item
 			El \textit{profiling} de memoria hace notablemente más lento el procesado de datos, por lo que la decisión de medir por separado el consumo de memoria y de tiempo ha sido positiva para evitar interferencias entre ambas mediciones.
 		\item
-			La complejidad del modelo de datos, así como el uso de un Mapeador Objeto-Relacional (ORM) para gestionar la persistencia obligan a crear multitud de objetos relacionados entre sí durante el parseo y la persistencia del catálogo de datos.  Ésto provoca el alto consumo de memoria mostrado en las mediciones, que en varias ocasiones llega a multiplicar por un factor de 70 el tamaño del catálogo de datos entrante.
+			La complejidad del modelo de datos, así como el uso de un Mapeador Objeto-Relacional (ORM) para gestionar la persistencia obligan a crear multitud de objetos relacionados entre sí durante el parseo y la persistencia del catálogo de datos.  Esto provoca el alto consumo de memoria mostrado en las mediciones, que en varias ocasiones llega a multiplicar por un factor de 70 el tamaño del catálogo de datos entrante.
 	\end{itemize}

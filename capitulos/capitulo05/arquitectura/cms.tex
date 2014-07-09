@@ -17,11 +17,11 @@ La figura \ref{fig:diagrama_componentes_cms} muestra el diagrama de los componen
 Se describirán ahora los distintos componentes que forman parte del gestor de contenidos. La organización de dichos componentes puede verse en la figura \ref{fig:diagrama_componentes_cms}
 \begin{description}
 	\item[Drupal Core]  El núcleo de Drupal implementa la funcionalidad principal del gestor de contenidos.  Es el encargado de procesar y responder a las peticiones, además de coordinar el funcionamiento de los diferentes módulos y temas visuales.
-	\item[Contributed modules]  Los módulos contribuidos son módulos realizados por terceros y que han sido públicamente incluidos en el repositorio de módulos de Drupal.  Éstos módulos amplían la funcionalidad existente en el núcleo de Drupal\footnote{Actualmente existen unos 15.000 módulos que forman parte del repositorio.  Dichos módulos pueden verse en \url{https://www.drupal.org/project/project_module}}.
-	\item[Custom modules]  Los módulos propios han sido especialmente creados para éste proyecto y realizan alguna funcionalidad que no forma parte del núcleo de Drupal ni de ningún módulo contribuido.  Se han desarrollado cuatro módulos propios:
+	\item[Contributed modules]  Los módulos contribuidos son módulos realizados por terceros y que han sido públicamente incluidos en el repositorio de módulos de Drupal.  Estos módulos amplían la funcionalidad existente en el núcleo de Drupal\footnote{Actualmente existen unos 15.000 módulos que forman parte del repositorio.  Dichos módulos pueden verse en \url{https://www.drupal.org/project/project_module}}.
+	\item[Custom modules]  Los módulos propios han sido especialmente creados para este proyecto y realizan alguna funcionalidad que no forma parte del núcleo de Drupal ni de ningún módulo contribuido.  Se han desarrollado cuatro módulos propios:
 		\begin{itemize}
 			\item \textit{taxonomy\_dictionary}  Permite relacionar los datos existentes en la base de datos con los términos de las taxonomías existentes en Drupal.
-			\item \textit{landportal\_uris}  Implementa un sistema similar al MVC para facilitar la creación de vistas.  También incluye el framework que provee de datos a las visualizaciones.  Éste módulo se verá con más detalle posteriormente en la sección ``\nameref{vista_landportal_uris}'' de éste mismo capítulo.
+			\item \textit{landportal\_uris}  Implementa un sistema similar al MVC para facilitar la creación de vistas.  También incluye el framework que provee de datos a las visualizaciones.  Este módulo se verá con más detalle posteriormente en la sección ``\nameref{vista_landportal_uris}'' de este mismo capítulo.
 			\item \textit{landbook\_nodes\_access}  Permite redirigir a las vistas adecuadas cuando se visite alguno de los nodos de la sección de datos.
 			\item \textit{landportal\_api\_auth}  Genera y almacena las claves de autenticación del el API para los nuevos usuarios que se creen en el sistema.
 		\end{itemize}
@@ -30,7 +30,7 @@ Se describirán ahora los distintos componentes que forman parte del gestor de c
 
 
 \subsubsection{Relación entre los componentes}
-Las peticiones entrantes son procesadas por el núcleo de Drupal.  En cada petición el núcleo de Drupal invoca los módulos que estén suscritos a los \textit{hooks} adecuados para que realicen su funcionalidad\footnote{El módulo ``\textit{landportal\_uris}'' será detallado posteriormente en la sección ``\nameref{vista_landportal_uris}'' de éste mismo capítulo.  El resto de módulos propios cuentan simplemente con un único fichero que implementa el \textit{hook} correspondiente por lo que, dada su sencillez, sus vistas se omitirán}:
+Las peticiones entrantes son procesadas por el núcleo de Drupal.  En cada petición el núcleo de Drupal invoca los módulos que estén suscritos a los \textit{hooks} adecuados para que realicen su funcionalidad\footnote{El módulo ``\textit{landportal\_uris}'' será detallado posteriormente en la sección ``\nameref{vista_landportal_uris}'' de este mismo capítulo.  El resto de módulos propios cuentan simplemente con un único fichero que implementa el \textit{hook} correspondiente por lo que, dada su sencillez, sus vistas se omitirán}:
 \begin{itemize}
 	\item Cuando se crea un nuevo término en la taxonomía se invoca al módulo \textit{taxonomy\_dictionary} para que lo enlace con el término correspondiente en la base de datos.
 	\item Cuando se realiza una petición que no va dirigida a mostrar la vista de administración se invoca al módulo \textit{landportal\_uris} para que provea los datos con los que se renderizarán posteriormente las vistas del tema.
@@ -76,7 +76,7 @@ La tabla \ref{interfaces_cms_cms} muestra el detalle de las interfaces del \text
 	\textbf{database} & Requerida & Conexión a base de datos & Accede a la base de datos donde se almacena la información perteneciente al subsistema de datos \\
 	\hline
 	
-	\textbf{visualization framework} & Proveída & API Web & Provee datos con los que posteriormente crear las visualizaciones\footnote{Los elementos de éste framework podrán ser vistos con mayor detalle posteriormente en la sección ``\nameref{vista_landportal_uris}'' perteneciente a éste mismo capítulo} \\
+	\textbf{visualization framework} & Proveída & API Web & Provee datos con los que posteriormente crear las visualizaciones\footnote{Los elementos de este framework podrán ser vistos con mayor detalle posteriormente en la sección ``\nameref{vista_landportal_uris}'' perteneciente a este mismo capítulo} \\
 	\hline
 	
 	\textbf{authentication} & Proveída & API REST & Genera claves de autenticación en el API para los usuarios del portal \\
@@ -126,7 +126,7 @@ La tabla \ref{interfaces_cms_drupalcore} muestra el detalle de las interfaces de
 		\textbf{hook theme} & Puerto de salida & Llamada a método & Indica al tema que renderice una determinada plantilla para una vista \\
 		\hline
 		
-		\textbf{hook taxonomy term insert} & Puerto de salida & Llamada a método & Indica a un módulo que se ha creado un nuevo término en la taxonomía para que éste realice su funcionalidad \\
+		\textbf{hook taxonomy term insert} & Puerto de salida & Llamada a método & Indica a un módulo que se ha creado un nuevo término en la taxonomía para que este realice su funcionalidad \\
 		\hline
 		
 		\textbf{hook menu} & Puerto de salida & Llamada a método & Permite a un módulo registrar rutas para definir cómo son atendidas las peticiones HTTP \\

@@ -1,4 +1,4 @@
-En éste capítulo se detallarán los aspectos más importantes de la implementación del sistema, desde los lenguajes de programación y herramientas utilizadas hasta los principales problemas surgidos durante el desarrollo y sus soluciones.
+En este capítulo se detallarán los aspectos más importantes de la implementación del sistema, desde los lenguajes de programación y herramientas utilizadas hasta los principales problemas surgidos durante el desarrollo y sus soluciones.
 
 
 \section{Lenguajes de programación utilizados}
@@ -7,18 +7,18 @@ En éste capítulo se detallarán los aspectos más importantes de la implementa
 	A continuación se describirán los lenguajes de programación utilizados y sus respectivas versiones.
 	\begin{description}
 		\item[PHP]
-			Para el desarrollo de los módulos pertenecientes al gestor de contenidos, así como las plantillas del tema visual, se ha utilizado el lenguaje PHP (\textit{PHP: Hypertext Preprocessor}).  La versión del lenguaje PHP utilizada es la 5.5\footnote{La versión 5.5 del lenguaje PHP incluye, entre otras características, soporte a generadores y capacidad de iteración por cualquier tipo de clave (no sólo numérica) en los bucles \textit{foreach}.  Para una mayor información al respecto se recomienda leer el anuncio oficial en \url{http://php.net/releases/5_5_0.php}}.  La única extensión de PHP utilizada ha sido APC (\textit{Alternative PHP Cache}), que permite cachear y optimizar el código intermedio de PHP con el objetivo de aumentar el rendimiento siempre que sea posible, el uso de éste caché puede verse descrito en la sección ``\nameref{actividad:framework_visualizaciones}'' perteneciente al capítulo \ref{chapter05}.
+			Para el desarrollo de los módulos pertenecientes al gestor de contenidos, así como las plantillas del tema visual, se ha utilizado el lenguaje PHP (\textit{PHP: Hypertext Preprocessor}).  La versión del lenguaje PHP utilizada es la 5.5\footnote{La versión 5.5 del lenguaje PHP incluye, entre otras características, soporte a generadores y capacidad de iteración por cualquier tipo de clave (no sólo numérica) en los bucles \textit{foreach}.  Para una mayor información al respecto se recomienda leer el anuncio oficial en \url{http://php.net/releases/5_5_0.php}}.  La única extensión de PHP utilizada ha sido APC (\textit{Alternative PHP Cache}), que permite cachear y optimizar el código intermedio de PHP con el objetivo de aumentar el rendimiento siempre que sea posible, el uso de este caché puede verse descrito en la sección ``\nameref{actividad:framework_visualizaciones}'' perteneciente al capítulo \ref{chapter05}.
 		\item[Python]
-			Para el desarrollo del Punto de Entrada de Datos (o \textit{Receiver}) se ha utilizado el lenguaje Python en su versión 2.7. Se ha decidido utilizar la versión 2.7 de Python debido a que las versiones 3.x contienen varias incompatibilidades con las anteriores versiones, éstas incompatibilidades provocan que la existencia de librerías externas sea más reducida.  En el PEP (\textit{Python Enhancement Proposal}) 373\footnote{El PEP 373 está disponible para su consulta en \url{http://legacy.python.org/dev/peps/pep-0373/}} se establece que la versión 2.7 de Python estará soportada hasta el año 2020.  En la posterior sección ``\nameref{implementacion:herramientas_utilizadas}'' se explicarán las herramientas que se han utilizado para aislar el entorno y gestionar las dependencias externas.
+			Para el desarrollo del Punto de Entrada de Datos (o \textit{Receiver}) se ha utilizado el lenguaje Python en su versión 2.7. Se ha decidido utilizar la versión 2.7 de Python debido a que las versiones 3.x contienen varias incompatibilidades con las anteriores versiones, estas incompatibilidades provocan que la existencia de librerías externas sea más reducida.  En el PEP (\textit{Python Enhancement Proposal}) 373\footnote{El PEP 373 está disponible para su consulta en \url{http://legacy.python.org/dev/peps/pep-0373/}} se establece que la versión 2.7 de Python estará soportada hasta el año 2020.  En la posterior sección ``\nameref{implementacion:herramientas_utilizadas}'' se explicarán las herramientas que se han utilizado para aislar el entorno y gestionar las dependencias externas.
 		\item[SQL]
 			Para interactuar con la base de datos se ha utilizado el lenguaje SQL, Cabe destacar que todas las consultas realizadas se adhieren a la especificación de SQL estándar y no utilizan características propias de ningún sistema de gestión de bases de datos.
 		\item[Otros]
 			A pesar de no ser lenguajes de programación como tal, también se incluirán algunos lenguajes que se han utilizado en varias partes del sistema.
 			\begin{itemize}
 				\item \textbf{XML}
-					Para el intercambio de datos entre los Importadores y el Punto de Entrada de Datos se ha utilizado el lenguaje de marcas XML (\textit{Extensible Markup Language}).  A pesar de la existencia de otros lenguajes con un objetivo similar (JSON es uno de ellos y se verá a continuación) se ha decidido utilizar XML para ésta tarea por su capacidad para validar que la estructura del documento recibido satisface un esquema dado.
+					Para el intercambio de datos entre los Importadores y el Punto de Entrada de Datos se ha utilizado el lenguaje de marcas XML (\textit{Extensible Markup Language}).  A pesar de la existencia de otros lenguajes con un objetivo similar (JSON es uno de ellos y se verá a continuación) se ha decidido utilizar XML para esta tarea por su capacidad para validar que la estructura del documento recibido satisface un esquema dado.
 				\item \textbf{JSON}
-					Para el envío de datos a las vistas y visualizaciones se ha utilizado el formato JSON (\textit{JavaScript Object Notation}).  Se ha escogido JSON por ser un formato mucho más ligero que XML.  Además, puesto que en éstos casos los datos provienen desde dentro del sistema su integridad está garantizada.
+					Para el envío de datos a las vistas y visualizaciones se ha utilizado el formato JSON (\textit{JavaScript Object Notation}).  Se ha escogido JSON por ser un formato mucho más ligero que XML.  Además, puesto que en estos casos los datos provienen desde dentro del sistema su integridad está garantizada.
 						\begin{itemize}
 							\item
 								El formato JSON también se ha utilizado para albergar varios ficheros de configuración, como se puede ver en la ``\nameref{vista_landportal_uris}''.  A pesar de la existencia de otros formatos como YAML (\textit{YAML Ain't Markup Language}) se ha decidido utilizar JSON por consistencia con el resto de partes del sistema.
@@ -41,7 +41,7 @@ A continuación se describirán las herramientas utilizadas durante el desarroll
 	\item[PyCharm]
 		Para el desarrollo del Punto de Entrada de Datos se ha utilizado el entorno de desarrollo integrado PyCharm en su versión 3.3 y 3.4.  PyCharm es un IDE para el desarrollo en lenguaje Python desarrollado por JetBrains\footnote{\url{http://www.jetbrains.com/pycharm/}}.  PyCharm se ha utilizado en su versión comercial debido a su soporte para diversos frameworks de desarrollo web, en concreto para el framework \textit{Flask} que se ha utilizado en el proyecto.
 	\item[Editor de texto]
-		Para el desarrollo del código PHP que forma parte de los módulos de Drupal se ha utilizado en primer lugar el editor de texto Sublime Text 2\footnote{\url{http://www.sublimetext.com/2}} y posteriormente el editor Atom\footnote{\url{https://atom.io/}}.  Se ha decidido cambiar desde Sublime Text a Atom debido a ser éste último un producto de código abierto, gratuito y con un ritmo de desarrollo muy activo.
+		Para el desarrollo del código PHP que forma parte de los módulos de Drupal se ha utilizado en primer lugar el editor de texto Sublime Text 2\footnote{\url{http://www.sublimetext.com/2}} y posteriormente el editor Atom\footnote{\url{https://atom.io/}}.  Se ha decidido cambiar desde Sublime Text a Atom debido a ser este último un producto de código abierto, gratuito y con un ritmo de desarrollo muy activo.
 	\item[VirtualEnv]
 		Se ha utilizadoo la herramienta VirtualEnv\footnote{\url{http://virtualenv.readthedocs.org/en/latest/virtualenv.html}} para crear entornos de Python aislados.  Utilizar entornos aislados permite instalar librerías y paquetes sin que colisionen entre los diferentes entornos existentes, también permite mantener múltiples intérpretes de Python funcionando de forma simultánea.
 	\item[PIP]
@@ -70,23 +70,23 @@ A continuación se describirán las herramientas utilizadas durante el desarroll
 		
 		Tal y como se mencionó en el punto anterior y se puede comprobar en la sección ``\nameref{diseno_modelo_datos}'' el modelo de datos adquirió una gran complejidad, alcanzando las 30 clases diferentes.
 		
-		Ésta complejidad proviene principalmente de la necesidad de cumplir con la especificación del vocabulario RDF Data Cube (éste concepto fue explicado en detalle en la sección \ref{concept:rdf_data_cube} perteneciente al capítulo ``\nameref{chapter03}'') y de la necesidad de internacionalizar los datos del sistema.
+		Esta complejidad proviene principalmente de la necesidad de cumplir con la especificación del vocabulario RDF Data Cube (este concepto fue explicado en detalle en la sección \ref{concept:rdf_data_cube} perteneciente al capítulo ``\nameref{chapter03}'') y de la necesidad de internacionalizar los datos del sistema.
 		
-		La solución a éste problema consistió en asumir dicha complejidad y tenerla siempre presente de cara a optimizar la inserción y la extracción de datos en la medida de lo posible.
+		La solución a este problema consistió en asumir dicha complejidad y tenerla siempre presente de cara a optimizar la inserción y la extracción de datos en la medida de lo posible.
 		
 	\subsection{Importación de datos}
 	\label{implementacion:importacion de datos}
 		
 		La implementación de la importación de datos en el sistema fue problemática debido a la necesidad de soportar la entrada de grandes conjuntos de datos.  Algunas fuentes de datos incluyen catálogos de datos de unos 40mb en formato de texto plano sin espacios ni saltos de líneas.
 		
-		Debido a ésta cantidad de información fue necesario tomar algunas medidas para hacer más efectivo el proceso de importación.  A continuación se explicará que soluciones se tomaron al respecto.
+		Debido a esta cantidad de información fue necesario tomar algunas medidas para hacer más efectivo el proceso de importación.  A continuación se explicará que soluciones se tomaron al respecto.
 		\begin{itemize}
 			\item
 				Uso de un nuevo módulo para el parseo de los ficheros entrantes.  Python cuenta con dos implementaciones del parser XML de su librería estándar\footnote{El parser recibe el nombre de \textit{ElementTree}.  Para más información véase la entrada en la documentación oficial de Python al respecto en \url{https://docs.python.org/2/library/xml.etree.elementtree.html}}: una de ellas en lenguaje Python y la otra en lenguaje C.  Puesto que ambas implementaciones tienen la misma interfaz, pueden intercambiarse de forma transparente.  Usar la implementación en lengaje C del parser permitió aumentar la velocidad y reducir el consumo de memoria del proceso de importación de datos.
 			\item
 				Uso de generadores.  El uso de listas hace necesario mantener grandes cantidades de objetos de forma simultánea en la memoria.  La utilización de generadores permite que los objetos sean devueltos bajo demanda y, por tanto, los objetos no utilizados pueden ser eliminados por el recolector de basura con la consiguiente reducción en el uso de memoria.
 			\item
-				Inserciones parciales.  Con grandes cantidades de datos las consultas de inserción en la base de datos producen que el SGBD\footnote{Como se detalló en la sección ``\nameref{chapter02:alternativas_seleccionadas}'' perteneciente al capítulo \ref{chapter02}, el Sistema de Gestión de Bases de Datos utilizado es MySQL.} falle al no poder gestionar tanta información.  La realización de varias inserciones parciales en las que sólo se inserta un determinado número de objetos, en lugar de una única gran inserción permitió eliminar éste problema.
+				Inserciones parciales.  Con grandes cantidades de datos las consultas de inserción en la base de datos producen que el SGBD\footnote{Como se detalló en la sección ``\nameref{chapter02:alternativas_seleccionadas}'' perteneciente al capítulo \ref{chapter02}, el Sistema de Gestión de Bases de Datos utilizado es MySQL.} falle al no poder gestionar tanta información.  La realización de varias inserciones parciales en las que sólo se inserta un determinado número de objetos, en lugar de una única gran inserción permitió eliminar este problema.
 		\end{itemize}
 		
 	\subsection{Adaptación al CMS}
@@ -94,5 +94,5 @@ A continuación se describirán las herramientas utilizadas durante el desarroll
 	
 		El desarrollo de los módulos de Drupal que se pueden ver en la sección ``\nameref{vista_modulos_cms}'' perteneciente al capítulo \ref{chapter05} requirió adaptar el desarrollo a las técnicas y mecanismos utilizados por el gestor de contenidos y, en muchas ocasiones, luchar contra el propio CMS para realizar algunas tareas.
 		
-		La solución a éste problema consistió en utilizar extensivamente la documentación oficial de Drupal\footnote{La documentación oficial de Drupal puede consultarse en \url{https://www.drupal.org/documentation}} intentar comprender al máximo posible su funcionamiento para, de ésta forma, intentar reducir al mínimo dichas situaciones.
+		La solución a este problema consistió en utilizar extensivamente la documentación oficial de Drupal\footnote{La documentación oficial de Drupal puede consultarse en \url{https://www.drupal.org/documentation}} intentar comprender al máximo posible su funcionamiento para, de esta forma, intentar reducir al mínimo dichas situaciones.
 

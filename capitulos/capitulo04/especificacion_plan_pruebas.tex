@@ -5,19 +5,19 @@ En esta sección se especificará el plan de pruebas que se seguirá durante el 
 Las pruebas unitarias están dirigidas a probar partes de código pequeñas y específicas. Como Martin Fowler explica en su artículo \cite{mfowler:unit-testing} existen tres características fundamentales que caracterizan a las pruebas unitarias:
 \begin{itemize}
 	\item Los tests se centran en una parte pequeña del sistema
-	\item Los tests son normalmente escritos por los propios programadores utilizando alguna variante del framework \textit{XUnit}\footnote{XUnit es el nombre que recibe una familia de frameworks destinados a la realización de pruebas.  El primero de éstos frameworks fue creado por Kent Beck para el lenguaje Smalltalk.  Para más información al respecto se recomienda el artículo \cite{mfowler:xunit}.}.
+	\item Los tests son normalmente escritos por los propios programadores utilizando alguna variante del framework \textit{XUnit}\footnote{XUnit es el nombre que recibe una familia de frameworks destinados a la realización de pruebas.  El primero de estos frameworks fue creado por Kent Beck para el lenguaje Smalltalk.  Para más información al respecto se recomienda el artículo \cite{mfowler:xunit}.}.
 	\item Se espera que los tests se ejecuten de una forma rápida
 \end{itemize}
 
-Un punto clave de las pruebas unitarias es su aislamiento de otras partes del sistema.  Por la estructura del subsistema de datos, cuya principal funcionalidad es insertar y extraer valores de la base de datos, sería necesario crear una gran cantidad de \textit{mocks} que simulen el funcionamiento de la propia base de datos.  Debido a esto, se ha tomado la decisión de no realizar pruebas unitarias como tal, puesto que supondría un sobreesfuerzo muy grande aislar totalmente los componentes del subsistema de la base de datos para obtener un coste muy pequeño, puesto que la propia base de datos juega un punto clave en el correcto funcionamiento de éste subsistema.
+Un punto clave de las pruebas unitarias es su aislamiento de otras partes del sistema.  Por la estructura del subsistema de datos, cuya principal funcionalidad es insertar y extraer valores de la base de datos, sería necesario crear una gran cantidad de \textit{mocks} que simulen el funcionamiento de la propia base de datos.  Debido a esto, se ha tomado la decisión de no realizar pruebas unitarias como tal, puesto que supondría un sobreesfuerzo muy grande aislar totalmente los componentes del subsistema de la base de datos para obtener un coste muy pequeño, puesto que la propia base de datos juega un punto clave en el correcto funcionamiento de este subsistema.
 
 Por su construcción que, como ya se ha mencionado en secciones anteriores, delega la funcionalidad principal a los mecanismos proveídos por el gestor de contenidos, las pruebas unitarias se omitirán para la zona social y los subsistemas que engloba.
 
 \subsection{Pruebas de integración}
-A pesar de lo mencionado anteriormente a cerca de las pruebas unitarias, existen opiniones divididas sobre lo que se considera exactamente una \textit{unidad} en dichas pruebas.  Para éste proyecto, y hablando del subsistema de datos, se tomará como una \textit{unidad} la lectura de un valor del fichero XML y su inmediata inserción en la base de datos.\newline
-Según la opinión de diferentes autores (entre ellos el propio Martin Fowler, como menciona en su artículo \cite{mfowler:unit-testing}), éste tipo de pruebas podrían ser consideradas pruebas unitarias.  No obstante, con el objetivo de mantener la máxima fidelidad respecto a la definición de pruebas unitarias, las pruebas que se detallan a continuación han sido finalmente consideradas como pruebas de integración.
+A pesar de lo mencionado anteriormente a cerca de las pruebas unitarias, existen opiniones divididas sobre lo que se considera exactamente una \textit{unidad} en dichas pruebas.  Para este proyecto, y hablando del subsistema de datos, se tomará como una \textit{unidad} la lectura de un valor del fichero XML y su inmediata inserción en la base de datos.\newline
+Según la opinión de diferentes autores (entre ellos el propio Martin Fowler, como menciona en su artículo \cite{mfowler:unit-testing}), este tipo de pruebas podrían ser consideradas pruebas unitarias.  No obstante, con el objetivo de mantener la máxima fidelidad respecto a la definición de pruebas unitarias, las pruebas que se detallan a continuación han sido finalmente consideradas como pruebas de integración.
 
-Para el desarrollo del subsistema de datos se utilizará una metodología de Desarrollo Dirigido por Pruebas (o TDD)\footnote{El desarrollo dirigido por pruebas es una metodología de desarrollo de software creada por Kent Beck en 1990.  Para más información al respecto, se recomienda el libro ``Test Driven Development'' \cite{kbeck:test-driven-development}}.  Con el objetivo de facilitar ésta metodología se utilizará también un servidor de integración continua.
+Para el desarrollo del subsistema de datos se utilizará una metodología de Desarrollo Dirigido por Pruebas (o TDD)\footnote{El desarrollo dirigido por pruebas es una metodología de desarrollo de software creada por Kent Beck en 1990.  Para más información al respecto, se recomienda el libro ``Test Driven Development'' \cite{kbeck:test-driven-development}}.  Con el objetivo de facilitar esta metodología se utilizará también un servidor de integración continua.
 
 Debido al carácter de los subsistemas de la zona social, cuya principal funcionalidad queda delegada al núcleo del CMS, las pruebas para estos componentes tendrán lugar en forma de casos de prueba que se ejecutarán manualmente durante el desarrollo.  
 
@@ -26,7 +26,7 @@ El resultado de ambas pruebas podrá verse con mayor detalle en el capítulo \re
 
 \subsection{Pruebas de aceptación}
 Las pruebas de aceptación consisten en comprobar que el sistema realizado satisface las necesidades del usuario y el usuario \textit{acepta} la solución creada.  Normalmente las pruebas de aceptación son realizadas por el cliente del sistema que se construye y tienen lugar en las últimas fases del desarrollo del sistema.  Las pruebas de aceptación funcionan como una verificación final de que el sistema cumple con los requisitos y funciona de una forma adecuada para los usuarios.
-En éste proyecto las pruebas de aceptación se realizarán en forma de pruebas beta.
+En este proyecto las pruebas de aceptación se realizarán en forma de pruebas beta.
 
 Las pruebas beta se realizarán durante la última fase de desarrollo.  Concretamente tendrán lugar a lo largo de una semana en la que se contará con un servidor especial en el cual se desplegará la última versión estable del sistema.  Este servidor estará continuamente disponible, el cliente accederá a dicho servidor, probará los diferentes aspectos del sistema y ofrecerá \textit{feedback} a los desarrolladores con aquellos posibles fallos o cuestiones que encuentre.
 
@@ -36,7 +36,7 @@ Una vez recibidos los reportes será tarea del jefe de proyecto filtrarlos y sep
 \subsection{Pruebas de rendimiento}
 Tal y como se ha mencionado en la sección \nameref{especificacion_requisitos_no_funcionales}, perteneciente al capítulo \ref{chapter04}, el punto de entrada de datos puede recibir conjuntos de datos de gran volumen.  Por esto será necesario realizar pruebas específicas de rendimiento para dicho componente, con el fin de asegurar su correcto comportamiento ante diferentes entradas de datos de diferentes tamaños.
 
-Dos puntos clave en éste tipo de pruebas son: el rendimiento temporal y el rendimiento espacial.  El rendimiento temporal se refiere a la velocidad con la que el componente realiza su tarea.  El rendimiento espacial se refiere a la cantidad de memoria que el componente utiliza durante su funcionamiento.
+Dos puntos clave en este tipo de pruebas son: el rendimiento temporal y el rendimiento espacial.  El rendimiento temporal se refiere a la velocidad con la que el componente realiza su tarea.  El rendimiento espacial se refiere a la cantidad de memoria que el componente utiliza durante su funcionamiento.
 
 El punto de entrada de datos es un componente del sistema que se ejecutará una vez cada varios meses, por lo que el rendimiento temporal del mismo no tendrá una gran importancia.  El rendimiento espacial, en cambio, si tendrá una importancia alta, puesto que el consumo de memoria deberá estar controlado para evitar fallos con la llegada de grandes volúmenes de datos.
 

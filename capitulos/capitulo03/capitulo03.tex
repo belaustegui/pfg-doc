@@ -1,4 +1,4 @@
-En éste capítulo se definirán los conceptos teóricos necesarios para comprender correctamente la finalidad del sistema en construcción.
+En este capítulo se definirán los conceptos teóricos necesarios para comprender correctamente la finalidad del sistema en construcción.
 
 \section{Datos abiertos}
 El concepto de datos abiertos u \textit{Open Data} es definido por la Open Knowledge Foundation en \cite{opendefinition} de la siguiente forma:
@@ -13,7 +13,7 @@ De la anterior definición pueden destacarse tres pilares fundamentales que marc
 \item Participación universal.  Los datos no deben poner trabas para ser accedidos por ninguna persona ni grupo de personas ni deben restringir el uso de los mismos a un ámbito de trabajo específico.
 \end{itemize}
 
-Cualquier conjunto de datos puede ser considerado un conjunto de datos abiertos si cumple con la definición anterior, aunque las principales fuentes de datos abiertos generalmente provienen de fuentes científicas o gubernamentales.  En el año 2004 los ministros de ciencia de todas las naciones pertenecientes a la OECD\footnote{La OECD (Organización para la Cooperación y el Desarrollo Económico) es una de las organizaciones que aporta los conjuntos de datos con los que se trabaja en éste proyecto.} firmaron una declaración en la que se aboga por hacer públicos toda la información científica financiada con fondos públicos.
+Cualquier conjunto de datos puede ser considerado un conjunto de datos abiertos si cumple con la definición anterior, aunque las principales fuentes de datos abiertos generalmente provienen de fuentes científicas o gubernamentales.  En el año 2004 los ministros de ciencia de todas las naciones pertenecientes a la OECD\footnote{La OECD (Organización para la Cooperación y el Desarrollo Económico) es una de las organizaciones que aporta los conjuntos de datos con los que se trabaja en este proyecto.} firmaron una declaración en la que se aboga por hacer públicos toda la información científica financiada con fondos públicos.
 
 En cuanto a los datos abiertos procedentes de fuentes gubernamentales, como ya se ha mencionado en el capítulo \ref{chapter01}, la tendencia de los gobiernos de ofrecer datos en forma abierta es cada vez mayor tal y como evidencian los múltiples portales de datos propiedad de la administración pública que han surgido recientemente. Algunos ejemplos son: el portal de datos del Gobierno de España\footnote{http://datos.gob.es/}, el portal de datos del Gobierno de Reino Unido\footnote{\url{http://data.gov.uk/}} o el portal de datos del Gobierno de Estados Unidos\footnote{\url{http://www.data.gov/}}.
 
@@ -50,18 +50,18 @@ A continuación se explica el significado de cada nivel de esta escala:
     \item Cumple con todos los niveles anteriores, pero además enlaza hacia otros catálogos de datos externos.
 \end{enumerate}
 
-El portal de datos que se pretende construir en éste proyecto pretende cumplir con un nivel de 5 estrellas, publicando los conjuntos de datos en formatos abiertos como RDF, XML o JSON y enlazando con los catálogos de datos de diferentes organizaciones.
+El portal de datos que se pretende construir en este proyecto pretende cumplir con un nivel de 5 estrellas, publicando los conjuntos de datos en formatos abiertos como RDF, XML o JSON y enlazando con los catálogos de datos de diferentes organizaciones.
 
 
 
 \section{RDF Data Cube}
 \label{concept:rdf_data_cube}
-En la especificación del RDF Data Cube Vocabulary (recomendación de enero de 2014) \cite{w3c:data-cube}, EL W3C define el objetivo de éste vocabulario de la siguiente forma:
+En la especificación del RDF Data Cube Vocabulary (recomendación de enero de 2014) \cite{w3c:data-cube}, EL W3C define el objetivo de este vocabulario de la siguiente forma:
 \begin{quote}
 \textit{``There are many situations where it would be useful to be able to publish multi-dimensional data, such as statistics, on the web in such a way that it can be linked to related data sets and concepts. The Data Cube vocabulary provides a means to do this using the W3C RDF (Resource Description Framework) standard [...]''}
 \end{quote}
 
-Puesto que uno de los objetivos del portal que se construirá en éste proyecto es precisamente la publicación de datos multidimensionales en la web, la estructura del modelo de datos intentará adecuarse a la estructura descrita por el RDF Data Cube Vocabulary.  El diseño final del modelo de datos puede ser visto de forma detallada en la sección ``\nameref{modelo_datos_zona_datos}'' perteneciente al capítulo \ref{chapter05}.
+Puesto que uno de los objetivos del portal que se construirá en este proyecto es precisamente la publicación de datos multidimensionales en la web, la estructura del modelo de datos intentará adecuarse a la estructura descrita por el RDF Data Cube Vocabulary.  El diseño final del modelo de datos puede ser visto de forma detallada en la sección ``\nameref{modelo_datos_zona_datos}'' perteneciente al capítulo \ref{chapter05}.
 
 A modo de resumen, el RDF Data Cube pretende definir una estructura y un vocabulario basado en el estándar RDF con el que publicar conjuntos de datos multidimensionales en la web.  Los conjuntos de datos son colecciones de datos con una estructura determinada.  Los datos contenidos conjunto de datos serán de alguno de los siguientes tipos:
 \begin{description}
@@ -82,5 +82,5 @@ El RDF Data Cube Vocabulary pretende crear el concepto de cubo o \textit{hypercu
 \subsection{Los \textit{slices}}
 El concepto de \textit{slice} hace referencia a un subconjunto o agrupación de las observaciones existentes en el cubo.
 
-Por ejemplo, usando los datos reales con los que se trabajará en el portal que se pretende construir en éste proyecto, dadas una serie de observaciones tomadas para diversos indicadores y países a lo largo de un periodo de tiempo, podría ser interesante agrupar dichas observaciones según su indicador y el momento de tiempo en el que se han realizado.  Cada uno de estos grupos representaría todas las observaciones de todos los países para un determinado indicador y momento temporal.  Éstos grupos reciben el nombre de \textit{slices}.
+Por ejemplo, usando los datos reales con los que se trabajará en el portal que se pretende construir en este proyecto, dadas una serie de observaciones tomadas para diversos indicadores y países a lo largo de un periodo de tiempo, podría ser interesante agrupar dichas observaciones según su indicador y el momento de tiempo en el que se han realizado.  Cada uno de estos grupos representaría todas las observaciones de todos los países para un determinado indicador y momento temporal.  Estos grupos reciben el nombre de \textit{slices}.
 
