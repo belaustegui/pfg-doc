@@ -96,7 +96,7 @@ La figura \ref{fig:casos_uso_subsistema_usuarios} muestra el diagrama de casos d
 \subsubsection{Caso de uso ``ver perfil''}
 \begin{description}
 \item[Descripción] 			El usuario quiere ver la información sobre su cuenta almacenada en el sistema.
-\item[Actores] 				Administrador, usuario registrado o usuario con capacidad de acceso al API.
+\item[Actores] 				Administrador, usuario registrado, usuario con capacidad de acceso al API.
 \item[Precondiciones]  		Haber iniciado sesión en el sistema
 \item[Escenario principal] 	\hfill
 						 	\begin{enumerate}
@@ -109,7 +109,7 @@ La figura \ref{fig:casos_uso_subsistema_usuarios} muestra el diagrama de casos d
 							\end{enumerate}
 \item [Escenario alternativo 2] Acceso a un perfil no propio.
 							\begin{enumerate}
-							\item El usuario pulsa en el perfil de otro usuario del sistema.
+							\item El usuario (registrado o anónimo) pulsa en el perfil de otro usuario del sistema.
 							\item El sistema muestra una vista de la cuenta de usuario.
 							\item El sistema no muestra en ningún caso el \textit{token} de acceso al API.
 							\end{enumerate}							
