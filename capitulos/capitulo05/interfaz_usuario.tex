@@ -51,13 +51,15 @@ La interfaz final de la vista de noticias puede verse en la figura \ref{fig:inte
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{interfaces/news}
-	\caption{Captura de la vista de noticas (inglés)}
+	\caption{Captura de la vista de noticias (francés)}
 	\label{fig:interface_noticias}
 \end{figure}
 
 
 \subsection{Vista de debates}
 La figura \ref{fig:interface_debates} muestra el diseño final de la vista de debates. Al igual que en el mockup original (imagen \ref{fig:mockup_debates}), los debates más recientes se muestran de forma destacada y los últimos comentarios se muestran ordenados de más a menos recientes.
+
+Las etiquetas en las que se especifica el estado de cada debate se han coloreado de forma diferente para cada estado.  Éste cambio ha sido motivado por los reportes recibidos de los usuarios durante las pruebas de aceptación (los resultados de éstas pruebas pueden verse con detalle en la sección \ref{pruebas:aceptacion}).
 
 Como se puede comprobar, el autor de cada debate se muestra junto a su imagen de perfil.
 \begin{figure}[h]
@@ -152,6 +154,7 @@ La figura \ref{fig:interface_perfil_usuario} muestra la vista del perfil de un u
 	\end{itemize}
 	\item Los países y regiones en los que el usuario esté interesado también se mostrarán como enlaces, permitiendo cada uno de ellos acceder al resto de elementos del portal etiquetados con el mismo término
 	\item Cuando un usuario visite su propio perfil, se incluye un botón que permite editar la información del perfil.  Este botón no se mostrará al resto de usuarios.
+	\item Se incluirán también los contenidos creados por el usuario cuyo perfil se está visitando.  Cada contenido se mostrará con su título (enlazado al contenido completo), su URL, un pequeño resumen del contenido y una pequeña etiqueta que identifica el tipo del contenido (si es un debate, una noticia, etc).
 \end{itemize}
 \begin{figure}[h]
 	\centering

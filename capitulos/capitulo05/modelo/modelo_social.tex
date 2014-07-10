@@ -12,12 +12,13 @@ La figura \ref{fig:diagrama_modelo_social_final} muestra el diagrama con el dise
 La variación respecto al diseño preliminar de este modelo que se puede observar en la sección ``\nameref{clases_preliminares_modelo_debate}'' perteneciente al capítulo \ref{chapter04} es mínima y se explicará a continuación:
 \begin{itemize}
 	\item Los \textbf{tópicos relacionados} de los eventos, debates, organizaciones y entradas del blog han sido extraídos a una taxonomía externa.
-	\item Los \textbf{países relacionados} de las organizaciones y usuarios también han sido extraídos a una taxonomía externa.
+	\item Los \textbf{países relacionados} de las organizaciones también han sido extraídos a una taxonomía externa.
 	\item Al igual que los anteriores, las \textbf{regiones relacionadas} de las organizaciones y los debates también han sido extraídos a una taxonomía externa.
 	\item El \textbf{estado} de los debates también pertenece a una taxonomía externa.
+	\item En respuesta a lo reportado por los clientes en las pruebas de aceptación (véase la sección \ref{pruebas:aceptacion}) a los usuarios se les ha añadido un campo \textbf{intereses} donde podrán especificar las temáticas que les resultan interesantes.  También se han unificado los campos \textit{región} y \textit{países relacionados} en un único campo llamado \textbf{foco geográfico}.  Tanto el campo \textit{intereses} como el campo \textit{foco geográfico} pertenecen a una taxonomía externa.
 \end{itemize}
 
-La razón principal de estas taxonomías es la capacidad de \textit{enlazar} los diferentes contenidos del portal.  Por ejemplo, ver un elemento de la taxonomía \textit{Tópico} permitirá acceder a todos los eventos, debates, organizaciones y entradas del blog relacionados con dicho término.\\
+La razón principal del uso de taxonomías es la capacidad de enlazar los diferentes contenidos del portal.  Por ejemplo, ver un elemento de la taxonomía \textit{Tópico} permitirá acceder a todos los eventos, debates, organizaciones y entradas del blog relacionados con dicho tópico.\\
 En cuanto a los debates, la existencia de una taxonomía que represente su estado permite añadir o eliminar nuevos estados de forma sencilla y sin tener que realizar ninguna modificación en los componentes del modelo.
 
 \subsubsection{Elementos del modelo de datos}
