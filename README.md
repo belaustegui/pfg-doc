@@ -1,4 +1,8 @@
-#Backend de un portal de datos e información sobre la Tierra
+# Backend de un portal de datos e información sobre la Tierra
+
+La documentación del proyecto puede descargarse [aquí (en formato PDF)](https://github.com/belaustegui/pfg-doc/releases/download/v1.0/Documentacion.pdf).
+
+## Introducción
 
 Este Trabajo Fin de Grado fue realizado por
 [Cristian Álvarez Belaustegui](http://belaustegui.github.io/about/) y dirigido
@@ -7,7 +11,7 @@ por José Emilio Labra Gayo dentro del grupo de investigación
 tuvo lugar el día 23 de Julio de 2014 en la
 [Escuela de Ingeniería Informática de Oviedo](http://www.ingenieriainformatica.uniovi.es/).
 
-##Resumen
+## Resumen
 
 El presente proyecto tiene como objetivo la creación de la infraestructura de
 soporte  para un portal de datos abiertos.  Concretamente el portal será el
